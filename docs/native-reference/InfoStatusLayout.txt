@@ -1,0 +1,70 @@
+b5ee18 float=0.78 double=0.0014343264020862988
+b5ef5c float=380.0 double=2.3779011851525816E18
+b92210 float=0.0 double=0.5
+PUSH EBP
+MOV EBP,ESP
+PUSH ECX
+MOV AX,[0x0133f582]
+MOV CX,AX
+DEC AX
+MOV [0x0133f582],AX
+TEST CX,CX
+JNZ 0x008951f6
+MOV EAX,0x14
+MOV [0x0133f582],AX
+MOV AX,[0x0133f584]
+INC AX
+MOV [0x0133f584],AX
+CMP AX,word ptr [0x0133f586]
+JNZ 0x008951fc
+XOR EAX,EAX
+MOV [0x0133f584],AX
+JMP 0x008951fc
+MOV AX,[0x0133f584]
+CWDE
+PUSH ESI
+MOVZX EAX,word ptr [EAX*0x2 + 0x133f588]
+PUSH 0x1
+PUSH EAX
+PUSH 0x1
+CALL 0x0078fd40
+ADD ESP,0x4
+FLD1
+MOV ESI,EAX
+FSTP float ptr [ESP + 0x4]
+LEA EAX,[EBP + -0x4]
+FLD float ptr [0x00b5ee18]
+FSTP float ptr [ESP]
+PUSH 0x0
+PUSH EAX
+PUSH ESI
+CALL 0x00905290
+FLD1
+FSTP float ptr [ESP + 0x10]
+ADD ESP,0xc
+FLD float ptr [0x00b5ee18]
+FSTP float ptr [ESP]
+FILD dword ptr [EBP + 0x10]
+PUSH 0x0
+SUB ESP,0x8
+FSTP float ptr [EBP + 0x10]
+FLD float ptr [EBP + 0x10]
+FSTP float ptr [ESP + 0x4]
+FLD float ptr [0x00b5ef5c]
+FSTP float ptr [ESP]
+CALL 0x00644990
+FSUB float ptr [EBP + -0x4]
+FMUL double ptr [0x00b92210]
+FILD dword ptr [EBP + 0xc]
+FSTP float ptr [EBP + 0x10]
+FADD float ptr [EBP + 0x10]
+FSTP float ptr [EBP + 0x10]
+FLD float ptr [EBP + 0x10]
+FSTP float ptr [ESP]
+PUSH ESI
+CALL 0x00905930
+ADD ESP,0x18
+POP ESI
+MOV ESP,EBP
+POP EBP
+RET

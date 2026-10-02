@@ -1,0 +1,5028 @@
+PROGRAM FFX.exe BASE 00400000
+CONSTANT b5f01c float=1231.0
+CONSTANT b5ee68 float=21.0
+CONSTANT b922e8 float=4.0
+CONSTANT b5ee00 float=0.68
+CONSTANT b5edf8 float=0.65
+CONSTANT b5ef38 float=240.0
+CONSTANT b5ef64 float=395.0
+CONSTANT b5ef6c float=420.0
+CONSTANT b43ddc float=540.0
+CONSTANT b41dac float=-2.0
+CONSTANT b5ee88 float=35.0
+CONSTANT b5efac float=520.0
+CONSTANT b92304 float=8.0
+CONSTANT b5efe8 float=680.0
+CONSTANT b5eea4 float=52.0
+CONSTANT b92258 float=2.0
+CONSTANT b5eec0 float=65.0
+CONSTANT b5ef48 float=279.0
+
+FUNCTION TOBtlDrawStatusWin @ 008963c0
+REF 0089b372 TODrawBtlWindow
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void TOBtlDrawStatusWin(void)
+
+{
+  short sVar1;
+  uint uVar2;
+  byte *pbVar3;
+  int iVar4;
+  undefined4 uVar5;
+  byte *pbVar6;
+  ushort *puVar7;
+  float fVar8;
+  float fVar9;
+  float fVar10;
+  float fVar11;
+  float fVar12;
+  float fVar13;
+  undefined4 uVar14;
+  undefined4 uVar15;
+  undefined4 uVar16;
+  int local_10;
+  int local_8;
+  
+  TOMakePktScissor(0,0,0x200,0x1a0);
+  local_10 = 0;
+  puVar7 = &DAT_0133f76c;
+  pbVar6 = &DAT_0133f7b1;
+  local_8 = 0x343;
+  fVar12 = _DAT_00b5f01c;
+  do {
+    if (*puVar7 != 0xff) {
+      fVar8 = graphicUiRemapX2(fVar12);
+      fVar9 = graphicUiRemapY2((float)local_8);
+      fVar12 = _DAT_00b5f01c;
+      switch(DAT_0133d742) {
+      case 0:
+        if ((DAT_0133d138 & 1 << ((byte)*puVar7 & 0x1f)) != 0) {
+          uVar5 = _DAT_00b5f02c;
+          uVar15 = _DAT_00b5ef84;
+          uVar16 = _DAT_00b5f048;
+          uVar14 = _DAT_00b5ef9c;
+          fVar10 = graphicUiRemapY2(_DAT_00b5eea4);
+          fVar11 = graphicUiRemapX2(_DAT_00b5efe8);
+          fVar12 = graphicUiRemapY2(DAT_00b92258);
+          fVar12 = fVar9 - fVar12;
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec0);
+          TOMkpShapeXYWHUV(0xffffffff,fVar8 - fVar13,fVar12,fVar11,fVar10,uVar5,uVar15,uVar16,uVar14
+                          );
+        }
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0x3f800000;
+        uVar5 = _DAT_00b5ee00;
+        fVar12 = graphicUiRemapY2(DAT_00b922e8);
+        fVar12 = fVar9 - fVar12;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ee68);
+        fVar10 = fVar10 + fVar8;
+        pbVar3 = MsGetRamChrName((uint)*puVar7);
+        ToMakeBtlEasyEdgeFont(pbVar3,fVar10,fVar12,uVar2,uVar5,uVar15);
+        iVar4 = TOGetFFXLang();
+        if (iVar4 == 0xb) {
+          fVar11 = graphicUiRemapY2(_DAT_00b54f88);
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec8);
+          fVar12 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = (fVar12 + fVar9) - (float)DAT_00b92260;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef38);
+          fVar12 = (fVar12 + fVar8) - (float)_DAT_00b2c5d0;
+        }
+        else {
+          fVar11 = graphicUiRemapY2(_DAT_00b5ee70);
+          fVar13 = graphicUiRemapX2(_DAT_00b5eeb8);
+          fVar10 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = fVar10 + fVar9;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef38);
+          fVar12 = fVar12 + fVar8;
+        }
+        TOMkpShapeXYWHUV(0xe9,fVar12,fVar10,fVar13,fVar11);
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(_DAT_00b41dac);
+        fVar12 = fVar12 + fVar9;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ef64);
+        ToMakeBtlEasyEdgeDigitRight
+                  (*(undefined4 *)(pbVar6 + -9),fVar10 + fVar8,fVar12,uVar2,uVar5,uVar15);
+        uVar16 = 0;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(DAT_00b922f8);
+        fVar12 = fVar12 + fVar9;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ef6c);
+        TOMkpCrossEasyStrFontSClut(&DAT_00b8f87c,fVar10 + fVar8,fVar12,uVar15,uVar5,uVar16);
+        uVar16 = 0;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(_DAT_00b41dac);
+        fVar12 = fVar12 + fVar9;
+        fVar9 = graphicUiRemapX2(_DAT_00b43ddc);
+        uVar5 = MsGetRamChrHPmax(*puVar7,fVar9 + fVar8,fVar12,uVar15,uVar5,uVar16);
+        ToMakeBtlEasyEdgeDigitRight(uVar5);
+        fVar12 = _DAT_00b5f01c;
+        break;
+      case 1:
+        if ((DAT_0133d138 & 1 << ((byte)*puVar7 & 0x1f)) != 0) {
+          uVar5 = _DAT_00b5f02c;
+          uVar15 = _DAT_00b5ef84;
+          uVar16 = _DAT_00b5f048;
+          uVar14 = _DAT_00b5ef9c;
+          fVar10 = graphicUiRemapY2(_DAT_00b5eea4);
+          fVar11 = graphicUiRemapX2(_DAT_00b5efe8);
+          fVar12 = graphicUiRemapY2(DAT_00b92258);
+          fVar12 = fVar9 - fVar12;
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec0);
+          TOMkpShapeXYWHUV(0xffffffff,fVar8 - fVar13,fVar12,fVar11,fVar10,uVar5,uVar15,uVar16,uVar14
+                          );
+        }
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0x3f800000;
+        uVar5 = _DAT_00b5ee00;
+        fVar12 = graphicUiRemapY2(DAT_00b922e8);
+        fVar12 = fVar9 - fVar12;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ee68);
+        fVar10 = fVar10 + fVar8;
+        pbVar3 = MsGetRamChrName((uint)*puVar7);
+        ToMakeBtlEasyEdgeFont(pbVar3,fVar10,fVar12,uVar2,uVar5,uVar15);
+        iVar4 = TOGetFFXLang();
+        if (iVar4 == 0xb) {
+          fVar11 = graphicUiRemapY2(_DAT_00b54f88);
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec4);
+          fVar12 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = (fVar12 + fVar9) - (float)DAT_00b92260;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef38);
+          fVar12 = (fVar12 + fVar8) - (float)_DAT_00b41d28;
+        }
+        else {
+          fVar11 = graphicUiRemapY2(_DAT_00b5ee70);
+          fVar13 = graphicUiRemapX2(_DAT_00b5ee9c);
+          fVar10 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = fVar10 + fVar9;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef38);
+          fVar12 = fVar12 + fVar8;
+        }
+        TOMkpShapeXYWHUV(0xea,fVar12,fVar10,fVar13,fVar11);
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(_DAT_00b41dac);
+        fVar12 = fVar12 + fVar9;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ef64);
+        ToMakeBtlEasyEdgeDigitRight
+                  (*(undefined4 *)(pbVar6 + 0xf),fVar10 + fVar8,fVar12,uVar2,uVar5,uVar15);
+        uVar16 = 0;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(DAT_00b922f8);
+        fVar12 = fVar12 + fVar9;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ef6c);
+        TOMkpCrossEasyStrFontSClut(&DAT_00b8f87c,fVar10 + fVar8,fVar12,uVar15,uVar5,uVar16);
+        uVar16 = 0;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(_DAT_00b41dac);
+        fVar12 = fVar12 + fVar9;
+        fVar9 = graphicUiRemapX2(_DAT_00b43ddc);
+        uVar5 = MsGetRamChrMPmax(*puVar7,fVar9 + fVar8,fVar12,uVar15,uVar5,uVar16);
+        ToMakeBtlEasyEdgeDigitRight(uVar5);
+        fVar12 = _DAT_00b5f01c;
+        break;
+      case 2:
+        if ((DAT_0133d138 & 1 << ((byte)*puVar7 & 0x1f)) != 0) {
+          uVar5 = _DAT_00b5f02c;
+          uVar15 = _DAT_00b5ef84;
+          uVar16 = _DAT_00b5f048;
+          uVar14 = _DAT_00b5ef9c;
+          fVar10 = graphicUiRemapY2(_DAT_00b5eea4);
+          fVar11 = graphicUiRemapX2(_DAT_00b5efe8);
+          fVar12 = graphicUiRemapY2(DAT_00b92258);
+          fVar12 = fVar9 - fVar12;
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec0);
+          TOMkpShapeXYWHUV(0xffffffff,fVar8 - fVar13,fVar12,fVar11,fVar10,uVar5,uVar15,uVar16,uVar14
+                          );
+        }
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0x3f800000;
+        uVar5 = _DAT_00b5ee00;
+        fVar12 = graphicUiRemapY2(DAT_00b922e8);
+        fVar12 = fVar9 - fVar12;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ee68);
+        fVar10 = fVar10 + fVar8;
+        pbVar3 = MsGetRamChrName((uint)*puVar7);
+        ToMakeBtlEasyEdgeFont(pbVar3,fVar10,fVar12,uVar2,uVar5,uVar15);
+        fVar12 = _DAT_00b5f01c;
+        if (*(short *)(pbVar6 + 0x27) != 0) {
+          sVar1 = *(short *)(pbVar6 + 0x23);
+          *(short *)(pbVar6 + 0x23) = sVar1 + -1;
+          if (sVar1 < 1) {
+            *(short *)(pbVar6 + 0x25) = *(short *)(pbVar6 + 0x25) + 1;
+            pbVar6[0x23] = 0x14;
+            pbVar6[0x24] = 0;
+            if (*(short *)(pbVar6 + 0x27) <= *(short *)(pbVar6 + 0x25)) {
+              pbVar6[0x25] = 0;
+              pbVar6[0x26] = 0;
+            }
+          }
+          uVar16 = 0x3f800000;
+          uVar15 = 0;
+          uVar5 = _DAT_00b5ee18;
+          fVar12 = graphicUiRemapY2(DAT_00b922e8);
+          fVar12 = fVar12 + fVar9;
+          fVar9 = graphicUiRemapX2(_DAT_00b5ef48);
+          fVar9 = fVar9 + fVar8;
+          pbVar3 = MsMenuGetText(1,(uint)*(ushort *)
+                                          (&DAT_0133f7da +
+                                          (*(short *)(pbVar6 + 0x25) + local_10) * 2),1);
+          ToMakeBtlEasyFont(pbVar3,fVar9,fVar12,uVar15,uVar5,uVar16);
+          fVar12 = _DAT_00b5f01c;
+        }
+        break;
+      case 3:
+        if ((int)toNow == (uint)*puVar7) {
+          uVar5 = _DAT_00b5f010;
+          uVar15 = _DAT_00b5eee4;
+          uVar16 = _DAT_00b5f034;
+          uVar14 = _DAT_00b5eefc;
+          fVar10 = graphicUiRemapY2(_DAT_00b5eea4);
+          fVar11 = graphicUiRemapX2(_DAT_00b5efe8);
+          fVar12 = graphicUiRemapY2(DAT_00b92258);
+          fVar12 = fVar9 - fVar12;
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec0);
+          TOMkpShapeXYWHUV(0xffffffff,fVar8 - fVar13,fVar12,fVar11,fVar10,uVar5,uVar15,uVar16,uVar14
+                          );
+        }
+        fVar10 = graphicUiRemapY2(_DAT_00b92304);
+        fVar11 = graphicUiRemapX2(_DAT_00b5efac);
+        fVar12 = graphicUiRemapY2(_DAT_00b5ee88);
+        fVar12 = fVar12 + fVar9;
+        fVar13 = graphicUiRemapX2(_DAT_00b5ee68);
+        TOBtlDrawStatusLimitGauge
+                  (*(undefined4 *)(pbVar6 + 0x1f),fVar13 + fVar8,fVar12,fVar11,fVar10);
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0x3f800000;
+        uVar5 = _DAT_00b5ee00;
+        fVar12 = graphicUiRemapY2(DAT_00b922e8);
+        fVar12 = fVar9 - fVar12;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ee68);
+        fVar10 = fVar10 + fVar8;
+        pbVar3 = MsGetRamChrName((uint)*puVar7);
+        ToMakeBtlEasyEdgeFont(pbVar3,fVar10,fVar12,uVar2,uVar5,uVar15);
+        iVar4 = TOGetFFXLang();
+        if (iVar4 == 0xb) {
+          fVar11 = graphicUiRemapY2(_DAT_00b54f88);
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec8);
+          fVar12 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = (fVar12 + fVar9) - (float)DAT_00b92260;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef38);
+          fVar12 = (fVar12 + fVar8) - (float)_DAT_00b2c5d0;
+        }
+        else {
+          fVar11 = graphicUiRemapY2(_DAT_00b5ee70);
+          fVar13 = graphicUiRemapX2(_DAT_00b5eeb8);
+          fVar10 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = fVar10 + fVar9;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef38);
+          fVar12 = fVar12 + fVar8;
+        }
+        TOMkpShapeXYWHUV(0xe9,fVar12,fVar10,fVar13,fVar11);
+        uVar2 = (uint)*pbVar6;
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(_DAT_00b41dac);
+        fVar12 = fVar12 + fVar9;
+        fVar10 = graphicUiRemapX2(_DAT_00b5ef64);
+        ToMakeBtlEasyEdgeDigitRight
+                  (*(undefined4 *)(pbVar6 + -9),fVar10 + fVar8,fVar12,uVar2,uVar5,uVar15);
+        iVar4 = TOGetFFXLang();
+        if (iVar4 == 0xb) {
+          fVar11 = graphicUiRemapY2(_DAT_00b54f88);
+          fVar13 = graphicUiRemapX2(_DAT_00b5eec4);
+          fVar12 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = (fVar12 + fVar9) - (float)DAT_00b92260;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef6c);
+          fVar12 = (fVar12 + fVar8) - (float)_DAT_00b41d28;
+        }
+        else {
+          fVar11 = graphicUiRemapY2(_DAT_00b5ee70);
+          fVar13 = graphicUiRemapX2(_DAT_00b5ee9c);
+          fVar10 = graphicUiRemapY2(_DAT_00b3eba0);
+          fVar10 = fVar10 + fVar9;
+          fVar12 = graphicUiRemapX2(_DAT_00b5ef6c);
+          fVar12 = fVar12 + fVar8;
+        }
+        TOMkpShapeXYWHUV(0xea,fVar12,fVar10,fVar13,fVar11);
+        uVar2 = (uint)pbVar6[0x18];
+        uVar15 = 0;
+        uVar5 = _DAT_00b5edf8;
+        fVar12 = graphicUiRemapY2(_DAT_00b41dac);
+        fVar12 = fVar12 + fVar9;
+        fVar9 = graphicUiRemapX2(_DAT_00b43ddc);
+        ToMakeBtlEasyEdgeDigitRight
+                  (*(undefined4 *)(pbVar6 + 0xf),fVar9 + fVar8,fVar12,uVar2,uVar5,uVar15);
+        fVar12 = _DAT_00b5f01c;
+      }
+    }
+    local_8 = local_8 + 0x34;
+    local_10 = local_10 + 0x48;
+    puVar7 = puVar7 + 1;
+    pbVar6 = pbVar6 + 0x90;
+  } while (local_8 < 0x3df);
+  return;
+}
+
+
+
+FUNCTION ToMakeBtlEasyEdgeFont @ 00905930
+REF 0089527e TOBtlDrawInfoWinStatus
+REF 00905806 FUN_009057c0
+REF 0089f2b1 TOBtlDrawChangePrim
+REF 008a0c06 TOBtlDrawSummonPrim
+REF 008a679d __TODrawWaitBtlWinMain
+REF 008e1abe FUN_008e19f0
+REF 008e1b7b FUN_008e19f0
+REF 008bc74a FUN_008bc300
+REF 008f5539 FUN_008f51e0
+REF 008c86b6 FUN_008c8080
+REF 008ffb89 FUN_008ff490
+REF 008e6e84 FUN_008e6e10
+REF 008e716a FUN_008e7110
+REF 008e0fd6 +TkMenuDrawMain
+REF 008965b5 TOBtlDrawStatusWin
+REF 008969d7 TOBtlDrawStatusWin
+REF 00896d26 TOBtlDrawStatusWin
+REF 00897075 TOBtlDrawStatusWin
+REF 00904e38 FUN_00904ba0
+REF 00904e77 FUN_00904ba0
+REF 00905169 FUN_00904ba0
+
+void ToMakeBtlEasyEdgeFont
+               (undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+               undefined4 param_5,undefined4 param_6)
+
+{
+  ToMakeBtlEasyEdgeFontA(param_1,param_2,param_3,param_4,param_5,param_6,0x80);
+  return;
+}
+
+
+
+FUNCTION ToMakeBtlEasyFont @ 00905ab0
+REF 008a34b7 __TODrawWaitBtlWinInputGil
+REF 008a3551 __TODrawWaitBtlWinInputGil
+REF 008a35be __TODrawWaitBtlWinInputGil
+REF 008a35ed __TODrawWaitBtlWinInputGil
+REF 008f37e3 TOBtlDrawWeaponAbilityWindow
+REF 008e67e0 FUN_008e6700
+REF 008e68df FUN_008e67f0
+REF 008f4ff0 TODrawCrossMenuIconAbilityName
+REF 008f0669 FUN_008f0600
+REF 008f06ef TOAdpMenuIconImportantName
+REF 008f07d9 TOAdpMenuIconItemName
+REF 008f08a8 TOAdpMenuIconWeaponName
+REF 008f095b TOAdpMenuIconWeaponName2
+REF 008f0bd0 FUN_008f0a70
+REF 008c15f0 FUN_008c1470
+REF 008f28fc FUN_008f27b0
+REF 008c2066 FUN_008c1c70
+REF 008e6a60 FUN_008e6970
+REF 008c4719 FUN_008c4530
+REF 008c4900 FUN_008c4750
+REF 008c4145 FUN_008c4010
+REF 008f50e0 TODrawCrossMenuIconCommandName
+REF 008f51d0 TODrawCrossMenuIconImportantName
+REF 008c97e8 FUN_008c9540
+REF 008cbc10 FUN_008cbab0
+REF 008cbe39 FUN_008cbab0
+REF 008cbf08 FUN_008cbab0
+REF 008ce69f FUN_008ce590
+REF 008d1929 FUN_008d17f0
+REF 008d19b5 FUN_008d17f0
+REF 008d1787 FUN_008d16c0
+REF 008d2620 FUN_008d2240
+REF 008d411a FUN_008d3d40
+REF 008d44a0 FUN_008d4320
+REF 008d4501 FUN_008d4320
+REF 008d476b FUN_008d4510
+REF 008d47e7 FUN_008d4510
+REF 008d48cc FUN_008d4510
+REF 008d671a FUN_008d6630
+REF 008d8984 FUN_008d85f0
+REF 008e40ad FUN_008e3cf0
+REF 008e44b5 FUN_008e4140
+REF 008e71bc FUN_008e7180
+REF 008f1303 FUN_008f11b0
+REF 00900a07 FUN_009008c0
+REF 0089711a TOBtlDrawStatusWin
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void ToMakeBtlEasyFont(char *param_1,float param_2,float param_3,float param_4,undefined4 param_5)
+
+{
+  char cVar1;
+  double dVar2;
+  int iVar3;
+  float10 fVar4;
+  undefined4 uVar5;
+  
+  memset(&gFontInfo,0,0x40);
+  _DAT_025d09ac = 0;
+  _DAT_025d09b0 = 0;
+  _DAT_025d09b4 = 0;
+  gDrawInfo = 0x80808080;
+  _DAT_025d09b8 = (int)param_4 << 0x18;
+  cVar1 = *param_1;
+  _DAT_025d09a4 = param_2;
+  _DAT_025d09a8 = param_3;
+  while (cVar1 != '\0') {
+    iVar3 = TOGetGroup(cVar1);
+    if (iVar3 == 1) {
+      _DAT_025d09a4 = param_2;
+      _DAT_025d09a8 = _DAT_025d09a8 + (float)DAT_00b313a8;
+    }
+    else if (iVar3 == 2) {
+      if (*param_1 == '\v') {
+        setButtonData(param_1[1],0xffffffff);
+        if (param_1[1] != 'J') {
+          uVar5 = _DAT_00b655ec;
+          dVar2 = _DAT_00b66c90;
+          if ((DAT_025d09ba != '\x01') && (DAT_025d09ba != '\x03')) {
+            uVar5 = _DAT_00b3eb50;
+            dVar2 = _DAT_00b583a0;
+          }
+          param_4 = _DAT_025d09a8 + (float)dVar2;
+          TODrawScaleButtonIconRGBA(param_1[1],_DAT_025d09a4,param_4,uVar5,0x80,0x80,0x80,0x80);
+          if ((DAT_025d09ba == '\x01') || (DAT_025d09ba == '\x03')) {
+            fVar4 = (float10)TOGetScaleButtonIconWidth(param_1[1],_DAT_00b655ec);
+            fVar4 = fVar4 + (float10)_DAT_00b41d08;
+          }
+          else {
+            fVar4 = (float10)TOGetScaleButtonIconWidth(param_1[1],_DAT_00b3eb50);
+            fVar4 = (float10)1 + fVar4;
+          }
+          _DAT_025d09a4 = (float)(fVar4 + (float10)_DAT_025d09a4);
+        }
+      }
+      resetButtonData();
+    }
+    else if (iVar3 == 4) {
+      TOGetFontInfo(param_1,&gFontInfo);
+      if (g_bIsRenderWithoutShadow == 0) {
+        graphicSetUiDrawType(1);
+        graphicFontSetUiShadowType(0);
+        TOMakePktBtlEasyFontShadow(&gDrawInfo,&gFontInfo,param_5);
+        graphicFontSetUiShadowType(1);
+        TOMakePktBtlEasyFont(&gDrawInfo,&gFontInfo,param_5);
+        graphicSetUiDrawType(0);
+      }
+      else {
+        TOMakePktBtlEasyFont(&gDrawInfo,&gFontInfo,param_5);
+      }
+      TOAddFontWidthSpace(&gDrawInfo,&gFontInfo,param_5);
+    }
+    param_1 = (char *)TOSkipCode(param_1);
+    cVar1 = *param_1;
+  }
+  return;
+}
+
+
+
+FUNCTION TOBtlDrawStatusLimitGauge @ 00896050
+REF 0089341d TOBtlDrawEnemyLimit
+REF 00896551 TOBtlDrawStatusWin
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void TOBtlDrawStatusLimitGauge(int param_1,float param_2,float param_3,float param_4,float param_5)
+
+{
+  int iVar1;
+  int iVar2;
+  float10 fVar3;
+  float fVar4;
+  float fVar5;
+  float fVar6;
+  float fVar7;
+  undefined4 uVar8;
+  undefined4 uVar9;
+  undefined4 uVar10;
+  int iVar11;
+  undefined4 uVar12;
+  undefined4 local_14;
+  
+  iVar2 = (int)toBtlLimitGaugeOfsW;
+  if (iVar2 <= param_1) {
+    fVar3 = (float10)graphicGetTime();
+    fVar3 = (float10)FUN_004cebe0((float)(fVar3 * (float10)_DAT_00b2c5d0));
+    local_14 = (int)(longlong)ROUND(fVar3 * (float10)_DAT_00b41300 + (float10)_DAT_00b5ee48);
+    iVar1 = local_14 * 0x1000000 + 0x808080;
+    uVar10 = _DAT_00b5f000;
+    uVar12 = _DAT_00b5ef40;
+    uVar8 = _DAT_00b5f024;
+    uVar9 = _DAT_00b5ef44;
+    iVar11 = iVar1;
+    fVar4 = graphicUiRemapY2(_DAT_00b92304);
+    fVar4 = fVar4 + param_5;
+    fVar5 = graphicUiRemapX2(_DAT_00b47df0);
+    fVar5 = fVar5 + param_4;
+    fVar6 = graphicUiRemapY2(DAT_00b922e8);
+    fVar6 = param_3 - fVar6;
+    fVar7 = graphicUiRemapX2(DAT_00b922f8);
+    TOMkpShapeXYWHUVC2(0xffffffff,param_2 - fVar7,fVar6,fVar5,fVar4,uVar10,uVar12,uVar8,uVar9,iVar1,
+                       iVar11);
+  }
+  uVar12 = 0x80000000;
+  uVar10 = 0x80000000;
+  fVar4 = graphicUiRemapY2(DAT_00b922e8);
+  fVar4 = fVar4 + param_5;
+  fVar5 = graphicUiRemapX2(DAT_00b922e8);
+  fVar5 = fVar5 + param_4;
+  fVar6 = graphicUiRemapY2(DAT_00b92258);
+  fVar6 = param_3 - fVar6;
+  fVar7 = graphicUiRemapX2(DAT_00b92258);
+  TODrawCrossBoxXYWHC2(param_2 - fVar7,fVar6,fVar5,fVar4,uVar10,uVar12);
+  uVar12 = 0x401a1a1a;
+  uVar10 = 0x401a1a1a;
+  fVar4 = graphicUiRemapY2(DAT_00b92258);
+  fVar4 = param_5 - fVar4;
+  fVar5 = graphicUiRemapX2(DAT_00b92258);
+  fVar5 = param_4 - fVar5;
+  fVar6 = graphicUiRemapY2(1.0);
+  fVar6 = fVar6 + param_3;
+  fVar7 = graphicUiRemapX2(1.0);
+  TODrawCrossBoxXYWHC2(fVar7 + param_2,fVar6,fVar5,fVar4,uVar10,uVar12);
+  if (iVar2 <= param_1) {
+    uVar12 = 0x800053ff;
+    uVar10 = 0x800053ff;
+    fVar4 = graphicUiRemapY2(DAT_00b92258);
+    param_5 = param_5 - fVar4;
+    fVar4 = graphicUiRemapX2(DAT_00b92258);
+    fVar4 = ((param_4 - fVar4) * (float)param_1) / (float)iVar2;
+    fVar5 = graphicUiRemapY2(1.0);
+    fVar5 = fVar5 + param_3;
+    fVar6 = graphicUiRemapX2(1.0);
+    TODrawCrossBoxXYWHC2(fVar6 + param_2,fVar5,fVar4,param_5,uVar10,uVar12);
+    return;
+  }
+  if (0 < param_1) {
+    uVar12 = 0x80008aff;
+    uVar10 = 0x8000d2ff;
+    fVar4 = graphicUiRemapY2(DAT_00b92258);
+    param_5 = param_5 - fVar4;
+    fVar4 = graphicUiRemapX2(DAT_00b92258);
+    fVar4 = ((param_4 - fVar4) * (float)param_1) / (float)iVar2;
+    fVar5 = graphicUiRemapY2(1.0);
+    fVar5 = fVar5 + param_3;
+    fVar6 = graphicUiRemapX2(1.0);
+    TODrawCrossBoxXYWHC2(fVar6 + param_2,fVar5,fVar4,param_5,uVar10,uVar12);
+  }
+  return;
+}
+
+
+
+FUNCTION graphicUiRemapX2 @ 00644990
+REF 00897b61 TOBtlInitInfoWinMes
+REF 00897b93 TOBtlInitInfoWinMes
+REF 00897bc5 TOBtlInitInfoWinMes
+REF 008c0661 TkMn2DrawCrossCursor
+REF 008c06f2 TkMn2DrawCrossCursor
+REF 008c0776 TkMn2DrawCrossCursor
+REF 008c07f0 TkMn2DrawCrossCursor
+REF 008c08c5 TkMn2DrawCrossCursor
+REF 0089813e TOBtlInitTidusLimitWindow
+REF 00898170 TOBtlInitTidusLimitWindow
+REF 008933e3 TOBtlDrawEnemyLimit
+REF 00893404 TOBtlDrawEnemyLimit
+REF 008936db TOBtlDrawHelpWin
+REF 008936ff TOBtlDrawHelpWin
+REF 00893754 TOBtlDrawHelpWin
+REF 00893778 TOBtlDrawHelpWin
+REF 008937d2 TOBtlDrawHelpWin
+REF 00893853 TOBtlDrawHelpWin
+REF 0089387f TOBtlDrawHelpWin
+REF 008938cd TOBtlDrawHelpWin
+REF 00893903 TOBtlDrawHelpWin
+REF 00893981 TOBtlDrawHelpWin
+REF 00893b3c TOBtlDrawInfoWin
+REF 00893b70 TOBtlDrawInfoWin
+REF 00893be4 TOBtlDrawInfoWin
+REF 00893c17 TOBtlDrawInfoWin
+REF 00893c70 TOBtlDrawInfoWin
+REF 00893c9d TOBtlDrawInfoWin
+REF 00893cf4 TOBtlDrawInfoWin
+REF 00893d4d TOBtlDrawInfoWin
+REF 00893da1 TOBtlDrawInfoWin
+REF 00893e2b TOBtlDrawInfoWin
+REF 00893e46 TOBtlDrawInfoWin
+REF 00893ee4 TOBtlDrawInfoWin
+REF 00893eff TOBtlDrawInfoWin
+REF 00893fa3 TOBtlDrawInfoWin
+REF 00893fbe TOBtlDrawInfoWin
+REF 00894058 TOBtlDrawInfoWin
+REF 00894073 TOBtlDrawInfoWin
+REF 00894108 TOBtlDrawInfoWin
+REF 00894135 TOBtlDrawInfoWin
+REF 00894196 TOBtlDrawInfoWin
+REF 008941c3 TOBtlDrawInfoWin
+REF 00894236 TOBtlDrawInfoWin
+REF 00894263 TOBtlDrawInfoWin
+REF 008942de TOBtlDrawInfoWin
+REF 0089430b TOBtlDrawInfoWin
+REF 00894386 TOBtlDrawInfoWin
+REF 008943b3 TOBtlDrawInfoWin
+REF 00894422 TOBtlDrawInfoWin
+REF 0089444f TOBtlDrawInfoWin
+REF 0089464a TOBtlDrawInfoWin
+REF 00894680 TOBtlDrawInfoWin
+REF 008946dd TOBtlDrawInfoWin
+REF 00894713 TOBtlDrawInfoWin
+REF 00894dcb TOBtlDrawInfoWinElementLamp
+REF 00894df8 TOBtlDrawInfoWinElementLamp
+REF 00894e69 TOBtlDrawInfoWinElementLamp
+REF 00894e96 TOBtlDrawInfoWinElementLamp
+REF 00894f0f TOBtlDrawInfoWinElementLamp
+REF 00894f3c TOBtlDrawInfoWinElementLamp
+REF 00894fb5 TOBtlDrawInfoWinElementLamp
+REF 00894fe2 TOBtlDrawInfoWinElementLamp
+REF 00895051 TOBtlDrawInfoWinElementLamp
+REF 0089507e TOBtlDrawInfoWinElementLamp
+REF 0089525d TOBtlDrawInfoWinStatus
+REF 0089534c TOBtlDrawLibraWindow
+REF 00895394 TOBtlDrawLibraWindow
+REF 008953c7 TOBtlDrawLibraWindow
+REF 00895648 TOBtlDrawLuluLimitWindow
+REF 00895697 TOBtlDrawLuluLimitWindow
+REF 008956c2 TOBtlDrawLuluLimitWindow
+REF 00895717 TOBtlDrawLuluLimitWindow
+REF 0089578d TOBtlDrawLuluLimitWindow
+REF 00896112 TOBtlDrawStatusLimitGauge
+REF 00896154 TOBtlDrawStatusLimitGauge
+REF 0089619e TOBtlDrawStatusLimitGauge
+REF 008961e0 TOBtlDrawStatusLimitGauge
+REF 00896234 TOBtlDrawStatusLimitGauge
+REF 00896262 TOBtlDrawStatusLimitGauge
+REF 008962be TOBtlDrawStatusLimitGauge
+REF 008962fe TOBtlDrawStatusLimitGauge
+REF 00896360 TOBtlDrawStatusLimitGauge
+REF 008963a0 TOBtlDrawStatusLimitGauge
+REF 00896412 TOBtlDrawStatusWin
+REF 00897356 TOBtlDrawTidusLimitWindow
+REF 0089737a TOBtlDrawTidusLimitWindow
+REF 0089bd46 ToDrawLibraWin
+REF 0089bd6d ToDrawLibraWin
+REF 0089bdd2 ToDrawLibraWin
+REF 0089bdff ToDrawLibraWin
+REF 0089be3b ToDrawLibraWin
+REF 0089be78 ToDrawLibraWin
+REF 0089bea5 ToDrawLibraWin
+REF 0089bf16 _TOBtlDrawLibraLeft
+REF 0089bf6c _TOBtlDrawLibraLeft
+REF 0089bfda _TOBtlDrawLibraLeft
+REF 0089bffe _TOBtlDrawLibraLeft
+REF 0089c06d _TOBtlDrawLibraLeft
+REF 0089c09d _TOBtlDrawLibraLeft
+REF 0089c0fb _TOBtlDrawLibraLeft
+REF 0089c11f _TOBtlDrawLibraLeft
+REF 0089c171 _TOBtlDrawLibraLeft
+REF 0089c1bc _TOBtlDrawLibraLeft
+REF 0089c20b _TOBtlDrawLibraLeft
+REF 0089c281 _TOBtlDrawLibraLeft
+REF 0089c2a5 _TOBtlDrawLibraLeft
+REF 0089c2cd _TOBtlDrawLibraLeft
+REF 0089c2f1 _TOBtlDrawLibraLeft
+REF 0089c35b _TOBtlDrawLibraLeft
+REF 0089c37f _TOBtlDrawLibraLeft
+REF 0089c3a7 _TOBtlDrawLibraLeft
+REF 0089c3cb _TOBtlDrawLibraLeft
+REF 0089c420 _TOBtlDrawLibraLeft
+REF 0089c47b _TOBtlDrawLibraLeft
+REF 0089c4ae _TOBtlDrawLibraLeft
+REF 0089c52e _TOBtlDrawLibraLeft
+REF 0089c549 _TOBtlDrawLibraLeft
+REF 0089c603 _TOBtlDrawLibraLeft
+REF 0089c627 _TOBtlDrawLibraLeft
+REF 0089c704 _TOBtlDrawLibraLeft
+REF 00895d6b TOBtlDrawScanWinElementLamp
+REF 00895d98 TOBtlDrawScanWinElementLamp
+REF 00895e09 TOBtlDrawScanWinElementLamp
+REF 00895e36 TOBtlDrawScanWinElementLamp
+REF 00895eaf TOBtlDrawScanWinElementLamp
+REF 00895edc TOBtlDrawScanWinElementLamp
+REF 00895f55 TOBtlDrawScanWinElementLamp
+REF 00895f82 TOBtlDrawScanWinElementLamp
+REF 00895ff1 TOBtlDrawScanWinElementLamp
+REF 0089601e TOBtlDrawScanWinElementLamp
+REF 0089c7a0 FUN_0089c740
+REF 0089d984 __TOBtlDrawSimpleHelpMes
+REF 0089d9a8 __TOBtlDrawSimpleHelpMes
+REF 0089d9fd __TOBtlDrawSimpleHelpMes
+REF 0089da21 __TOBtlDrawSimpleHelpMes
+REF 008a053d TOBtlDrawCtbWindow
+REF 008a055f TOBtlDrawCtbWindow
+REF 008a05be TOBtlDrawCtbWindow
+REF 008a0609 TOBtlDrawCtbWindow
+REF 008a0664 TOBtlDrawCtbWindow
+REF 008a06be TOBtlDrawCtbWindow
+REF 008a0704 TOBtlDrawCtbWindow
+REF 008a076c TOBtlDrawCtbWindow
+REF 008a084e TOBtlDrawCtbWindow
+REF 008a0881 TOBtlDrawCtbWindow
+REF 008a0a1a TOBtlDrawCtbWindow
+REF 008a0a4d TOBtlDrawCtbWindow
+REF 008a0aa3 TOBtlDrawCtbWindow
+REF 008a0ad6 TOBtlDrawCtbWindow
+REF 0089e9e3 DrawCrossCtbIcon
+REF 0089ea0a DrawCrossCtbIcon
+REF 0089ea71 DrawCrossCtbIcon
+REF 0089eaaa DrawCrossCtbIcon
+REF 0089eb0f DrawCrossCtbIcon
+REF 0089eb36 DrawCrossCtbIcon
+REF 0089eb9d DrawCrossCtbIcon
+REF 0089ebd0 DrawCrossCtbIcon
+REF 008a1695 TODrawBtlCtbParts
+REF 008a1706 TODrawBtlCtbParts
+REF 008a1759 TODrawBtlCtbParts
+REF 008a179a TODrawBtlCtbParts
+REF 008a1804 TODrawBtlCtbParts
+REF 008a185b TODrawBtlCtbParts
+REF 008a189c TODrawBtlCtbParts
+REF 008a18e7 TODrawBtlCtbParts
+REF 008a1958 TODrawBtlCtbParts
+REF 008a1973 TODrawBtlCtbParts
+REF 008a19b5 TODrawBtlCtbParts
+REF 008a19d0 TODrawBtlCtbParts
+REF 008a1a1d TODrawBtlCtbParts
+REF 008a1a38 TODrawBtlCtbParts
+REF 008a1a96 TODrawBtlCtbParts
+REF 008a1ab1 TODrawBtlCtbParts
+REF 008a1afe TODrawBtlCtbParts
+REF 008a1b19 TODrawBtlCtbParts
+REF 008a1b5c TODrawBtlCtbParts
+REF 008a1b77 TODrawBtlCtbParts
+REF 008a1bc4 TODrawBtlCtbParts
+REF 008a1bdf TODrawBtlCtbParts
+REF 008a1c1d TODrawBtlCtbParts
+REF 008a1c38 TODrawBtlCtbParts
+REF 008a1cb2 TODrawLimitBG
+REF 008a1cd6 TODrawLimitBG
+REF 008a1d27 TODrawLimitBG
+REF 008a1d4b TODrawLimitBG
+REF 008a1da0 TODrawLimitBG
+REF 008a1dc4 TODrawLimitBG
+REF 008e6ccc DrawCrossMenuScrollParts
+REF 008e6cf5 DrawCrossMenuScrollParts
+REF 008f4208 TODrawBtlNetWindowXYWHType
+REF 008f4318 TODrawBtlNetWindowXYWHType
+REF 008f442d TODrawBtlNetWindowXYWHType
+REF 008f451c TODrawBtlNetWindowXYWHType
+REF 008f4536 TODrawBtlNetWindowXYWHType
+REF 008f461e TODrawBtlNetWindowXYWHType
+REF 008f464c TODrawBtlNetWindowXYWHType
+REF 008f473f TODrawBtlNetWindowXYWHType
+REF 008f4753 TODrawBtlNetWindowXYWHType
+REF 008f4838 TODrawBtlNetWindowXYWHType
+REF 008f4860 TODrawBtlNetWindowXYWHType
+REF 008f4950 TODrawBtlNetWindowXYWHType
+REF 008f4978 TODrawBtlNetWindowXYWHType
+REF 008f4a5f TODrawBtlNetWindowXYWHType
+REF 008f4a8d TODrawBtlNetWindowXYWHType
+REF 008fb909 TOMakePktBtlDamageNumRGBA
+REF 008feba4 TOMakePktShapeCursor
+REF 008fec0a TOMakePktShapeCursor
+REF 00901364 TOMkpBtlLimitSpecialGauge
+REF 00901385 TOMkpBtlLimitSpecialGauge
+REF 00901449 TOMkpBtlLimitSpecialGauge
+REF 009029e7 TOMkpPadButtonData
+REF 00902a3c TOMkpPadButtonData
+REF 00902a95 TOMkpPadButtonData
+REF 00902aea TOMkpPadButtonData
+REF 00902b3c TOMkpPadButtonData
+REF 00902ba0 TOMkpPadButtonData
+REF 00902bf6 TOMkpPadButtonData
+REF 00902c45 TOMkpPadButtonData
+REF 00902c97 TOMkpPadButtonData
+REF 00902ce8 TOMkpPadButtonData
+REF 00902d3a TOMkpPadButtonData
+REF 00902d9e TOMkpPadButtonData
+REF 00902e06 TOMkpPadButtonData
+REF 00902e6a TOMkpPadButtonData
+REF 0090315f TOMkpRotateShapeXYWHUVC2
+REF 009031dd TOMkpRotateShapeXYWHUVC2
+REF 0090324f TOMkpRotateShapeXYWHUVC2
+REF 009032a1 TOMkpRotateShapeXYWHUVC2
+REF 009062f0 getScaleButtonIconWidth
+REF 0090632e getScaleButtonIconWidth
+REF 00906395 getScaleButtonIconWidth
+REF 00892963 TOBtlDrawCrossLimitGauge
+REF 008929a5 TOBtlDrawCrossLimitGauge
+REF 008929ef TOBtlDrawCrossLimitGauge
+REF 00892a31 TOBtlDrawCrossLimitGauge
+REF 00892a85 TOBtlDrawCrossLimitGauge
+REF 00892ab3 TOBtlDrawCrossLimitGauge
+REF 00892b1c TOBtlDrawCrossLimitGauge
+REF 00892b50 TOBtlDrawCrossLimitGauge
+REF 00892bb7 TOBtlDrawCrossLimitGauge
+REF 00892beb TOBtlDrawCrossLimitGauge
+REF 00892c6e TOBtlDrawCrossParamPlate
+REF 00892cab TOBtlDrawCrossParamPlate
+REF 00892cd8 TOBtlDrawCrossParamPlate
+REF 00892d61 TOBtlDrawCrossParamPlate
+REF 00892d92 TOBtlDrawCrossParamPlate
+REF 00892de4 TOBtlDrawCrossParamPlate
+REF 00892e11 TOBtlDrawCrossParamPlate
+REF 00892ea7 TOBtlDrawCrossParamPlate
+REF 00892f16 TOBtlDrawCrossParamPlate
+REF 00892f47 TOBtlDrawCrossParamPlate
+REF 00892fa0 TOBtlDrawCrossParamPlate
+REF 00892fcd TOBtlDrawCrossParamPlate
+REF 0089302f TOBtlDrawCrossParamPlate
+REF 008a1e22 FUN_008a1de0
+REF 008a1e46 FUN_008a1de0
+REF 008a1e97 FUN_008a1de0
+REF 008a1ebb FUN_008a1de0
+REF 008a1f0c FUN_008a1de0
+REF 008a1f30 FUN_008a1de0
+REF 008a1f81 FUN_008a1de0
+REF 008a1fa5 FUN_008a1de0
+REF 0089f0c0 TOBtlDrawChangePrim
+REF 0089f0ed TOBtlDrawChangePrim
+REF 0089f161 TOBtlDrawChangePrim
+REF 0089f18e TOBtlDrawChangePrim
+REF 0089f1e9 TOBtlDrawChangePrim
+REF 0089f216 TOBtlDrawChangePrim
+REF 0089f294 TOBtlDrawChangePrim
+REF 0089f2dd TOBtlDrawChangePrim
+REF 0089f458 TOBtlDrawCommandWindow
+REF 0089f4d0 TOBtlDrawCommandWindow
+REF 0089f525 TOBtlDrawCommandWindow
+REF 0089f541 TOBtlDrawCommandWindow
+REF 0089f63d TOBtlDrawCommandWindow
+REF 0089f684 TOBtlDrawCommandWindow
+REF 0089f6e5 TOBtlDrawCommandWindow
+REF 0089f711 TOBtlDrawCommandWindow
+REF 0089f8ca TOBtlDrawCommandWindow
+REF 0089f969 TOBtlDrawCommandWindow
+REF 0089fa32 TOBtlDrawCommandWindow
+REF 0089fac5 TOBtlDrawCommandWindow
+REF 0089fb85 TOBtlDrawCommandWindow
+REF 0089fc3a TOBtlDrawCommandWindow
+REF 0089fceb TOBtlDrawCommandWindow
+REF 0089fd94 TOBtlDrawCommandWindow
+REF 0089fe25 TOBtlDrawCommandWindow
+REF 0089fe49 TOBtlDrawCommandWindow
+REF 008a0b6d TOBtlDrawSummonPrim
+REF 008a0beb TOBtlDrawSummonPrim
+REF 008a0c32 TOBtlDrawSummonPrim
+REF 008a2e20 __TODrawWaitBtlWinChange
+REF 008a2e56 __TODrawWaitBtlWinChange
+REF 008a2f00 __TODrawWaitBtlWinChange
+REF 008a2f21 __TODrawWaitBtlWinChange
+REF 008a2f4f __TODrawWaitBtlWinChange
+REF 008a2f97 __TODrawWaitBtlWinChange
+REF 008a2fb8 __TODrawWaitBtlWinChange
+REF 008a317a __TODrawWaitBtlWinChange
+REF 008a31a7 __TODrawWaitBtlWinChange
+REF 008a3200 __TODrawWaitBtlWinChange
+REF 008a322d __TODrawWaitBtlWinChange
+REF 008a3328 __TODrawWaitBtlWinInputGil
+REF 008a334a __TODrawWaitBtlWinInputGil
+REF 008a335e __TODrawWaitBtlWinInputGil
+REF 008a33db __TODrawWaitBtlWinInputGil
+REF 008e7adb DrawScaleButtonIconRGBA
+REF 008e7b5f DrawScaleButtonIconRGBA
+REF 008e7c19 DrawScaleButtonIconRGBA
+REF 008e7c8f DrawScaleButtonIconRGBA
+REF 008a3703 __TODrawWaitBtlWinLeft
+REF 008a3739 __TODrawWaitBtlWinLeft
+REF 008a384c __TODrawWaitBtlWinLeft
+REF 008a3934 __TODrawWaitBtlWinLeft
+REF 008a396a __TODrawWaitBtlWinLeft
+REF 008a39e9 __TODrawWaitBtlWinLeft
+REF 008a3a13 __TODrawWaitBtlWinLeft
+REF 008a3b3f __TODrawWaitBtlWinLeft
+REF 008a3c21 __TODrawWaitBtlWinLeft
+REF 008a3c57 __TODrawWaitBtlWinLeft
+REF 008a3cd6 __TODrawWaitBtlWinLeft
+REF 008a3d00 __TODrawWaitBtlWinLeft
+REF 008a3e2e __TODrawWaitBtlWinLeft
+REF 008a3e4f __TODrawWaitBtlWinLeft
+REF 008a3ebd __TODrawWaitBtlWinLeft
+REF 008a3ede __TODrawWaitBtlWinLeft
+REF 008a3f58 __TODrawWaitBtlWinLeft
+REF 008a3f79 __TODrawWaitBtlWinLeft
+REF 008a3fdb __TODrawWaitBtlWinLeft
+REF 008a3ffc __TODrawWaitBtlWinLeft
+REF 008a4190 __TODrawWaitBtlWinLeft
+REF 008a41b4 __TODrawWaitBtlWinLeft
+REF 008a42d0 __TODrawWaitBtlWinLeft
+REF 008a4306 __TODrawWaitBtlWinLeft
+REF 008a43f1 __TODrawWaitBtlWinLeft
+REF 008a4427 __TODrawWaitBtlWinLeft
+REF 008a4518 __TODrawWaitBtlWinLeft
+REF 008a454e __TODrawWaitBtlWinLeft
+REF 008a4629 __TODrawWaitBtlWinLeft
+REF 008a465f __TODrawWaitBtlWinLeft
+REF 008a473c __TODrawWaitBtlWinLeft
+REF 008a4769 __TODrawWaitBtlWinLeft
+REF 008a47c6 __TODrawWaitBtlWinLeft
+REF 008a47f3 __TODrawWaitBtlWinLeft
+REF 008a4850 __TODrawWaitBtlWinLeft
+REF 008a487d __TODrawWaitBtlWinLeft
+REF 008a48e1 __TODrawWaitBtlWinLeft
+REF 008a4a50 __TODrawWaitBtlWinMain
+REF 008a4a86 __TODrawWaitBtlWinMain
+REF 008a4b99 __TODrawWaitBtlWinMain
+REF 008a4c81 __TODrawWaitBtlWinMain
+REF 008a4cb7 __TODrawWaitBtlWinMain
+REF 008a4d36 __TODrawWaitBtlWinMain
+REF 008a4d60 __TODrawWaitBtlWinMain
+REF 008a4eae __TODrawWaitBtlWinMain
+REF 008a4edb __TODrawWaitBtlWinMain
+REF 008a4f8d __TODrawWaitBtlWinMain
+REF 008a4fc3 __TODrawWaitBtlWinMain
+REF 008a5025 __TODrawWaitBtlWinMain
+REF 008a5149 __TODrawWaitBtlWinMain
+REF 008a5176 __TODrawWaitBtlWinMain
+REF 008a5228 __TODrawWaitBtlWinMain
+REF 008a525e __TODrawWaitBtlWinMain
+REF 008a52c0 __TODrawWaitBtlWinMain
+REF 008a53f0 __TODrawWaitBtlWinMain
+REF 008a5411 __TODrawWaitBtlWinMain
+REF 008a54b0 __TODrawWaitBtlWinMain
+REF 008a54d1 __TODrawWaitBtlWinMain
+REF 008a5584 __TODrawWaitBtlWinMain
+REF 008a55ba __TODrawWaitBtlWinMain
+REF 008a5614 __TODrawWaitBtlWinMain
+REF 008a564a __TODrawWaitBtlWinMain
+REF 008a56b8 __TODrawWaitBtlWinMain
+REF 008a56d9 __TODrawWaitBtlWinMain
+REF 008a573e __TODrawWaitBtlWinMain
+REF 008a575f __TODrawWaitBtlWinMain
+REF 008a5854 __TODrawWaitBtlWinMain
+REF 008a5936 __TODrawWaitBtlWinMain
+REF 008a596c __TODrawWaitBtlWinMain
+REF 008a59eb __TODrawWaitBtlWinMain
+REF 008a5a15 __TODrawWaitBtlWinMain
+REF 008a5b43 __TODrawWaitBtlWinMain
+REF 008a5b64 __TODrawWaitBtlWinMain
+REF 008a5bd2 __TODrawWaitBtlWinMain
+REF 008a5bf3 __TODrawWaitBtlWinMain
+REF 008a5c6d __TODrawWaitBtlWinMain
+REF 008a5c8e __TODrawWaitBtlWinMain
+REF 008a5cf0 __TODrawWaitBtlWinMain
+REF 008a5d11 __TODrawWaitBtlWinMain
+REF 008a5d8c __TODrawWaitBtlWinMain
+REF 008a5db0 __TODrawWaitBtlWinMain
+REF 008a5f0b __TODrawWaitBtlWinMain
+REF 008a5f2f __TODrawWaitBtlWinMain
+REF 008a604b __TODrawWaitBtlWinMain
+REF 008a6081 __TODrawWaitBtlWinMain
+REF 008a616c __TODrawWaitBtlWinMain
+REF 008a61a2 __TODrawWaitBtlWinMain
+REF 008a6293 __TODrawWaitBtlWinMain
+REF 008a62c9 __TODrawWaitBtlWinMain
+REF 008a63a4 __TODrawWaitBtlWinMain
+REF 008a63da __TODrawWaitBtlWinMain
+REF 008a64b7 __TODrawWaitBtlWinMain
+REF 008a64e4 __TODrawWaitBtlWinMain
+REF 008a6541 __TODrawWaitBtlWinMain
+REF 008a656e __TODrawWaitBtlWinMain
+REF 008a65c7 __TODrawWaitBtlWinMain
+REF 008a65f4 __TODrawWaitBtlWinMain
+REF 008a68a7 __TODrawWaitBtlWinPrepare
+REF 008a6986 __TODrawWaitBtlWinPrepare
+REF 008a6af3 __TODrawWaitBtlWinRight
+REF 008a6b29 __TODrawWaitBtlWinRight
+REF 008a6c25 __TODrawWaitBtlWinRight
+REF 008a6d09 __TODrawWaitBtlWinRight
+REF 008a6d3f __TODrawWaitBtlWinRight
+REF 008a6dbe __TODrawWaitBtlWinRight
+REF 008a6de8 __TODrawWaitBtlWinRight
+REF 008a6f0f __TODrawWaitBtlWinRight
+REF 008a6f30 __TODrawWaitBtlWinRight
+REF 008a6f9e __TODrawWaitBtlWinRight
+REF 008a6fbf __TODrawWaitBtlWinRight
+REF 008a7039 __TODrawWaitBtlWinRight
+REF 008a705a __TODrawWaitBtlWinRight
+REF 008a70bc __TODrawWaitBtlWinRight
+REF 008a70dd __TODrawWaitBtlWinRight
+REF 008a72b4 __TODrawWaitBtlWinRight
+REF 008a72e1 __TODrawWaitBtlWinRight
+REF 008a733e __TODrawWaitBtlWinRight
+REF 008a736b __TODrawWaitBtlWinRight
+REF 008a73c3 __TODrawWaitBtlWinRight
+REF 008a73f6 __TODrawWaitBtlWinRight
+REF 008a7460 __TODrawWaitBtlWinRight
+REF 008a76b1 __TODrawWaitBtlWinSummon
+REF 008a7795 __TODrawWaitBtlWinSummon
+REF 008a77cb __TODrawWaitBtlWinSummon
+REF 008a784a __TODrawWaitBtlWinSummon
+REF 008a7874 __TODrawWaitBtlWinSummon
+REF 008a799b __TODrawWaitBtlWinSummon
+REF 008a79bc __TODrawWaitBtlWinSummon
+REF 008a7a2a __TODrawWaitBtlWinSummon
+REF 008a7a4b __TODrawWaitBtlWinSummon
+REF 008a7ac5 __TODrawWaitBtlWinSummon
+REF 008a7ae6 __TODrawWaitBtlWinSummon
+REF 008a7b48 __TODrawWaitBtlWinSummon
+REF 008a7b69 __TODrawWaitBtlWinSummon
+REF 008a7bf6 __TODrawWaitBtlWinSummon
+REF 008a7c35 __TODrawWaitBtlWinSummon
+REF 008a7c76 __TODrawWaitBtlWinSummon
+REF 008a7cb2 __TODrawWaitBtlWinSummon
+REF 008a7cf4 __TODrawWaitBtlWinSummon
+REF 008a7e81 __TODrawWaitBtlWinWeapon
+REF 008a7f65 __TODrawWaitBtlWinWeapon
+REF 008a7f9b __TODrawWaitBtlWinWeapon
+REF 008a801a __TODrawWaitBtlWinWeapon
+REF 008a8044 __TODrawWaitBtlWinWeapon
+REF 008a816b __TODrawWaitBtlWinWeapon
+REF 008a818c __TODrawWaitBtlWinWeapon
+REF 008a81fa __TODrawWaitBtlWinWeapon
+REF 008a821b __TODrawWaitBtlWinWeapon
+REF 008a8295 __TODrawWaitBtlWinWeapon
+REF 008a82b6 __TODrawWaitBtlWinWeapon
+REF 008a8318 __TODrawWaitBtlWinWeapon
+REF 008a8339 __TODrawWaitBtlWinWeapon
+REF 008a83aa __TODrawWaitBtlWinWeapon
+REF 008a8435 __TODrawWaitBtlWinWeapon
+REF 008f35a6 TOBtlDrawWeaponAbilityWindow
+REF 008f35c2 TOBtlDrawWeaponAbilityWindow
+REF 008f3639 TOBtlDrawWeaponAbilityWindow
+REF 008f36d9 TOBtlDrawWeaponAbilityWindow
+REF 008f3749 TOBtlDrawWeaponAbilityWindow
+REF 008f377f TOBtlDrawWeaponAbilityWindow
+REF 008f37d1 TOBtlDrawWeaponAbilityWindow
+REF 008b9f57 FUN_008b9ef0
+REF 008b9f73 FUN_008b9ef0
+REF 008b9f86 FUN_008b9ef0
+REF 008b9f9b FUN_008b9ef0
+REF 008ba0e4 FUN_008b9ef0
+REF 008ba100 FUN_008b9ef0
+REF 008ba113 FUN_008b9ef0
+REF 008ba128 FUN_008b9ef0
+REF 008bbafe FUN_008bbad0
+REF 008bbb22 FUN_008bbad0
+REF 008bbb56 FUN_008bbad0
+REF 008bbb7a FUN_008bbad0
+REF 008bbbb7 FUN_008bbad0
+REF 008bbbdb FUN_008bbad0
+REF 008bbc16 FUN_008bbad0
+REF 008bbc3a FUN_008bbad0
+REF 008c0a38 FUN_008c09f0
+REF 008c0aa8 FUN_008c09f0
+REF 008c0ac3 FUN_008c09f0
+REF 008c0b43 FUN_008c09f0
+REF 008c0b80 FUN_008c09f0
+REF 008bbc71 FUN_008bbc60
+REF 008bbcc7 FUN_008bbc60
+REF 008bbd1a FUN_008bbc60
+REF 008bbd4d FUN_008bbc60
+REF 008bbd95 FUN_008bbc60
+REF 008bbe31 FUN_008bbc60
+REF 008e6751 FUN_008e6700
+REF 008e677e FUN_008e6700
+REF 008e67ce FUN_008e6700
+REF 008bbeb6 FUN_008bbe90
+REF 008bbef9 FUN_008bbe90
+REF 008bbf4c FUN_008bbe90
+REF 008bbf7f FUN_008bbe90
+REF 008bbfd4 FUN_008bbe90
+REF 008e6850 FUN_008e67f0
+REF 008e687d FUN_008e67f0
+REF 008e68cd FUN_008e67f0
+REF 008e6923 FUN_008e67f0
+REF 008e6950 FUN_008e67f0
+REF 008bc3a3 FUN_008bc300
+REF 008bc434 FUN_008bc300
+REF 008bc4c5 FUN_008bc300
+REF 008bc53a FUN_008bc300
+REF 008bc555 FUN_008bc300
+REF 008bc5c9 FUN_008bc300
+REF 008bc644 FUN_008bc300
+REF 008bc65f FUN_008bc300
+REF 008bc6bb FUN_008bc300
+REF 008bc6d6 FUN_008bc300
+REF 008bc727 FUN_008bc300
+REF 008bc7fb FUN_008bc300
+REF 008bc831 FUN_008bc300
+REF 008bc88e FUN_008bc300
+REF 008bc8fc FUN_008bc300
+REF 008bc929 FUN_008bc300
+REF 008bc986 FUN_008bc300
+REF 008bc9b3 FUN_008bc300
+REF 008bca11 FUN_008bc300
+REF 008bca44 FUN_008bc300
+REF 008bcafa FUN_008bc300
+REF 008bcb30 FUN_008bc300
+REF 008bcbae FUN_008bc300
+REF 008bcc70 FUN_008bc300
+REF 008bcc9d FUN_008bc300
+REF 008bcd07 FUN_008bc300
+REF 008bcd48 FUN_008bc300
+REF 008bcdd3 FUN_008bc300
+REF 008bce15 FUN_008bc300
+REF 008bcea5 FUN_008bc300
+REF 008bcedb FUN_008bc300
+REF 008bcf60 FUN_008bc300
+REF 008bcf96 FUN_008bc300
+REF 008bd011 FUN_008bcfe0
+REF 008bd04e FUN_008bcfe0
+REF 008bd072 FUN_008bcfe0
+REF 008bd0a6 FUN_008bcfe0
+REF 008bd0ca FUN_008bcfe0
+REF 008bd18d FUN_008bcfe0
+REF 008bd1e8 FUN_008bcfe0
+REF 008f4f61 TODrawCrossMenuIconAbilityName
+REF 008f4f8e TODrawCrossMenuIconAbilityName
+REF 008f4fde TODrawCrossMenuIconAbilityName
+REF 008bd268 FUN_008bd240
+REF 008bd2ab FUN_008bd240
+REF 008bd2fe FUN_008bd240
+REF 008bd331 FUN_008bd240
+REF 008bd387 FUN_008bd240
+REF 008bd597 FUN_008bd240
+REF 008bd5f8 FUN_008bd240
+REF 008bd61c FUN_008bd240
+REF 008be14e FUN_008be0a0
+REF 008bd663 FUN_008bd630
+REF 008bd6a0 FUN_008bd630
+REF 008bd6f3 FUN_008bd630
+REF 008bd726 FUN_008bd630
+REF 008bd7a2 FUN_008bd630
+REF 008bd810 FUN_008bd630
+REF 008bd8d7 FUN_008bd630
+REF 008bf16f FUN_008bf140
+REF 008bf1b5 FUN_008bf140
+REF 008bf1e2 FUN_008bf140
+REF 008bf219 FUN_008bf140
+REF 008bf246 FUN_008bf140
+REF 008bf28c FUN_008bf140
+REF 008bf2e8 FUN_008bf140
+REF 008bf315 FUN_008bf140
+REF 008bf376 FUN_008bf140
+REF 008bf3a3 FUN_008bf140
+REF 008bf404 FUN_008bf140
+REF 008bf431 FUN_008bf140
+REF 008bf4a1 FUN_008bf140
+REF 008bf51b FUN_008bf140
+REF 008bf55e FUN_008bf140
+REF 008bf58b FUN_008bf140
+REF 008bf5bf FUN_008bf140
+REF 008bf5ec FUN_008bf140
+REF 008bf62b FUN_008bf140
+REF 008bf658 FUN_008bf140
+REF 008bf6a1 FUN_008bf140
+REF 008bf6ce FUN_008bf140
+REF 008bf845 FUN_008bf800
+REF 008bfb59 FUN_008bfa40
+REF 008bfb9c FUN_008bfa40
+REF 008bfc26 FUN_008bfa40
+REF 008bfc69 FUN_008bfa40
+REF 008bfcd9 FUN_008bfa40
+REF 008bfd6d FUN_008bfa40
+REF 008bfd9f FUN_008bfa40
+REF 008bfe24 FUN_008bfa40
+REF 008bfe4c FUN_008bfa40
+REF 008bfec9 FUN_008bfa40
+REF 008bff75 FUN_008bfa40
+REF 008c0027 FUN_008bfa40
+REF 008c005d FUN_008bfa40
+REF 008c00fe FUN_008bfa40
+REF 008c0138 FUN_008bfa40
+REF 008c01ca FUN_008bfa40
+REF 008c01f7 FUN_008bfa40
+REF 008c0579 FUN_008c0550
+REF 008c060c FUN_008c0550
+REF 008f5256 FUN_008f51e0
+REF 008f52cc FUN_008f51e0
+REF 008f5342 FUN_008f51e0
+REF 008f535d FUN_008f51e0
+REF 008f53ce FUN_008f51e0
+REF 008f5446 FUN_008f51e0
+REF 008f5461 FUN_008f51e0
+REF 008f54bb FUN_008f51e0
+REF 008f551e FUN_008f51e0
+REF 008f55d7 FUN_008f51e0
+REF 008f5604 FUN_008f51e0
+REF 008f5681 FUN_008f51e0
+REF 008f56f9 FUN_008f51e0
+REF 008f5726 FUN_008f51e0
+REF 008f57a3 FUN_008f51e0
+REF 008f580f FUN_008f51e0
+REF 008f58be FUN_008f51e0
+REF 008f58eb FUN_008f51e0
+REF 008f5961 FUN_008f51e0
+REF 008f598e FUN_008f51e0
+REF 008c13d0 FUN_008c13b0
+REF 008c143b FUN_008c13b0
+REF 008c14bb FUN_008c1470
+REF 008c151b FUN_008c1470
+REF 008c154e FUN_008c1470
+REF 008c15cc FUN_008c1470
+REF 008c1655 FUN_008c1470
+REF 008f216a FUN_008f2150
+REF 008f21df FUN_008f2150
+REF 008f2254 FUN_008f2150
+REF 008f2279 FUN_008f2150
+REF 008f22d7 FUN_008f2150
+REF 008f22f2 FUN_008f2150
+REF 008f233c FUN_008f2150
+REF 008f2388 FUN_008f2150
+REF 008f23ad FUN_008f2150
+REF 008f23e9 FUN_008f2150
+REF 008f2404 FUN_008f2150
+REF 008f2433 FUN_008f2150
+REF 008f246e FUN_008f2150
+REF 008f2493 FUN_008f2150
+REF 008f24c2 FUN_008f2150
+REF 008f24dd FUN_008f2150
+REF 008f251c FUN_008f2150
+REF 008f2576 FUN_008f2150
+REF 008f25a8 FUN_008f2150
+REF 008f25e7 FUN_008f2150
+REF 008f2610 FUN_008f2150
+REF 008f264c FUN_008f2150
+REF 008f26aa FUN_008f2150
+REF 008f26e0 FUN_008f2150
+REF 008f271c FUN_008f2150
+REF 008f2749 FUN_008f2150
+REF 008c1cac FUN_008c1c70
+REF 008c1d0c FUN_008c1c70
+REF 008c1d39 FUN_008c1c70
+REF 008c1d97 FUN_008c1c70
+REF 008c1dc4 FUN_008c1c70
+REF 008c1e25 FUN_008c1c70
+REF 008c1e52 FUN_008c1c70
+REF 008c1eb3 FUN_008c1c70
+REF 008c1ee0 FUN_008c1c70
+REF 008c1f42 FUN_008c1c70
+REF 008c1faf FUN_008c1c70
+REF 008c203f FUN_008c1c70
+REF 008c20bc FUN_008c1c70
+REF 008c2d04 FUN_008c2ce0
+REF 008c2d4a FUN_008c2ce0
+REF 008c2d77 FUN_008c2ce0
+REF 008c2dae FUN_008c2ce0
+REF 008c2ddb FUN_008c2ce0
+REF 008c2e21 FUN_008c2ce0
+REF 008c2e5b FUN_008c2ce0
+REF 008c2e88 FUN_008c2ce0
+REF 008c2ebf FUN_008c2ce0
+REF 008c2eec FUN_008c2ce0
+REF 008c2f20 FUN_008c2ce0
+REF 008c2f4d FUN_008c2ce0
+REF 008c2f8d FUN_008c2ce0
+REF 008c2fba FUN_008c2ce0
+REF 008c3002 FUN_008c2ce0
+REF 008c302f FUN_008c2ce0
+REF 008e69d1 FUN_008e6970
+REF 008e69fe FUN_008e6970
+REF 008e6a4e FUN_008e6970
+REF 008e6aa4 FUN_008e6970
+REF 008e6ad1 FUN_008e6970
+REF 008f9d4e FUN_008f9c20
+REF 008f9d84 FUN_008f9c20
+REF 008f9e0a FUN_008f9c20
+REF 008f9e40 FUN_008f9c20
+REF 008f9ef7 FUN_008f9c20
+REF 008f9f2d FUN_008f9c20
+REF 008f9f9b FUN_008f9c20
+REF 008f9fd1 FUN_008f9c20
+REF 008fa03a FUN_008f9c20
+REF 008fa0a8 FUN_008f9c20
+REF 008fa0cd FUN_008f9c20
+REF 008fa137 FUN_008f9c20
+REF 008fa152 FUN_008f9c20
+REF 008fa1c2 FUN_008f9c20
+REF 008fa245 FUN_008f9c20
+REF 008fa2c5 FUN_008f9c20
+REF 008fa2fb FUN_008f9c20
+REF 008fa36b FUN_008f9c20
+REF 008fa398 FUN_008f9c20
+REF 008fa3f9 FUN_008f9c20
+REF 008fa426 FUN_008f9c20
+REF 008c3d1e FUN_008c3ce0
+REF 008c3d42 FUN_008c3ce0
+REF 008c3d70 FUN_008c3ce0
+REF 008c3d94 FUN_008c3ce0
+REF 008c3dca FUN_008c3ce0
+REF 008c3dee FUN_008c3ce0
+REF 008c3e41 FUN_008c3ce0
+REF 008c3e65 FUN_008c3ce0
+REF 008c4626 FUN_008c4530
+REF 008c472a FUN_008c4530
+REF 008c476a FUN_008c4750
+REF 008c4796 FUN_008c4750
+REF 008c47ce FUN_008c4750
+REF 008c47f2 FUN_008c4750
+REF 008c4847 FUN_008c4750
+REF 008c48e5 FUN_008c4750
+REF 008c4911 FUN_008c4750
+REF 008c4945 FUN_008c4750
+REF 008c4a16 FUN_008c4750
+REF 008c4a40 FUN_008c4750
+REF 008c4bc8 FUN_008c4b40
+REF 008c4c1e FUN_008c4b40
+REF 008c3f31 FUN_008c3ea0
+REF 008c3f55 FUN_008c3ea0
+REF 008c3fb9 FUN_008c3ea0
+REF 008c3fdd FUN_008c3ea0
+REF 008c4035 FUN_008c4010
+REF 008c40a9 FUN_008c4010
+REF 008c40fb FUN_008c4010
+REF 008c4167 FUN_008c4010
+REF 008c41c8 FUN_008c4010
+REF 008c4a8d FUN_008c4a70
+REF 008c5fba FUN_008c5ef0
+REF 008c5fde FUN_008c5ef0
+REF 008c7772 FUN_008c7720
+REF 008c779d FUN_008c7720
+REF 008c77c1 FUN_008c7720
+REF 008c77e4 FUN_008c7720
+REF 008c77f4 FUN_008c7720
+REF 008c7816 FUN_008c7720
+REF 008c7b09 FUN_008c7ac0
+REF 008c7b9c FUN_008c7ac0
+REF 008c7be1 FUN_008c7ac0
+REF 008c7cda FUN_008c7c00
+REF 008c7d3a FUN_008c7c00
+REF 008c7d6d FUN_008c7c00
+REF 008c7e12 FUN_008c7c00
+REF 008c7e9b FUN_008c7c00
+REF 008c7f1e FUN_008c7c00
+REF 008c7fa4 FUN_008c7c00
+REF 008c8048 FUN_008c7c00
+REF 008e7221 FUN_008e71d0
+REF 008e728d FUN_008e71d0
+REF 008e7307 FUN_008e71d0
+REF 008e7372 FUN_008e71d0
+REF 008e73d0 FUN_008e71d0
+REF 008e7432 FUN_008e71d0
+REF 008e7456 FUN_008e71d0
+REF 008e74ab FUN_008e71d0
+REF 008e750a FUN_008e71d0
+REF 008e752e FUN_008e71d0
+REF 008e7583 FUN_008e71d0
+REF 008e75a7 FUN_008e71d0
+REF 008f5051 TODrawCrossMenuIconCommandName
+REF 008f507e TODrawCrossMenuIconCommandName
+REF 008f50ce TODrawCrossMenuIconCommandName
+REF 008f5141 TODrawCrossMenuIconImportantName
+REF 008f516e TODrawCrossMenuIconImportantName
+REF 008f51be TODrawCrossMenuIconImportantName
+REF 008c8213 FUN_008c8080
+REF 008c8232 FUN_008c8080
+REF 008c82db FUN_008c8080
+REF 008c833b FUN_008c8080
+REF 008c8368 FUN_008c8080
+REF 008c8419 FUN_008c8080
+REF 008c8446 FUN_008c8080
+REF 008c84cf FUN_008c8080
+REF 008c84fc FUN_008c8080
+REF 008c8550 FUN_008c8080
+REF 008c85a2 FUN_008c8080
+REF 008c85f4 FUN_008c8080
+REF 008c86a2 FUN_008c8080
+REF 008c8710 FUN_008c8080
+REF 008c8743 FUN_008c8080
+REF 008c8990 FUN_008c87b0
+REF 008c89b4 FUN_008c87b0
+REF 008c95b1 FUN_008c9540
+REF 008c962c FUN_008c9540
+REF 008c9650 FUN_008c9540
+REF 008c967b FUN_008c9540
+REF 008c969f FUN_008c9540
+REF 008c96d6 FUN_008c9540
+REF 008c9704 FUN_008c9540
+REF 008c9728 FUN_008c9540
+REF 008c9756 FUN_008c9540
+REF 008c97c4 FUN_008c9540
+REF 008c980e FUN_008c9540
+REF 008c9832 FUN_008c9540
+REF 008c985d FUN_008c9540
+REF 008c9881 FUN_008c9540
+REF 008c98b0 FUN_008c9540
+REF 008c98ea FUN_008c9540
+REF 008c9920 FUN_008c9910
+REF 008c99d1 FUN_008c99c0
+REF 008c9a7e FUN_008c9a40
+REF 008c9ad3 FUN_008c9a40
+REF 008d8ab1 FUN_008d8a70
+REF 008cbb40 FUN_008cbab0
+REF 008cbba8 FUN_008cbab0
+REF 008cbbfa FUN_008cbab0
+REF 008cbc68 FUN_008cbab0
+REF 008cbc9e FUN_008cbab0
+REF 008cbceb FUN_008cbab0
+REF 008cbd7d FUN_008cbab0
+REF 008cbda3 FUN_008cbab0
+REF 008cbe0a FUN_008cbab0
+REF 008cbe50 FUN_008cbab0
+REF 008cbe76 FUN_008cbab0
+REF 008cbedf FUN_008cbab0
+REF 008cbf2b FUN_008cbab0
+REF 008cbf61 FUN_008cbab0
+REF 008cb510 FUN_008cb500
+REF 008cb55b FUN_008cb500
+REF 008cb5a7 FUN_008cb500
+REF 008cb5cc FUN_008cb500
+REF 008cb611 FUN_008cb500
+REF 008cb62c FUN_008cb500
+REF 008cb662 FUN_008cb500
+REF 008cb69f FUN_008cb500
+REF 008cb6ba FUN_008cb500
+REF 008cb6f0 FUN_008cb500
+REF 008cb70b FUN_008cb500
+REF 008cb741 FUN_008cb500
+REF 008cb75c FUN_008cb500
+REF 008cb79b FUN_008cb500
+REF 008cb7f5 FUN_008cb500
+REF 008cb827 FUN_008cb500
+REF 008cb866 FUN_008cb500
+REF 008cb88f FUN_008cb500
+REF 008cb8cb FUN_008cb500
+REF 008cb929 FUN_008cb500
+REF 008cb95f FUN_008cb500
+REF 008cb99b FUN_008cb500
+REF 008cb9c8 FUN_008cb500
+REF 008cc24f FUN_008cc180
+REF 008cc273 FUN_008cc180
+REF 008cd752 FUN_008cd6f0
+REF 008cd7bc FUN_008cd6f0
+REF 008cd826 FUN_008cd6f0
+REF 008cd971 FUN_008cd960
+REF 008cdafa FUN_008cda80
+REF 008cda00 FUN_008cd9f0
+REF 008cdbe5 FUN_008cdb70
+REF 008cdc20 FUN_008cdb70
+REF 008cdc4f FUN_008cdb70
+REF 008cdc73 FUN_008cdb70
+REF 008cdc9e FUN_008cdb70
+REF 008cdcc2 FUN_008cdb70
+REF 008cdcfa FUN_008cdb70
+REF 008cdd1e FUN_008cdb70
+REF 008cdd49 FUN_008cdb70
+REF 008cdd6d FUN_008cdb70
+REF 008cdefb FUN_008cdb70
+REF 008cdf15 FUN_008cdb70
+REF 008cdf31 FUN_008cdb70
+REF 008cdf44 FUN_008cdb70
+REF 008cdf59 FUN_008cdb70
+REF 008cdfa7 FUN_008cdb70
+REF 008cdfcb FUN_008cdb70
+REF 008ce059 FUN_008cdb70
+REF 008ce0b4 FUN_008cdb70
+REF 008ff512 FUN_008ff490
+REF 008ff588 FUN_008ff490
+REF 008ff5fe FUN_008ff490
+REF 008ff619 FUN_008ff490
+REF 008ff68a FUN_008ff490
+REF 008ff702 FUN_008ff490
+REF 008ff71d FUN_008ff490
+REF 008ff777 FUN_008ff490
+REF 008ff7df FUN_008ff490
+REF 008ff7fa FUN_008ff490
+REF 008ff854 FUN_008ff490
+REF 008ff8b9 FUN_008ff490
+REF 008ff8d4 FUN_008ff490
+REF 008ff943 FUN_008ff490
+REF 008ff9b9 FUN_008ff490
+REF 008ff9d4 FUN_008ff490
+REF 008ffa45 FUN_008ff490
+REF 008ffabd FUN_008ff490
+REF 008ffad8 FUN_008ff490
+REF 008ffb6e FUN_008ff490
+REF 008ffc27 FUN_008ff490
+REF 008ffc54 FUN_008ff490
+REF 008ffcca FUN_008ff490
+REF 008ffd45 FUN_008ff490
+REF 008ffd72 FUN_008ff490
+REF 008ffde2 FUN_008ff490
+REF 008ffe51 FUN_008ff490
+REF 008ffe7e FUN_008ff490
+REF 008ffedb FUN_008ff490
+REF 008fff08 FUN_008ff490
+REF 008fff66 FUN_008ff490
+REF 008fff99 FUN_008ff490
+REF 0090004f FUN_008ff490
+REF 00900085 FUN_008ff490
+REF 009000fb FUN_008ff490
+REF 00900184 FUN_008ff490
+REF 009001b1 FUN_008ff490
+REF 00900205 FUN_008ff490
+REF 00900292 FUN_008ff490
+REF 009002bf FUN_008ff490
+REF 0090032a FUN_008ff490
+REF 00900357 FUN_008ff490
+REF 009003a2 FUN_008ff490
+REF 009003cf FUN_008ff490
+REF 00900485 FUN_008ff490
+REF 009004b2 FUN_008ff490
+REF 00900528 FUN_008ff490
+REF 00900555 FUN_008ff490
+REF 009005b3 FUN_008ff490
+REF 009005e0 FUN_008ff490
+REF 0090063d FUN_008ff490
+REF 0090066a FUN_008ff490
+REF 009006c8 FUN_008ff490
+REF 009006fb FUN_008ff490
+REF 009007ab FUN_008ff490
+REF 009007e1 FUN_008ff490
+REF 00900857 FUN_008ff490
+REF 00900884 FUN_008ff490
+REF 008ceb8e FUN_008cead0
+REF 008d3711 FUN_008d3660
+REF 008d3753 FUN_008d3660
+REF 008d379d FUN_008d3660
+REF 008d37df FUN_008d3660
+REF 008d3833 FUN_008d3660
+REF 008d3861 FUN_008d3660
+REF 008d38be FUN_008d3660
+REF 008d38fe FUN_008d3660
+REF 008d395f FUN_008d3660
+REF 008d399f FUN_008d3660
+REF 008e6e69 FUN_008e6e10
+REF 008e6f22 FUN_008e6e10
+REF 008e6f4f FUN_008e6e10
+REF 008e6fc3 FUN_008e6e10
+REF 008e703e FUN_008e6e10
+REF 008e706b FUN_008e6e10
+REF 008e70df FUN_008e6e10
+REF 008e714d FUN_008e7110
+REF 008ce11d FUN_008ce100
+REF 008ce1d4 FUN_008ce100
+REF 008ce265 FUN_008ce100
+REF 008ce2da FUN_008ce100
+REF 008ce2f5 FUN_008ce100
+REF 008ce369 FUN_008ce100
+REF 008ce3e4 FUN_008ce100
+REF 008ce3ff FUN_008ce100
+REF 008ce45d FUN_008ce100
+REF 008ce499 FUN_008ce100
+REF 008ce501 FUN_008ce4f0
+REF 008ce60b FUN_008ce590
+REF 008ce67e FUN_008ce590
+REF 008ce6f9 FUN_008ce590
+REF 008ce781 FUN_008ce720
+REF 008ce7b7 FUN_008ce720
+REF 008ce7e6 FUN_008ce720
+REF 008ce80a FUN_008ce720
+REF 008ce835 FUN_008ce720
+REF 008ce859 FUN_008ce720
+REF 008ce891 FUN_008ce720
+REF 008ce8b5 FUN_008ce720
+REF 008ce8e0 FUN_008ce720
+REF 008ce904 FUN_008ce720
+REF 008cea73 FUN_008ce720
+REF 008cea97 FUN_008ce720
+REF 008cec24 FUN_008cebb0
+REF 008cec48 FUN_008cebb0
+REF 008d54e2 FUN_008d5470
+REF 008d54f6 FUN_008d5470
+REF 008cfb76 FUN_008cf9c0
+REF 008cfbb8 FUN_008cf9c0
+REF 008cfbdc FUN_008cf9c0
+REF 008d0231 FUN_008d0220
+REF 008d01b6 FUN_008d0140
+REF 008d02e0 FUN_008d02b0
+REF 008d0328 FUN_008d02b0
+REF 008d037a FUN_008d02b0
+REF 008d0bdc FUN_008d09f0
+REF 008d0c00 FUN_008d09f0
+REF 008d151b FUN_008d13d0
+REF 008d153f FUN_008d13d0
+REF 008d1630 FUN_008d15f0
+REF 008d1661 FUN_008d15f0
+REF 008d185a FUN_008d17f0
+REF 008d190e FUN_008d17f0
+REF 008d199a FUN_008d17f0
+REF 008d1bb8 FUN_008d1b90
+REF 008d1c9a FUN_008d1b90
+REF 008d1cb7 FUN_008d1b90
+REF 008d1cd8 FUN_008d1b90
+REF 008d176b FUN_008d16c0
+REF 008f9292 FUN_008f9280
+REF 008f92fd FUN_008f9280
+REF 008f9372 FUN_008f9280
+REF 008f9397 FUN_008f9280
+REF 008f93f5 FUN_008f9280
+REF 008f9410 FUN_008f9280
+REF 008f9499 FUN_008f9280
+REF 008f94dd FUN_008f9280
+REF 008f9502 FUN_008f9280
+REF 008f953a FUN_008f9280
+REF 008f9555 FUN_008f9280
+REF 008f959a FUN_008f9280
+REF 008f95d5 FUN_008f9280
+REF 008f95fa FUN_008f9280
+REF 008f9629 FUN_008f9280
+REF 008f9644 FUN_008f9280
+REF 008f96a6 FUN_008f9280
+REF 008f96f8 FUN_008f9280
+REF 008f972a FUN_008f9280
+REF 008f9765 FUN_008f9280
+REF 008f978e FUN_008f9280
+REF 008f97ed FUN_008f9280
+REF 008f9843 FUN_008f9280
+REF 008f9879 FUN_008f9280
+REF 008f98b1 FUN_008f9280
+REF 008f98de FUN_008f9280
+REF 008f9914 FUN_008f9280
+REF 008f9941 FUN_008f9280
+REF 008d2263 FUN_008d2240
+REF 008d2287 FUN_008d2240
+REF 008d22d7 FUN_008d2240
+REF 008d22fb FUN_008d2240
+REF 008d2350 FUN_008d2240
+REF 008d2374 FUN_008d2240
+REF 008d23d6 FUN_008d2240
+REF 008d23fa FUN_008d2240
+REF 008d245f FUN_008d2240
+REF 008d2483 FUN_008d2240
+REF 008d24e5 FUN_008d2240
+REF 008d2509 FUN_008d2240
+REF 008d254e FUN_008d2240
+REF 008d2572 FUN_008d2240
+REF 008d25f2 FUN_008d2240
+REF 008d4f4f FUN_008d4eb0
+REF 008d4f82 FUN_008d4eb0
+REF 008d4fdf FUN_008d4eb0
+REF 008d5012 FUN_008d4eb0
+REF 008d5187 FUN_008d5150
+REF 008d51dc FUN_008d5150
+REF 008d52e1 FUN_008d5150
+REF 008d52fb FUN_008d5150
+REF 008d5317 FUN_008d5150
+REF 008d532a FUN_008d5150
+REF 008d533f FUN_008d5150
+REF 008d53e0 FUN_008d5150
+REF 008d543b FUN_008d5150
+REF 008d2885 FUN_008d2760
+REF 008d297d FUN_008d2760
+REF 008d2994 FUN_008d2760
+REF 008d2a13 FUN_008d2760
+REF 008d3da2 FUN_008d3d40
+REF 008d3dc6 FUN_008d3d40
+REF 008d3e2f FUN_008d3d40
+REF 008d3e53 FUN_008d3d40
+REF 008d3ebe FUN_008d3d40
+REF 008d3ee2 FUN_008d3d40
+REF 008d3f84 FUN_008d3d40
+REF 008d3fa8 FUN_008d3d40
+REF 008d4013 FUN_008d3d40
+REF 008d4037 FUN_008d3d40
+REF 008d4082 FUN_008d3d40
+REF 008d40a6 FUN_008d3d40
+REF 008d40f4 FUN_008d3d40
+REF 008d42a9 FUN_008d4250
+REF 008d435e FUN_008d4320
+REF 008d43ce FUN_008d4320
+REF 008d43fb FUN_008d4320
+REF 008d448b FUN_008d4320
+REF 008d44de FUN_008d4320
+REF 008d4541 FUN_008d4510
+REF 008d4565 FUN_008d4510
+REF 008d45ce FUN_008d4510
+REF 008d45f2 FUN_008d4510
+REF 008d462b FUN_008d4510
+REF 008d464f FUN_008d4510
+REF 008d46b8 FUN_008d4510
+REF 008d46dc FUN_008d4510
+REF 008d474c FUN_008d4510
+REF 008d47c8 FUN_008d4510
+REF 008d4817 FUN_008d4510
+REF 008d4861 FUN_008d4510
+REF 008d48b0 FUN_008d4510
+REF 008d5d31 FUN_008d5d20
+REF 008d5eaa FUN_008d5e30
+REF 008d5f92 FUN_008d5f30
+REF 008d5fc6 FUN_008d5f30
+REF 008d5fea FUN_008d5f30
+REF 008d6015 FUN_008d5f30
+REF 008d6039 FUN_008d5f30
+REF 008d606e FUN_008d5f30
+REF 008d6092 FUN_008d5f30
+REF 008d60bd FUN_008d5f30
+REF 008d60e1 FUN_008d5f30
+REF 008d6244 FUN_008d5f30
+REF 008d6286 FUN_008d5f30
+REF 008d62aa FUN_008d5f30
+REF 008d62e6 FUN_008d5f30
+REF 008d6685 FUN_008d6630
+REF 008d66fb FUN_008d6630
+REF 008d63f8 FUN_008d63c0
+REF 008d6440 FUN_008d63c0
+REF 008d6492 FUN_008d63c0
+REF 008d6541 FUN_008d6530
+REF 008d67aa FUN_008d6730
+REF 008d699f FUN_008d6830
+REF 008d69e1 FUN_008d6830
+REF 008d6a05 FUN_008d6830
+REF 008d6a33 FUN_008d6830
+REF 008d6a57 FUN_008d6830
+REF 008d6a82 FUN_008d6830
+REF 008d6aa6 FUN_008d6830
+REF 008d6ad6 FUN_008d6830
+REF 008d6afa FUN_008d6830
+REF 008d6b25 FUN_008d6830
+REF 008d6b49 FUN_008d6830
+REF 008d6b93 FUN_008d6830
+REF 008d7a4f FUN_008d7a10
+REF 008d7c56 FUN_008d7a70
+REF 008d7c7a FUN_008d7a70
+REF 008d8b8d FUN_008d8b80
+REF 008d8c11 FUN_008d8c00
+REF 008d8cdb FUN_008d8c80
+REF 008d8d4b FUN_008d8c80
+REF 008d8d78 FUN_008d8c80
+REF 008d8dc9 FUN_008d8c80
+REF 008d8e08 FUN_008d8c80
+REF 008d7cd2 FUN_008d7c90
+REF 008d7edd FUN_008d7cf0
+REF 008d7f01 FUN_008d7cf0
+REF 008d8e3d FUN_008d8e30
+REF 008d8ec1 FUN_008d8eb0
+REF 008d8f6f FUN_008d8f30
+REF 008d8fdf FUN_008d8f30
+REF 008d900c FUN_008d8f30
+REF 008d9087 FUN_008d8f30
+REF 008d90c7 FUN_008d8f30
+REF 008d8154 FUN_008d80e0
+REF 008d8178 FUN_008d80e0
+REF 008d86a7 FUN_008d85f0
+REF 008d86cb FUN_008d85f0
+REF 008d86f6 FUN_008d85f0
+REF 008d871a FUN_008d85f0
+REF 008d875c FUN_008d85f0
+REF 008d8780 FUN_008d85f0
+REF 008d87e3 FUN_008d85f0
+REF 008d8823 FUN_008d85f0
+REF 008d8851 FUN_008d85f0
+REF 008d8875 FUN_008d85f0
+REF 008d88a3 FUN_008d85f0
+REF 008d88d7 FUN_008d85f0
+REF 008d88fb FUN_008d85f0
+REF 008d8960 FUN_008d85f0
+REF 008d89aa FUN_008d85f0
+REF 008d89ce FUN_008d85f0
+REF 008d89f9 FUN_008d85f0
+REF 008d8a1d FUN_008d85f0
+REF 008d8a4c FUN_008d85f0
+REF 008d9ffb FUN_008d9fb0
+REF 008da063 FUN_008da020
+REF 008da087 FUN_008da020
+REF 008da0b2 FUN_008da020
+REF 008da0d6 FUN_008da020
+REF 008da106 FUN_008da020
+REF 008da12a FUN_008da020
+REF 008da17a FUN_008da020
+REF 008da19e FUN_008da020
+REF 008da217 FUN_008da020
+REF 008da400 FUN_008da020
+REF 008da424 FUN_008da020
+REF 008dab4d FUN_008dab40
+REF 008dabd1 FUN_008dabc0
+REF 008dac90 FUN_008dac40
+REF 008dad00 FUN_008dac40
+REF 008dad2d FUN_008dac40
+REF 008dad7e FUN_008dac40
+REF 008da616 FUN_008da440
+REF 008da63a FUN_008da440
+REF 008dadef FUN_008dadd0
+REF 008dae94 FUN_008dae70
+REF 008daec5 FUN_008dae70
+REF 008daf6d FUN_008daf30
+REF 008db001 FUN_008daf30
+REF 008da74d FUN_008da700
+REF 008da7d5 FUN_008da770
+REF 008da7f9 FUN_008da770
+REF 008e0be4 +TkMenuDrawMain
+REF 008e0d13 +TkMenuDrawMain
+REF 008e0d2a +TkMenuDrawMain
+REF 008e0dc7 +TkMenuDrawMain
+REF 008e0e3c +TkMenuDrawMain
+REF 008e0e57 +TkMenuDrawMain
+REF 008e0ecb +TkMenuDrawMain
+REF 008e0f46 +TkMenuDrawMain
+REF 008e0f61 +TkMenuDrawMain
+REF 008e0fbb +TkMenuDrawMain
+REF 008e1074 +TkMenuDrawMain
+REF 008e10a1 +TkMenuDrawMain
+REF 008e1115 +TkMenuDrawMain
+REF 008e1190 +TkMenuDrawMain
+REF 008e11bd +TkMenuDrawMain
+REF 008e1231 +TkMenuDrawMain
+REF 008e1290 +TkMenuDrawMain
+REF 008e12bd +TkMenuDrawMain
+REF 008e131b +TkMenuDrawMain
+REF 008e134e +TkMenuDrawMain
+REF 008e1404 +TkMenuDrawMain
+REF 008e143a +TkMenuDrawMain
+REF 008e14b0 +TkMenuDrawMain
+REF 008e150d +TkMenuDrawMain
+REF 008e1574 +TkMenuDrawMain
+REF 008e15c1 +TkMenuDrawMain
+REF 008e1617 +TkMenuDrawMain
+REF 008e166b +TkMenuDrawMain
+REF 008e168f +TkMenuDrawMain
+REF 008e16c1 +TkMenuDrawMain
+REF 008e16e5 +TkMenuDrawMain
+REF 008e1732 +TkMenuDrawMain
+REF 008e1756 +TkMenuDrawMain
+REF 008e1785 +TkMenuDrawMain
+REF 008e17e2 +TkMenuDrawMain
+REF 008e1806 +TkMenuDrawMain
+REF 008e185b +TkMenuDrawMain
+REF 008e187f +TkMenuDrawMain
+REF 008e18dc +TkMenuDrawMain
+REF 008e216c FUN_008e20f0
+REF 008e21a8 FUN_008e20f0
+REF 008e22c3 FUN_008e22a0
+REF 008e239f FUN_008e22a0
+REF 008e2438 FUN_008e22a0
+REF 008e249f FUN_008e22a0
+REF 008e2c36 FUN_008e2b60
+REF 008e2c5a FUN_008e2b60
+REF 008e2caf FUN_008e2b60
+REF 008e2cd3 FUN_008e2b60
+REF 008e2d2a FUN_008e2b60
+REF 008e3015 FUN_008e2f80
+REF 008e3079 FUN_008e2f80
+REF 008e308d FUN_008e2f80
+REF 008e3195 FUN_008e2f80
+REF 008e3d2e FUN_008e3cf0
+REF 008e3d4f FUN_008e3cf0
+REF 008e3d70 FUN_008e3cf0
+REF 008e3eb9 FUN_008e3cf0
+REF 008e3f15 FUN_008e3cf0
+REF 008e3f57 FUN_008e3cf0
+REF 008e4003 FUN_008e3cf0
+REF 008e4024 FUN_008e3cf0
+REF 008e4076 FUN_008e3cf0
+REF 008e417f FUN_008e4140
+REF 008e41aa FUN_008e4140
+REF 008e4213 FUN_008e4140
+REF 008e42fb FUN_008e4140
+REF 008e4343 FUN_008e4140
+REF 008e43f0 FUN_008e4140
+REF 008e4417 FUN_008e4140
+REF 008fe223 FUN_008fe0b0
+REF 008fe271 FUN_008fe0b0
+REF 008fe30b FUN_008fe0b0
+REF 008fe359 FUN_008fe0b0
+REF 008fe408 FUN_008fe0b0
+REF 008fe43e FUN_008fe0b0
+REF 00894b1e TOBtlDrawInfoWinElementLamp
+REF 00894b51 TOBtlDrawInfoWinElementLamp
+REF 00894bc4 TOBtlDrawInfoWinElementLamp
+REF 00894bf7 TOBtlDrawInfoWinElementLamp
+REF 00894c6a TOBtlDrawInfoWinElementLamp
+REF 00894c9d TOBtlDrawInfoWinElementLamp
+REF 00894d10 TOBtlDrawInfoWinElementLamp
+REF 00894d43 TOBtlDrawInfoWinElementLamp
+REF 00895abe TOBtlDrawScanWinElementLamp
+REF 00895af1 TOBtlDrawScanWinElementLamp
+REF 00895b64 TOBtlDrawScanWinElementLamp
+REF 00895b97 TOBtlDrawScanWinElementLamp
+REF 00895c0a TOBtlDrawScanWinElementLamp
+REF 00895c3d TOBtlDrawScanWinElementLamp
+REF 00895cb0 TOBtlDrawScanWinElementLamp
+REF 00895ce3 TOBtlDrawScanWinElementLamp
+REF 008a108c TOBtlSetWindowLayout
+REF 008a10ae TOBtlSetWindowLayout
+REF 008a10f5 TOBtlSetWindowLayout
+REF 008a110f TOBtlSetWindowLayout
+REF 008a1126 TOBtlSetWindowLayout
+REF 008a1160 TOBtlSetWindowLayout
+REF 008a118c TOBtlSetWindowLayout
+REF 008a11d3 TOBtlSetWindowLayout
+REF 008a11ed TOBtlSetWindowLayout
+REF 008a1204 TOBtlSetWindowLayout
+REF 008a124c TOBtlSetWindowLayout
+REF 008a1278 TOBtlSetWindowLayout
+REF 008a12bf TOBtlSetWindowLayout
+REF 008a12d9 TOBtlSetWindowLayout
+REF 008a12f0 TOBtlSetWindowLayout
+REF 008a1338 TOBtlSetWindowLayout
+REF 008a1364 TOBtlSetWindowLayout
+REF 008a13ab TOBtlSetWindowLayout
+REF 008a13c5 TOBtlSetWindowLayout
+REF 008a13dc TOBtlSetWindowLayout
+REF 008a1424 TOBtlSetWindowLayout
+REF 008a1450 TOBtlSetWindowLayout
+REF 008a1497 TOBtlSetWindowLayout
+REF 008a14b1 TOBtlSetWindowLayout
+REF 008a14c8 TOBtlSetWindowLayout
+REF 008a14f6 TOBtlSetWindowLayout
+REF 008a1518 TOBtlSetWindowLayout
+REF 008a155f TOBtlSetWindowLayout
+REF 008a1579 TOBtlSetWindowLayout
+REF 008a1590 TOBtlSetWindowLayout
+REF 008964a0 TOBtlDrawStatusWin
+REF 008964d9 TOBtlDrawStatusWin
+REF 00896510 TOBtlDrawStatusWin
+REF 0089653d TOBtlDrawStatusWin
+REF 00896597 TOBtlDrawStatusWin
+REF 00896611 TOBtlDrawStatusWin
+REF 00896644 TOBtlDrawStatusWin
+REF 0089669d TOBtlDrawStatusWin
+REF 008966ca TOBtlDrawStatusWin
+REF 00896723 TOBtlDrawStatusWin
+REF 00896793 TOBtlDrawStatusWin
+REF 008967c6 TOBtlDrawStatusWin
+REF 0089681f TOBtlDrawStatusWin
+REF 0089684c TOBtlDrawStatusWin
+REF 008968a6 TOBtlDrawStatusWin
+REF 00896924 TOBtlDrawStatusWin
+REF 0089695d TOBtlDrawStatusWin
+REF 008969b9 TOBtlDrawStatusWin
+REF 00896a33 TOBtlDrawStatusWin
+REF 00896a66 TOBtlDrawStatusWin
+REF 00896abf TOBtlDrawStatusWin
+REF 00896aec TOBtlDrawStatusWin
+REF 00896b45 TOBtlDrawStatusWin
+REF 00896b97 TOBtlDrawStatusWin
+REF 00896beb TOBtlDrawStatusWin
+REF 00896c73 TOBtlDrawStatusWin
+REF 00896cac TOBtlDrawStatusWin
+REF 00896d08 TOBtlDrawStatusWin
+REF 00896d82 TOBtlDrawStatusWin
+REF 00896db5 TOBtlDrawStatusWin
+REF 00896e0e TOBtlDrawStatusWin
+REF 00896e3b TOBtlDrawStatusWin
+REF 00896e94 TOBtlDrawStatusWin
+REF 00896ee6 TOBtlDrawStatusWin
+REF 00896f3a TOBtlDrawStatusWin
+REF 00896fc2 TOBtlDrawStatusWin
+REF 00896ffb TOBtlDrawStatusWin
+REF 00897057 TOBtlDrawStatusWin
+REF 008970ec TOBtlDrawStatusWin
+REF 008a0014 TOBtlDrawCommandWindow
+REF 008a0047 TOBtlDrawCommandWindow
+REF 008a00d3 TOBtlDrawCommandWindow
+REF 008a015c TOBtlDrawCommandWindow
+REF 008a01e5 TOBtlDrawCommandWindow
+REF 008a026e TOBtlDrawCommandWindow
+REF 008a02fc TOBtlDrawCommandWindow
+REF 008a0329 TOBtlDrawCommandWindow
+REF 008a037d TOBtlDrawCommandWindow
+REF 008a03aa TOBtlDrawCommandWindow
+REF 008a0455 TOBtlDrawCommandWindow
+REF 008fbd29 TOMakePktBtlIconA
+REF 008fbda4 TOMakePktBtlIconA
+REF 008fbe1f TOMakePktBtlIconA
+REF 008fbe96 TOMakePktBtlIconA
+REF 008f5fee FUN_008f5f70
+REF 008f606b FUN_008f5f70
+REF 008f6090 FUN_008f5f70
+REF 008f60f2 FUN_008f5f70
+REF 008f610d FUN_008f5f70
+REF 008f6157 FUN_008f5f70
+REF 008f61a3 FUN_008f5f70
+REF 008f61c8 FUN_008f5f70
+REF 008f6204 FUN_008f5f70
+REF 008f621f FUN_008f5f70
+REF 008f6252 FUN_008f5f70
+REF 008f6295 FUN_008f5f70
+REF 008f62ba FUN_008f5f70
+REF 008f62ed FUN_008f5f70
+REF 008f6308 FUN_008f5f70
+REF 008f6347 FUN_008f5f70
+REF 008f63a1 FUN_008f5f70
+REF 008f63d3 FUN_008f5f70
+REF 008f6412 FUN_008f5f70
+REF 008f643b FUN_008f5f70
+REF 008f6477 FUN_008f5f70
+REF 008f64d5 FUN_008f5f70
+REF 008f650b FUN_008f5f70
+REF 008f6547 FUN_008f5f70
+REF 008f6574 FUN_008f5f70
+REF 008f65e1 FUN_008f5f70
+REF 008f665e FUN_008f5f70
+REF 008f6683 FUN_008f5f70
+REF 008f66e5 FUN_008f5f70
+REF 008f6700 FUN_008f5f70
+REF 008f674a FUN_008f5f70
+REF 008f6796 FUN_008f5f70
+REF 008f67bb FUN_008f5f70
+REF 008f67f7 FUN_008f5f70
+REF 008f6812 FUN_008f5f70
+REF 008f6845 FUN_008f5f70
+REF 008f6888 FUN_008f5f70
+REF 008f68ad FUN_008f5f70
+REF 008f68e0 FUN_008f5f70
+REF 008f68fb FUN_008f5f70
+REF 008f693a FUN_008f5f70
+REF 008f6994 FUN_008f5f70
+REF 008f69c6 FUN_008f5f70
+REF 008f6a05 FUN_008f5f70
+REF 008f6a2e FUN_008f5f70
+REF 008f6a6a FUN_008f5f70
+REF 008f6ac8 FUN_008f5f70
+REF 008f6afe FUN_008f5f70
+REF 008f6b3a FUN_008f5f70
+REF 008f6b67 FUN_008f5f70
+REF 008f6bce FUN_008f5f70
+REF 008f6c74 FUN_008f5f70
+REF 008f6caa FUN_008f5f70
+REF 008f6d06 FUN_008f5f70
+REF 008f6d52 FUN_008f5f70
+REF 008f6d77 FUN_008f5f70
+REF 008f6dbc FUN_008f5f70
+REF 008f6dd7 FUN_008f5f70
+REF 008f6e0d FUN_008f5f70
+REF 008f6e50 FUN_008f5f70
+REF 008f6e75 FUN_008f5f70
+REF 008f6eab FUN_008f5f70
+REF 008f6ec6 FUN_008f5f70
+REF 008f6f05 FUN_008f5f70
+REF 008f6f5f FUN_008f5f70
+REF 008f6f91 FUN_008f5f70
+REF 008f6fd0 FUN_008f5f70
+REF 008f6ff9 FUN_008f5f70
+REF 008f7035 FUN_008f5f70
+REF 008f7093 FUN_008f5f70
+REF 008f70c9 FUN_008f5f70
+REF 008f7105 FUN_008f5f70
+REF 008f7132 FUN_008f5f70
+REF 008f719a FUN_008f5f70
+REF 008f71cd FUN_008f5f70
+REF 008f7271 FUN_008f5f70
+REF 008f729e FUN_008f5f70
+REF 008f72ea FUN_008f5f70
+REF 008f7336 FUN_008f5f70
+REF 008f735b FUN_008f5f70
+REF 008f73a0 FUN_008f5f70
+REF 008f73bb FUN_008f5f70
+REF 008f73f1 FUN_008f5f70
+REF 008f7434 FUN_008f5f70
+REF 008f7459 FUN_008f5f70
+REF 008f748f FUN_008f5f70
+REF 008f74aa FUN_008f5f70
+REF 008f751c FUN_008f5f70
+REF 008f7549 FUN_008f5f70
+REF 008f758a FUN_008f5f70
+REF 008f75e4 FUN_008f5f70
+REF 008f7616 FUN_008f5f70
+REF 008f7655 FUN_008f5f70
+REF 008f767e FUN_008f5f70
+REF 008f76ba FUN_008f5f70
+REF 008f7718 FUN_008f5f70
+REF 008f774e FUN_008f5f70
+REF 008f778a FUN_008f5f70
+REF 008f77b7 FUN_008f5f70
+REF 008f7856 FUN_008f5f70
+REF 008f7883 FUN_008f5f70
+REF 008f78a3 FUN_008f5f70
+REF 008f78f8 FUN_008f5f70
+REF 008f7a8c FUN_008f5f70
+REF 008f7b03 FUN_008f5f70
+REF 008f7b86 FUN_008f5f70
+REF 008f7c06 FUN_008f5f70
+REF 008f7c2b FUN_008f5f70
+REF 008f7c92 FUN_008f5f70
+REF 008f7cc8 FUN_008f5f70
+REF 008f7d32 FUN_008f5f70
+REF 008f7d4d FUN_008f5f70
+REF 008f7dbd FUN_008f5f70
+REF 008f7dea FUN_008f5f70
+REF 008f7e4b FUN_008f5f70
+REF 008f7e78 FUN_008f5f70
+REF 008f7ec4 FUN_008f5f70
+REF 008f7f10 FUN_008f5f70
+REF 008f7f35 FUN_008f5f70
+REF 008f7f7a FUN_008f5f70
+REF 008f7f95 FUN_008f5f70
+REF 008f7fcb FUN_008f5f70
+REF 008f800e FUN_008f5f70
+REF 008f8033 FUN_008f5f70
+REF 008f8069 FUN_008f5f70
+REF 008f8084 FUN_008f5f70
+REF 008f80ed FUN_008f5f70
+REF 008f811a FUN_008f5f70
+REF 008f815b FUN_008f5f70
+REF 008f81b5 FUN_008f5f70
+REF 008f81e7 FUN_008f5f70
+REF 008f8226 FUN_008f5f70
+REF 008f824f FUN_008f5f70
+REF 008f828b FUN_008f5f70
+REF 008f82e9 FUN_008f5f70
+REF 008f831f FUN_008f5f70
+REF 008f835b FUN_008f5f70
+REF 008f8388 FUN_008f5f70
+REF 008f83df FUN_008f5f70
+REF 008f842b FUN_008f5f70
+REF 008f8450 FUN_008f5f70
+REF 008f8495 FUN_008f5f70
+REF 008f84b0 FUN_008f5f70
+REF 008f84e6 FUN_008f5f70
+REF 008f8529 FUN_008f5f70
+REF 008f854e FUN_008f5f70
+REF 008f8584 FUN_008f5f70
+REF 008f859f FUN_008f5f70
+REF 008f85de FUN_008f5f70
+REF 008f8638 FUN_008f5f70
+REF 008f866a FUN_008f5f70
+REF 008f86a9 FUN_008f5f70
+REF 008f86d2 FUN_008f5f70
+REF 008f870e FUN_008f5f70
+REF 008f876c FUN_008f5f70
+REF 008f87a2 FUN_008f5f70
+REF 008f87de FUN_008f5f70
+REF 008f880b FUN_008f5f70
+REF 008df2a8 FUN_008dedf0
+REF 008df2f5 FUN_008dedf0
+REF 008df311 FUN_008dedf0
+REF 008df365 FUN_008dedf0
+REF 008df39c FUN_008dedf0
+REF 008df3b8 FUN_008dedf0
+REF 008df3d3 FUN_008dedf0
+REF 008fe94a FUN_008fe0b0
+REF 008fe980 FUN_008fe0b0
+REF 008fea05 FUN_008fe0b0
+REF 008fea3b FUN_008fe0b0
+REF 008a93b3 FUN_008a9300
+REF 008a93d7 FUN_008a9300
+REF 008a942c FUN_008a9300
+REF 008a9450 FUN_008a9300
+REF 008a9496 FUN_008a9300
+REF 008cd0e4 
+REF 008d7f82 
+REF 008d7fa6 
+REF 008d8051 
+REF 008d809f 
+REF 008d80c3 
+REF 008da6b9 
+REF 008da6dd 
+REF 008bb8d7 FUN_008bb880
+REF 008bb8fb FUN_008bb880
+REF 008bb926 FUN_008bb880
+REF 008bb94a FUN_008bb880
+REF 008d5075 
+REF 008bb9cc FUN_008bb980
+REF 008bb9f0 FUN_008bb980
+REF 008bba45 FUN_008bb980
+REF 008bba69 FUN_008bb980
+REF 008bbab4 FUN_008bb980
+REF 008c649f FUN_008c6470
+REF 008cf6ac FUN_008cf640
+REF 008cf6d0 FUN_008cf640
+REF 008cf6fb FUN_008cf640
+REF 008cf71f FUN_008cf640
+REF 008cf74f FUN_008cf640
+REF 008cf773 FUN_008cf640
+REF 008cf79e FUN_008cf640
+REF 008cf7c2 FUN_008cf640
+REF 008d09c3 FUN_008d0980
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+float graphicUiRemapX2(float x)
+
+{
+  return (x * (float)_DAT_00b41d40) / (float)_DAT_00b41d70;
+}
+
+
+
+FUNCTION TOMkpShapeXYWHUV @ 00903bb0
+REF 008c070f TkMn2DrawCrossCursor
+REF 008c080d TkMn2DrawCrossCursor
+REF 008c08f1 TkMn2DrawCrossCursor
+REF 00893782 TOBtlDrawHelpWin
+REF 00893cb3 TOBtlDrawInfoWin
+REF 00893e59 TOBtlDrawInfoWin
+REF 00893f12 TOBtlDrawInfoWin
+REF 00893fd1 TOBtlDrawInfoWin
+REF 00894086 TOBtlDrawInfoWin
+REF 0089414b TOBtlDrawInfoWin
+REF 008941d9 TOBtlDrawInfoWin
+REF 00894279 TOBtlDrawInfoWin
+REF 00894321 TOBtlDrawInfoWin
+REF 008943c9 TOBtlDrawInfoWin
+REF 00894465 TOBtlDrawInfoWin
+REF 00894e0e TOBtlDrawInfoWinElementLamp
+REF 00894eac TOBtlDrawInfoWinElementLamp
+REF 00894f52 TOBtlDrawInfoWinElementLamp
+REF 00894ff8 TOBtlDrawInfoWinElementLamp
+REF 00895094 TOBtlDrawInfoWinElementLamp
+REF 00897390 TOBtlDrawTidusLimitWindow
+REF 0089c011 _TOBtlDrawLibraLeft
+REF 0089c135 _TOBtlDrawLibraLeft
+REF 0089c307 _TOBtlDrawLibraLeft
+REF 0089c3e1 _TOBtlDrawLibraLeft
+REF 0089c55c _TOBtlDrawLibraLeft
+REF 0089c63d _TOBtlDrawLibraLeft
+REF 00895dae TOBtlDrawScanWinElementLamp
+REF 00895e4c TOBtlDrawScanWinElementLamp
+REF 00895ef2 TOBtlDrawScanWinElementLamp
+REF 00895f98 TOBtlDrawScanWinElementLamp
+REF 00896034 TOBtlDrawScanWinElementLamp
+REF 0089da2b __TOBtlDrawSimpleHelpMes
+REF 008a0897 TOBtlDrawCtbWindow
+REF 0089e6bc DrawCrossCtbIcon
+REF 0089e723 DrawCrossCtbIcon
+REF 0089e82c DrawCrossCtbIcon
+REF 0089ea26 DrawCrossCtbIcon
+REF 0089eb52 DrawCrossCtbIcon
+REF 0089ebe6 DrawCrossCtbIcon
+REF 008a1ce0 TODrawLimitBG
+REF 008a1d55 TODrawLimitBG
+REF 008a1dce TODrawLimitBG
+REF 008f42e4 TODrawBtlNetWindowXYWHType
+REF 008f43fa TODrawBtlNetWindowXYWHType
+REF 008f4506 TODrawBtlNetWindowXYWHType
+REF 008f4608 TODrawBtlNetWindowXYWHType
+REF 008f4724 TODrawBtlNetWindowXYWHType
+REF 008f4822 TODrawBtlNetWindowXYWHType
+REF 008f493e TODrawBtlNetWindowXYWHType
+REF 008f4a4d TODrawBtlNetWindowXYWHType
+REF 008f4b0e TODrawBtlNetWindowXYWHType
+REF 008fec29 TOMakePktShapeCursor
+REF 0090139b TOMkpBtlLimitSpecialGauge
+REF 009013fe TOMkpBtlLimitSpecialGauge
+REF 00901475 TOMkpBtlLimitSpecialGauge
+REF 00892c88 TOBtlDrawCrossParamPlate
+REF 00892e27 TOBtlDrawCrossParamPlate
+REF 00892fe3 TOBtlDrawCrossParamPlate
+REF 008a1e50 FUN_008a1de0
+REF 008a1ec5 FUN_008a1de0
+REF 008a1f3a FUN_008a1de0
+REF 008a1faf FUN_008a1de0
+REF 008a4310 __TODrawWaitBtlWinLeft
+REF 008a608b __TODrawWaitBtlWinMain
+REF 008a7403 __TODrawWaitBtlWinRight
+REF 008ba2c6 FUN_008ba260
+REF 008c0a5f FUN_008c09f0
+REF 008c0ad9 FUN_008c09f0
+REF 008bc44e FUN_008bc300
+REF 008bc6e9 FUN_008bc300
+REF 008bc847 FUN_008bc300
+REF 008bc93f FUN_008bc300
+REF 008bc9c6 FUN_008bc300
+REF 008bca57 FUN_008bc300
+REF 008bcb43 FUN_008bc300
+REF 008bccb3 FUN_008bc300
+REF 008bceee FUN_008bc300
+REF 008bcfa9 FUN_008bc300
+REF 008bf32b FUN_008bf140
+REF 008bf3b9 FUN_008bf140
+REF 008bf447 FUN_008bf140
+REF 008bf86e FUN_008bf800
+REF 008bfaca FUN_008bfa40
+REF 008bfc8b FUN_008bfa40
+REF 008bfd0f FUN_008bfa40
+REF 008bfdc1 FUN_008bfa40
+REF 008bfe62 FUN_008bfa40
+REF 008bff11 FUN_008bfa40
+REF 008bffb0 FUN_008bfa40
+REF 008c007f FUN_008bfa40
+REF 008c014e FUN_008bfa40
+REF 008c020d FUN_008bfa40
+REF 008c0629 FUN_008c0550
+REF 008f0c59 FUN_008f0a70
+REF 008f0d54 FUN_008f0a70
+REF 008f0e30 FUN_008f0a70
+REF 008f0eb0 FUN_008f0a70
+REF 008f0f30 FUN_008f0a70
+REF 008f0f9a FUN_008f0a70
+REF 008f1008 FUN_008f0a70
+REF 008f5270 FUN_008f51e0
+REF 008f54d5 FUN_008f51e0
+REF 008f5617 FUN_008f51e0
+REF 008f5739 FUN_008f51e0
+REF 008f5829 FUN_008f51e0
+REF 008f58fe FUN_008f51e0
+REF 008f59a1 FUN_008f51e0
+REF 008c1458 FUN_008c13b0
+REF 008c1564 FUN_008c1470
+REF 008f2121 FUN_008f20c0
+REF 008f2988 FUN_008f27b0
+REF 008f2a88 FUN_008f27b0
+REF 008c1d4c FUN_008c1c70
+REF 008c1dda FUN_008c1c70
+REF 008c1e68 FUN_008c1c70
+REF 008c1ef6 FUN_008c1c70
+REF 008f9cb7 FUN_008f9c20
+REF 008f9d9a FUN_008f9c20
+REF 008f9fe4 FUN_008f9c20
+REF 008fa057 FUN_008f9c20
+REF 008fa0e3 FUN_008f9c20
+REF 008fa168 FUN_008f9c20
+REF 008fa1f1 FUN_008f9c20
+REF 008fa274 FUN_008f9c20
+REF 008fa311 FUN_008f9c20
+REF 008fa3ae FUN_008f9c20
+REF 008fa43c FUN_008f9c20
+REF 008c3e6f FUN_008c3ce0
+REF 008c41e5 FUN_008c4010
+REF 008c7d83 FUN_008c7c00
+REF 008e7246 FUN_008e71d0
+REF 008e72b2 FUN_008e71d0
+REF 008e7460 FUN_008e71d0
+REF 008e7538 FUN_008e71d0
+REF 008e75b1 FUN_008e71d0
+REF 008c837b FUN_008c8080
+REF 008c850f FUN_008c8080
+REF 008f5c4e FUN_008f5c10
+REF 008ce07f FUN_008cdb70
+REF 008ff52c FUN_008ff490
+REF 008ff791 FUN_008ff490
+REF 008ff80d FUN_008ff490
+REF 008ff86e FUN_008ff490
+REF 008ff8e7 FUN_008ff490
+REF 008ffc67 FUN_008ff490
+REF 008ffd85 FUN_008ff490
+REF 008ffe94 FUN_008ff490
+REF 008fff1b FUN_008ff490
+REF 008fffac FUN_008ff490
+REF 00900098 FUN_008ff490
+REF 009001c7 FUN_008ff490
+REF 009004c5 FUN_008ff490
+REF 00900568 FUN_008ff490
+REF 009005f6 FUN_008ff490
+REF 0090067d FUN_008ff490
+REF 0090070e FUN_008ff490
+REF 009007f4 FUN_008ff490
+REF 0090089a FUN_008ff490
+REF 008e6f62 FUN_008e6e10
+REF 008e707e FUN_008e6e10
+REF 008ce1ee FUN_008ce100
+REF 008d2305 FUN_008d2240
+REF 008d237e FUN_008d2240
+REF 008d5406 FUN_008d5150
+REF 008da1ab FUN_008da020
+REF 008e0d3d +TkMenuDrawMain
+REF 008e10b4 +TkMenuDrawMain
+REF 008e11d0 +TkMenuDrawMain
+REF 008e12d0 +TkMenuDrawMain
+REF 008e1361 +TkMenuDrawMain
+REF 008e144d +TkMenuDrawMain
+REF 008e188c +TkMenuDrawMain
+REF 008e2ce0 FUN_008e2b60
+REF 008e31c4 FUN_008e2f80
+REF 008e403a FUN_008e3cf0
+REF 008ff362 FUN_008ff260
+REF 008e442d FUN_008e4140
+REF 008f138c FUN_008f11b0
+REF 008f1487 FUN_008f11b0
+REF 008f169f FUN_008f11b0
+REF 008f172b FUN_008f11b0
+REF 008fe45d FUN_008fe0b0
+REF 00900a90 FUN_009008c0
+REF 00900b8b FUN_009008c0
+REF 00900c67 FUN_009008c0
+REF 00900ce7 FUN_009008c0
+REF 00900d67 FUN_009008c0
+REF 00900dd1 FUN_009008c0
+REF 00900e3f FUN_009008c0
+REF 00894b6d TOBtlDrawInfoWinElementLamp
+REF 00894c13 TOBtlDrawInfoWinElementLamp
+REF 00894cb9 TOBtlDrawInfoWinElementLamp
+REF 00894d5f TOBtlDrawInfoWinElementLamp
+REF 00895b0d TOBtlDrawScanWinElementLamp
+REF 00895bb3 TOBtlDrawScanWinElementLamp
+REF 00895c59 TOBtlDrawScanWinElementLamp
+REF 00895cff TOBtlDrawScanWinElementLamp
+REF 008964ec TOBtlDrawStatusWin
+REF 008966e0 TOBtlDrawStatusWin
+REF 00896862 TOBtlDrawStatusWin
+REF 00896970 TOBtlDrawStatusWin
+REF 00896b02 TOBtlDrawStatusWin
+REF 00896cbf TOBtlDrawStatusWin
+REF 00896e51 TOBtlDrawStatusWin
+REF 0089700e TOBtlDrawStatusWin
+REF 008f71e3 FUN_008f5f70
+REF 008f7aa9 FUN_008f5f70
+REF 008f7b32 FUN_008f5f70
+REF 008f7bb5 FUN_008f5f70
+REF 008f7c41 FUN_008f5f70
+REF 008f7cde FUN_008f5f70
+REF 008f7d63 FUN_008f5f70
+REF 008f7e00 FUN_008f5f70
+REF 008a945a FUN_008a9300
+REF 008d7fb0 
+REF 008bba73 FUN_008bb980
+
+/* WARNING: Function: __security_check_cookie replaced with injection: alloca_probe */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void TOMkpShapeXYWHUV(uint param_1,float param_2,float param_3,float param_4,float param_5,
+                     float param_6,float param_7,float param_8,float param_9)
+
+{
+  double dVar1;
+  int iVar2;
+  undefined4 uVar3;
+  float local_c8;
+  float local_c4;
+  float local_c0;
+  float local_bc;
+  float local_b8;
+  float local_b4;
+  float local_b0;
+  float local_ac;
+  float local_a8;
+  float local_a4;
+  float local_a0;
+  float local_9c;
+  float local_98;
+  float local_94;
+  undefined4 local_90;
+  undefined4 local_8c;
+  undefined4 local_88;
+  undefined4 local_84;
+  float local_80;
+  float local_7c;
+  float local_78;
+  float local_74;
+  undefined4 local_70;
+  undefined4 local_6c;
+  undefined4 local_68;
+  undefined4 local_64;
+  undefined4 local_18;
+  undefined4 local_10;
+  undefined4 local_c;
+  uint local_8;
+  
+  local_8 = DAT_00c613d8 ^ (uint)&stack0xfffffffc;
+  local_ac = param_2;
+  local_b0 = param_3;
+  local_a4 = param_4 + param_2;
+  local_a8 = param_3 + param_5;
+  local_10 = 0;
+  local_c = 0;
+  iVar2 = BeginScissor_XYUV(&local_ac,&local_b0,&local_a4,&local_a8,&param_6,&param_7,&param_8,
+                            &param_9);
+  if (iVar2 == 0) {
+    return;
+  }
+  if (param_1 == 0xffffffff) {
+    TOGetImageWH(16000,&local_c0,&local_b8);
+    param_6 = param_6 / local_c0;
+    param_8 = param_8 / local_c0;
+    param_7 = param_7 / local_b8;
+    param_9 = param_9 / local_b8;
+    local_b4 = (float)TOGetShapTextureName(16000);
+    goto LAB_00903e21;
+  }
+  if (param_1 == 0xfffffffe) {
+    uVar3 = 0x3e82;
+    param_6 = param_6 * (float)_DAT_00b58590;
+    param_8 = (float)_DAT_00b58590 * param_8;
+    dVar1 = _DAT_00b58b50;
+  }
+  else {
+    if (param_1 == 0xfffffffd) {
+      TOGetImageWH(0x3e83,&local_c8,&local_c4);
+      param_6 = param_6 / local_c8;
+      param_8 = param_8 / local_c8;
+      param_7 = param_7 / local_c4;
+      param_9 = param_9 / local_c4;
+      local_b4 = (float)TOGetShapTextureName(0x3e83);
+      goto LAB_00903e21;
+    }
+    if (param_1 == 0xfffffffa) {
+      TOGetImageWH(0x3e86,&local_bc,&local_b4);
+      param_6 = param_6 / local_bc;
+      param_8 = param_8 / local_bc;
+      param_7 = param_7 / local_b4;
+      param_9 = param_9 / local_b4;
+      local_b4 = (float)TOGetShapTextureName(0x3e86);
+      goto LAB_00903e21;
+    }
+    if (param_1 < 199) {
+      local_b4 = (float)TOGetShapTextureName(0x3e00);
+    }
+    if (param_1 - 200 < 199) {
+      local_b4 = (float)TOGetShapTextureName(0x3e00);
+    }
+    if (param_1 - 400 < 199) {
+      local_b4 = (float)TOGetShapTextureName(0x3f00);
+    }
+    if (0x31 < param_1 - 600) goto LAB_00903e21;
+    uVar3 = 0x3dc0;
+    param_6 = param_6 * (float)_DAT_00b58b50;
+    param_8 = (float)_DAT_00b58b50 * param_8;
+    dVar1 = _DAT_00b41cc8;
+  }
+  param_7 = param_7 * (float)dVar1;
+  param_9 = (float)dVar1 * param_9;
+  local_b4 = (float)TOGetShapTextureName(uVar3);
+LAB_00903e21:
+  local_a0 = local_ac;
+  local_9c = local_b0;
+  local_98 = param_6;
+  local_18 = 0;
+  local_94 = param_7;
+  local_90 = 0x80;
+  local_8c = 0x80;
+  local_80 = local_a4;
+  local_88 = 0x80;
+  local_84 = 0x80;
+  local_7c = local_a8;
+  local_70 = 0x80;
+  local_6c = 0x80;
+  local_78 = param_8;
+  local_68 = 0x80;
+  local_64 = 0x80;
+  local_74 = param_9;
+  graphicDrawUIElement(&local_a0,local_b4,1,0,0);
+  return;
+}
+
+
+
+FUNCTION ToMakeBtlEasyEdgeDigitRight @ 00905890
+REF 00892eb9 TOBtlDrawCrossParamPlate
+REF 00893041 TOBtlDrawCrossParamPlate
+REF 00896737 TOBtlDrawStatusWin
+REF 008968ba TOBtlDrawStatusWin
+REF 00896b59 TOBtlDrawStatusWin
+REF 00896c09 TOBtlDrawStatusWin
+REF 00896ea8 TOBtlDrawStatusWin
+REF 00896f58 TOBtlDrawStatusWin
+
+void ToMakeBtlEasyEdgeDigitRight
+               (float param_1,float param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5
+               ,undefined4 param_6)
+
+{
+  float fVar1;
+  float fVar2;
+  int iVar3;
+  
+  fVar1 = param_1;
+  iVar3 = 0;
+  fVar2 = param_1;
+  if (param_1 == 0.0) {
+    iVar3 = 1;
+  }
+  else {
+    do {
+      iVar3 = iVar3 + 1;
+      fVar2 = (float)((((int)fVar2 / 10) * 10) / 10);
+    } while (fVar2 != 0.0);
+  }
+  ToGetBtlEasyDigitWidth(iVar3,param_1,&param_1,param_5,param_6);
+  param_1 = param_2 - param_1;
+  FUN_009057c0(iVar3,fVar1,param_1,param_3,param_4,param_5,param_6);
+  return;
+}
+
+
+
+FUNCTION MsGetRamChrMPmax @ 0079ae80
+REF 0078c3c6 FUN_0078c330
+REF 00892130 TOBtlCtrlStatusWin
+REF 00897644 FUN_00897640
+REF 00896f4f TOBtlDrawStatusWin
+REF 007b2e68 MsGetChrStatInfo
+
+int MsGetRamChrMPmax(int chr_id)
+
+{
+  Chr *chr;
+  
+  chr = MsGetChr(chr_id);
+  return (chr->ram).max_mp;
+}
+
+
+
+FUNCTION MsMenuGetText @ 0078fd40
+REF 00860a0e FUN_00860a00
+REF 008bedae FUN_008beda0
+REF 00787568 setDefaultPlayerName
+REF 007875b9 setDefaultPlayerName
+REF 0078f94b MsGetRomBtlText
+REF 0078fbbb MsMenuGetBtlEndText
+REF 007902cb FUN_007902c0
+REF 008de06e TkMenuSaveMes
+REF 0089a849 TOBtlSetTargetHelpMes
+REF 0089a86b TOBtlSetTargetHelpMes
+REF 0089a88d TOBtlSetTargetHelpMes
+REF 0089520b TOBtlDrawInfoWinStatus
+REF 0089c6a7 _TOBtlDrawLibraLeft
+REF 008ddf6e FUN_008ddf60
+REF 0086072e FUN_00860720
+REF 00893598 TOBtlDrawGetLimitTypeMessageWindow
+REF 008f36f3 TOBtlDrawWeaponAbilityWindow
+REF 008bee0e FUN_008bee00
+REF 008bea4e FUN_008bea40
+REF 008bea8e FUN_008bea80
+REF 008beace FUN_008beac0
+REF 008bec8e FUN_008bec80
+REF 008becce FUN_008becc0
+REF 008bed0e FUN_008bed00
+REF 008bed4e FUN_008bed40
+REF 008bee4e FUN_008bee40
+REF 008bee8e FUN_008bee80
+REF 008bf12e FUN_008bf120
+REF 008ddf2e FUN_008ddf20
+REF 008dc99e FUN_008dc990
+REF 008de16e FUN_008de160
+REF 008de12e FUN_008de120
+REF 008ddfae FUN_008ddfa0
+REF 008dc8fe FUN_008dc8f0
+REF 008dc93e FUN_008dc930
+REF 008ddfee FUN_008ddfe0
+REF 008de02e FUN_008de020
+REF 00a54ef8 eiAbmStart
+REF 00a54f85 eiAbmStart
+REF 00a5519a eiAbmStart
+REF 00a552f3 eiAbmStart
+REF 00a55380 eiAbmStart
+REF 00a5540d eiAbmStart
+REF 00a5549a eiAbmStart
+REF 00a55527 eiAbmStart
+REF 00a555b4 eiAbmStart
+REF 00a55641 eiAbmStart
+REF 00a556ce eiAbmStart
+REF 00a5575b eiAbmStart
+REF 00a557e8 eiAbmStart
+REF 00a55c92 eiAbmStart
+REF 00a55dd7 eiAbmStart
+REF 00a55ee6 eiAbmStart
+REF 00a55f6f eiAbmStart
+REF 00a5aaad FUN_00a5aa30
+REF 00a5ab2b FUN_00a5aa30
+REF 00a567e1 FUN_00a567d0
+REF 00a56fd1 FUN_00a56fc0
+REF 00a5a6af FUN_00a5a640
+REF 00897111 TOBtlDrawStatusWin
+REF 0085818e 
+
+byte * MsMenuGetText(int param_1,uint param_2,uint param_3)
+
+{
+  int iVar1;
+  ExcelFile *excel;
+  uint idx;
+  byte *pbVar2;
+  char *pcVar3;
+  uint *out_data_end;
+  
+  pcVar3 = &DAT_011333f0 + param_1 * 0xc;
+  pbVar2 = (byte *)0x0;
+  idx = param_2 & 0xfff;
+  iVar1 = get_ptr32_func(*(undefined4 *)(&DAT_011333f8 + param_1 * 0xc));
+  if (iVar1 == 0) {
+    return (byte *)0x0;
+  }
+  if (*pcVar3 != '\0') {
+    return (byte *)0x0;
+  }
+  switch(param_1) {
+  case 0:
+  case 1:
+  case 2:
+  case 4:
+  case 5:
+  case 6:
+  case 8:
+  case 10:
+  case 0xb:
+  case 0xc:
+  case 0xd:
+    goto switchD_0078fd82_caseD_0;
+  case 3:
+  case 0x10:
+    iVar1 = MsGetSaveConfigEnglish();
+    if (iVar1 == 1) {
+      pcVar3 = &DAT_011334b0;
+    }
+    break;
+  case 7:
+  case 0xe:
+    iVar1 = MsGetSaveConfigEnglish();
+    if (iVar1 == 1) {
+      pcVar3 = (char *)0x1133498;
+    }
+    break;
+  case 9:
+  case 0xf:
+    iVar1 = MsGetSaveConfigEnglish();
+    if (iVar1 == 1) {
+      pcVar3 = (char *)0x11334a4;
+    }
+    break;
+  default:
+    goto switchD_0078fd82_default;
+  }
+  iVar1 = get_ptr32_func(*(undefined4 *)(pcVar3 + 8));
+  if ((iVar1 != 0) && (*pcVar3 == '\0')) {
+switchD_0078fd82_caseD_0:
+    out_data_end = &param_2;
+    excel = (ExcelFile *)get_ptr32_func(*(undefined4 *)(pcVar3 + 8));
+    iVar1 = MsGetExcelData(idx,excel,out_data_end);
+    pbVar2 = (byte *)(*(ushort *)(iVar1 + (param_3 & 1) * 4) + param_2);
+  }
+switchD_0078fd82_default:
+  return pbVar2;
+}
+
+
+
+FUNCTION TOMakePktScissor @ 008fdee0
+REF 008abf86 FUN_008abee0
+REF 008abfba FUN_008abee0
+REF 008ac075 FUN_008abee0
+REF 008abd28 TODrawMessageWindow
+REF 008abdb8 TODrawMessageWindow
+REF 0089b2f5 TODrawBtlWindow
+REF 00893358 TOBtlDrawEnemyLimit
+REF 008963d7 TOBtlDrawStatusWin
+REF 008a0924 TOBtlDrawCtbWindow
+REF 008abe32 TODrawMessageWindowForMenu
+REF 008abeb5 TODrawMessageWindowForMenu
+REF 0089dc64 FUN_0089dc20
+REF 0089e1ef FUN_0089e1d0
+REF 0089fe93 TOBtlDrawCommandWindow
+REF 008a3479 __TODrawWaitBtlWinInputGil
+REF 008a6633 __TODrawWaitBtlWinMain
+REF 008b37b5 FUN_008b3780
+REF 008b4a1e FUN_008b4a00
+REF 008b9f04 FUN_008b9ef0
+REF 008ba249 FUN_008b9ef0
+REF 008deec7 FUN_008dedf0
+REF 008fc671 FUN_008fc660
+REF 00907293 FUN_00907210
+REF 00907cb2 
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void TOMakePktScissor(int param_1,int param_2,int param_3,int param_4)
+
+{
+  DAT_01871690 = 1;
+  DAT_01871694 = 0;
+  _DAT_018716b8 = (float)param_1;
+  _DAT_018716bc = (float)param_2;
+  _DAT_018716c0 = (float)param_3;
+  _DAT_018716c4 = (float)param_4;
+  return;
+}
+
+
+
+FUNCTION MsGetRamChrName @ 0079af20
+REF 0089a8c0 TOBtlSetTargetHelpMes
+REF 0089befa _TOBtlDrawLibraLeft
+REF 0089bf88 _TOBtlDrawLibraLeft
+REF 008ac80d TOGetSaveChrName
+REF 008927f1 TOBtlDrawCaptureMonsterMessageWindow
+REF 0079a4f5 MsGetComData
+REF 008965ac TOBtlDrawStatusWin
+REF 008969ce TOBtlDrawStatusWin
+REF 00896d1d TOBtlDrawStatusWin
+REF 0089706c TOBtlDrawStatusWin
+
+byte * MsGetRamChrName(int chr_id)
+
+{
+  Chr *chr;
+  
+  chr = MsGetChr(chr_id);
+  return (chr->ram).name;
+}
+
+
+
+FUNCTION TOMkpCrossEasyStrFontSClut @ 00901660
+REF 00893d63 TOBtlDrawInfoWin
+REF 008bcd1d FUN_008bc300
+REF 008f0ccb FUN_008f0a70
+REF 008f0dc4 FUN_008f0a70
+REF 008f5696 FUN_008f51e0
+REF 008f57b8 FUN_008f51e0
+REF 008f29fb FUN_008f27b0
+REF 008f2af7 FUN_008f27b0
+REF 008c860a FUN_008c8080
+REF 008ffce2 FUN_008ff490
+REF 008ffdfa FUN_008ff490
+REF 008e6fdb FUN_008e6e10
+REF 008e70f7 FUN_008e6e10
+REF 008e112d +TkMenuDrawMain
+REF 008e1249 +TkMenuDrawMain
+REF 008f13fe FUN_008f11b0
+REF 008f14f7 FUN_008f11b0
+REF 00900b02 FUN_009008c0
+REF 00900bfb FUN_009008c0
+REF 00896bad TOBtlDrawStatusWin
+REF 00896efc TOBtlDrawStatusWin
+
+void TOMkpCrossEasyStrFontSClut
+               (undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+               undefined4 param_5,undefined4 param_6)
+
+{
+  TOAdpCrossEasyStrFontSClutRGBA
+            (param_1,param_2,param_3,param_4,0x80,0x80,0x80,0x80,param_5,param_6);
+  return;
+}
+
+
+
+FUNCTION TOGetFFXLang @ 008ac2a0
+REF 00646ac0 FUN_00646ac0
+REF 00784ac2 MsDebugFullItem
+REF 00784b33 MsDebugFullItem
+REF 00786e2c MsSetSaveStartGame
+REF 00874c7d getEventLocTexListPath
+REF 008ad4c3 FUN_008ad480
+REF 008ad4d2 FUN_008ad480
+REF 008ad4fe FUN_008ad480
+REF 008ad508 FUN_008ad480
+REF 008ad511 FUN_008ad480
+REF 008ad547 FUN_008ad480
+REF 008ad551 FUN_008ad480
+REF 008ad55a FUN_008ad480
+REF 008ad586 FUN_008ad480
+REF 008ad594 FUN_008ad480
+REF 008ad59e FUN_008ad480
+REF 008ad807 TOInitEventFontPath
+REF 008b39f0 FUN_008b39f0
+REF 006460e3 ConvertGameCodeToUTF8
+REF 008b3eda FUN_008b3e10
+REF 008b43ab FUN_008b4390
+REF 00640445 graphicFieldMapLoad
+REF 00685097 FUN_00685090
+REF 006850d5 FUN_00685090
+REF 0067d005 LoadSaMenuTexture
+REF 0067d0e2 LoadSaMenuTexture
+REF 0067d16d LoadSaMenuTexture
+REF 006623b7 isVFXTextureLoaded
+REF 0067f3fc UnloadSaMenuTexture
+REF 0067eff3 UnloadEternalCalmCopyRightTexture
+REF 008c4e68 FUN_008c4e40
+REF 008c4e9a FUN_008c4e40
+REF 008c4ea3 FUN_008c4e40
+REF 008c4ead FUN_008c4e40
+REF 008c52fb FUN_008c52f0
+REF 008b720a TOGetFontInfo
+REF 008b7231 TOGetFontInfo
+REF 008b7251 TOGetFontInfo
+REF 008b72de TOGetFontInfo
+REF 008b72f0 TOGetFontInfo
+REF 008b72f9 TOGetFontInfo
+REF 008b7473 TOGetFontInfo
+REF 008b7485 TOGetFontInfo
+REF 008b748e TOGetFontInfo
+REF 008b758d TOGetFontInfo
+REF 008b759f TOGetFontInfo
+REF 008b75a8 TOGetFontInfo
+REF 008b7693 TOGetFontInfo
+REF 008b76a5 TOGetFontInfo
+REF 008b76ae TOGetFontInfo
+REF 008b775b TOGetFontInfo
+REF 008b776d TOGetFontInfo
+REF 008b7776 TOGetFontInfo
+REF 008ac710 TOGetInternationalBaseDicType
+REF 008ac719 TOGetInternationalBaseDicType
+REF 008ac723 TOGetInternationalBaseDicType
+REF 008b5713 FUN_008b5710
+REF 008fa5d6 TOGetFontSpaceInPiexl
+REF 008fa5df TOGetFontSpaceInPiexl
+REF 008ad11d TOGetTextureName
+REF 00702b93 FUN_00702b60
+REF 00787433 FUN_00787430
+REF 00787450 FUN_00787450
+REF 007747bf FUN_00774790
+REF 00775c2c FUN_00775b30
+REF 00775c9c FUN_00775b30
+REF 00775cdb FUN_00775b30
+REF 00775d18 FUN_00775b30
+REF 00775d47 FUN_00775b30
+REF 00775d7e FUN_00775b30
+REF 00775da7 FUN_00775b30
+REF 008ac9d6 TOGetShapTextureName
+REF 008b103c TOTransTexture
+REF 008b82e3 TOIntToMes
+REF 008b82fa TOIntToMes
+REF 008b8304 TOIntToMes
+REF 00787543 setDefaultPlayerName
+REF 0078758e setDefaultPlayerName
+REF 007875df setDefaultPlayerName
+REF 0078b944 FUN_0078b820
+REF 0078beee +DmgCalc_Bribe
+REF 00799223 MsGetItem
+REF 00799327 MsGetItem
+REF 007903b3 FUN_00790390
+REF 007903d0 FUN_00790390
+REF 00799449 msFieldItemGet
+REF 0089b0d5 FUN_0089b0b0
+REF 0089b0df FUN_0089b0b0
+REF 00787460 FUN_00787460
+REF 0089a8f9 TOBtlSetTargetHelpMes
+REF 0089a925 TOBtlSetTargetHelpMes
+REF 0089a92f TOBtlSetTargetHelpMes
+REF 008aa8f7 FUN_008aa730
+REF 008aa932 FUN_008aa730
+REF 008aa94f FUN_008aa730
+REF 008aa965 FUN_008aa730
+REF 00893b90 TOBtlDrawInfoWin
+REF 00895321 TOBtlDrawLibraWindow
+REF 0089bbf7 ToDrawLibraWin
+REF 0089be14 ToDrawLibraWin
+REF 0089c019 _TOBtlDrawLibraLeft
+REF 0089c235 _TOBtlDrawLibraLeft
+REF 0089c30f _TOBtlDrawLibraLeft
+REF 0089c564 _TOBtlDrawLibraLeft
+REF 008b1148 FUN_008b1140
+REF 008b931f _TOGetFontWidth
+REF 008ec347 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec350 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec365 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec380 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec38a TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec3ab TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec3b4 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec3c6 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec3de TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec3e8 TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec55a TOAdpCrossEasyStrFontSClutRGBA
+REF 008ec567 TOAdpCrossEasyStrFontSClutRGBA
+REF 00904b52 ToDrawEternalCalmCopyRight
+REF 008b9174 TOValueToMesFontL
+REF 008b918b TOValueToMesFontL
+REF 008b9195 TOValueToMesFontL
+REF 00857fda FUN_00857f60
+REF 00857fe4 FUN_00857f60
+REF 0085800e FUN_00857f60
+REF 008ac818 TOGetSaveChrName
+REF 0085caec FUN_0085cac0
+REF 00892cf5 TOBtlDrawCrossParamPlate
+REF 00892ec1 TOBtlDrawCrossParamPlate
+REF 008ecec2 FUN_008ecea0
+REF 008e7b08 DrawScaleButtonIconRGBA
+REF 008e7cd1 DrawScaleButtonIconRGBA
+REF 008ad747 TOInitBattleFontPath
+REF 008b48f4 FUN_008b48d0
+REF 008b4980 FUN_008b48d0
+REF 008b4c5a FUN_008b4b20
+REF 008b4ca4 FUN_008b4b20
+REF 008e1aea FUN_008e19f0
+REF 008e1af3 FUN_008e19f0
+REF 008e1ba6 FUN_008e19f0
+REF 008e1baf FUN_008e19f0
+REF 008b786b FUN_008b7860
+REF 008b7878 FUN_008b7860
+REF 008b7886 FUN_008b7860
+REF 008b79fa FUN_008b7860
+REF 008b7a6d FUN_008b7860
+REF 008b5680 FUN_008b5680
+REF 008b7bb3 FUN_008b7bb0
+REF 008b7bbc FUN_008b7bb0
+REF 008b7bc6 FUN_008b7bb0
+REF 008c0b00 FUN_008c09f0
+REF 008bc752 FUN_008bc300
+REF 008bc765 FUN_008bc300
+REF 008bca5f FUN_008bc300
+REF 008bcbe4 FUN_008bc300
+REF 008f5541 FUN_008f51e0
+REF 008f5831 FUN_008f51e0
+REF 008f30d1 FUN_008f30b0
+REF 008c426d FUN_008c4230
+REF 008c4277 FUN_008c4230
+REF 008c42fd FUN_008c4230
+REF 008c4343 FUN_008c4230
+REF 008c343d FUN_008c33d0
+REF 008c3485 FUN_008c33d0
+REF 008c4fc0 FUN_008c4fc0
+REF 008c5150 FUN_008c5150
+REF 008c5173 FUN_008c5150
+REF 008c517d FUN_008c5150
+REF 008c5187 FUN_008c5150
+REF 008c5191 FUN_008c5150
+REF 00790320 FUN_00790320
+REF 0079032b FUN_00790320
+REF 008c4541 FUN_008c4530
+REF 008c4561 FUN_008c4530
+REF 008c456b FUN_008c4530
+REF 008c4575 FUN_008c4530
+REF 008c457f FUN_008c4530
+REF 008c4654 FUN_008c4530
+REF 008c465e FUN_008c4530
+REF 008c4668 FUN_008c4530
+REF 008c4f69 FUN_008c4f60
+REF 008c4f87 FUN_008c4f60
+REF 008c4c7f FUN_008c4c70
+REF 008c4ca0 FUN_008c4c70
+REF 008c4caa FUN_008c4c70
+REF 008c4cb4 FUN_008c4c70
+REF 008c4cbe FUN_008c4c70
+REF 008c4d02 FUN_008c4c70
+REF 008c4d0c FUN_008c4c70
+REF 008c4d16 FUN_008c4c70
+REF 008c8383 FUN_008c8080
+REF 008c8a53 FUN_008c8a00
+REF 008ffb91 FUN_008ff490
+REF 008fffb4 FUN_008ff490
+REF 009003f8 FUN_008ff490
+REF 00900716 FUN_008ff490
+REF 008e6e8c FUN_008e6e10
+REF 008de502 FUN_008de350
+REF 008de8bb FUN_008de8a0
+REF 008dfe00 TOGetFFXLang
+REF 008e0fde +TkMenuDrawMain
+REF 008e1369 +TkMenuDrawMain
+REF 00a54b50 eiAbmStart
+REF 00a4c627 FUN_00a4c460
+REF 00a4c668 FUN_00a4c460
+REF 00a45ac3 FUN_00a45ab0
+REF 00a45c95 FUN_00a45ab0
+REF 00a4f446 FUN_00a4f290
+REF 00a4f487 FUN_00a4f290
+REF 008e4b81 FUN_008e4af0
+REF 008e5284 AdjustButtonIconY
+REF 008ecf82 FUN_008ecf60
+REF 008f3191 FUN_008f3170
+REF 008f330d FUN_008f3300
+REF 008f3438 FUN_008f3420
+REF 009065ae FUN_00906420
+REF 009067ad TOConvAlbhedWord
+REF 00906852 TOConvAlbhedWord
+REF 0090685c TOConvAlbhedWord
+REF 00906937 TOConvAlbhedWord
+REF 0090707d FUN_00907060
+REF 0067caa0 FUN_0067caa0
+REF 00682094 FUN_00681db0
+REF 006820ec FUN_00681db0
+REF 006822cc FUN_00681db0
+REF 0068231c FUN_00681db0
+REF 00682571 FUN_00681db0
+REF 0068263f FUN_00681db0
+REF 006826a7 FUN_00681db0
+REF 00682983 FUN_00681db0
+REF 006829cd FUN_00681db0
+REF 00682bcc FUN_00681db0
+REF 00682c1c FUN_00681db0
+REF 0068355c FUN_00681db0
+REF 006835ac FUN_00681db0
+REF 0068372c FUN_00681db0
+REF 0068377c FUN_00681db0
+REF 006839cd FUN_00681db0
+REF 00683ebf FUN_00681db0
+REF 008965bd TOBtlDrawStatusWin
+REF 0089673f TOBtlDrawStatusWin
+REF 008969df TOBtlDrawStatusWin
+REF 00896d2e TOBtlDrawStatusWin
+REF 008ad2f6 TOGetTextureName
+REF 00904c08 FUN_00904ba0
+REF 00904c11 FUN_00904ba0
+REF 008e4c15 FUN_008e4af0
+REF 008e4cc6 FUN_008e4af0
+REF 008e4f78 FUN_008e4e60
+REF 008e4fdf FUN_008e4e60
+REF 008e50b9 FUN_008e4e60
+REF 0076ffc8 FUN_0076f960
+REF 008c3636 FUN_008c3560
+REF 008c399f FUN_008c3560
+REF 008c39a9 FUN_008c3560
+REF 008c39b3 FUN_008c3560
+REF 008c44b3 FUN_008c44b0
+REF 008c44bd FUN_008c44b0
+REF 008c44c7 FUN_008c44b0
+REF 008dfa75 TOSetDrawInfo
+REF 008dfa83 TOSetDrawInfo
+REF 008dfbc8 TOSetDrawInfo
+REF 008c4470 
+REF 008c447a 
+REF 00739b27 pppDrawMdl3
+REF 0073a2e2 pppDrawMdlSemi3
+REF 008cb320 FUN_008cb320
+
+undefined4 TOGetFFXLang(void)
+
+{
+  int iVar1;
+  
+  iVar1 = LocalizationManager::GetInstance();
+  if (iVar1 == 0) {
+    return 0;
+  }
+  iVar1 = LocalizationManager::GetInstance();
+  return *(undefined4 *)(iVar1 + 4);
+}
+
+
+
+FUNCTION MsGetRamChrHPmax @ 0079ae00
+REF 0078c3b8 FUN_0078c330
+REF 00892124 TOBtlCtrlStatusWin
+REF 00899f80 TOBtlSetInfoWinParam
+REF 00893db3 TOBtlDrawInfoWin
+REF 0089c224 _TOBtlDrawLibraLeft
+REF 008959a6 TOBtlDrawParamPlate
+REF 00892e31 TOBtlDrawCrossParamPlate
+REF 0089a0ff FUN_0089a0d0
+REF 00897634 FUN_00897630
+REF 00896c00 TOBtlDrawStatusWin
+REF 007b2e57 MsGetChrStatInfo
+
+int MsGetRamChrHPmax(int chr_id)
+
+{
+  Chr *chr;
+  
+  chr = MsGetChr(chr_id);
+  return (chr->ram).max_hp;
+}
+
+
+
+FUNCTION graphicUiRemapY2 @ 006449d0
+REF 007953c6 MsGetChrLimitBarFlag
+REF 00795476 MsGetChrLimitBarFlag
+REF 00897b7a TOBtlInitInfoWinMes
+REF 00897bac TOBtlInitInfoWinMes
+REF 00897bde TOBtlInitInfoWinMes
+REF 008c06a1 TkMn2DrawCrossCursor
+REF 008c06e0 TkMn2DrawCrossCursor
+REF 008c079f TkMn2DrawCrossCursor
+REF 008c07de TkMn2DrawCrossCursor
+REF 008c0874 TkMn2DrawCrossCursor
+REF 008c08b3 TkMn2DrawCrossCursor
+REF 00898157 TOBtlInitTidusLimitWindow
+REF 00892712 TOBtlDrawAuronLimitWindow
+REF 0089279f TOBtlDrawAuronLimitWindow
+REF 008933d1 TOBtlDrawEnemyLimit
+REF 008936c9 TOBtlDrawHelpWin
+REF 008936ed TOBtlDrawHelpWin
+REF 00893742 TOBtlDrawHelpWin
+REF 00893766 TOBtlDrawHelpWin
+REF 00893841 TOBtlDrawHelpWin
+REF 008938bb TOBtlDrawHelpWin
+REF 0089396f TOBtlDrawHelpWin
+REF 00893a44 TOBtlDrawInfoWin
+REF 00893a8c TOBtlDrawInfoWin
+REF 00893aaa TOBtlDrawInfoWin
+REF 00893acc TOBtlDrawInfoWin
+REF 00893aea TOBtlDrawInfoWin
+REF 00893b0c TOBtlDrawInfoWin
+REF 00893b50 TOBtlDrawInfoWin
+REF 00893bd2 TOBtlDrawInfoWin
+REF 00893bf6 TOBtlDrawInfoWin
+REF 00893c5e TOBtlDrawInfoWin
+REF 00893c82 TOBtlDrawInfoWin
+REF 00893cd9 TOBtlDrawInfoWin
+REF 00893d32 TOBtlDrawInfoWin
+REF 00893d86 TOBtlDrawInfoWin
+REF 00893dcd TOBtlDrawInfoWin
+REF 00893e19 TOBtlDrawInfoWin
+REF 00893e86 TOBtlDrawInfoWin
+REF 00893ed2 TOBtlDrawInfoWin
+REF 00893f3f TOBtlDrawInfoWin
+REF 00893f91 TOBtlDrawInfoWin
+REF 00893ffe TOBtlDrawInfoWin
+REF 00894046 TOBtlDrawInfoWin
+REF 008940f6 TOBtlDrawInfoWin
+REF 0089411a TOBtlDrawInfoWin
+REF 00894184 TOBtlDrawInfoWin
+REF 008941a8 TOBtlDrawInfoWin
+REF 00894224 TOBtlDrawInfoWin
+REF 00894248 TOBtlDrawInfoWin
+REF 008942cc TOBtlDrawInfoWin
+REF 008942f0 TOBtlDrawInfoWin
+REF 00894374 TOBtlDrawInfoWin
+REF 00894398 TOBtlDrawInfoWin
+REF 00894410 TOBtlDrawInfoWin
+REF 00894434 TOBtlDrawInfoWin
+REF 00894477 TOBtlDrawInfoWin
+REF 00894638 TOBtlDrawInfoWin
+REF 00894665 TOBtlDrawInfoWin
+REF 008946cb TOBtlDrawInfoWin
+REF 008946f8 TOBtlDrawInfoWin
+REF 00894db9 TOBtlDrawInfoWinElementLamp
+REF 00894ddd TOBtlDrawInfoWinElementLamp
+REF 00894e57 TOBtlDrawInfoWinElementLamp
+REF 00894e7b TOBtlDrawInfoWinElementLamp
+REF 00894efd TOBtlDrawInfoWinElementLamp
+REF 00894f21 TOBtlDrawInfoWinElementLamp
+REF 00894fa3 TOBtlDrawInfoWinElementLamp
+REF 00894fc7 TOBtlDrawInfoWinElementLamp
+REF 0089503f TOBtlDrawInfoWinElementLamp
+REF 00895063 TOBtlDrawInfoWinElementLamp
+REF 00895334 TOBtlDrawLibraWindow
+REF 0089536b TOBtlDrawLibraWindow
+REF 00895380 TOBtlDrawLibraWindow
+REF 008953b3 TOBtlDrawLibraWindow
+REF 0089556c FUN_00895550
+REF 00895636 TOBtlDrawLuluLimitWindow
+REF 00895685 TOBtlDrawLuluLimitWindow
+REF 00895705 TOBtlDrawLuluLimitWindow
+REF 0089577b TOBtlDrawLuluLimitWindow
+REF 008957c1 TOBtlDrawLuluLimitWindow
+REF 00895863 TOBtlDrawLuluLimitWindow
+REF 008960f7 TOBtlDrawStatusLimitGauge
+REF 00896133 TOBtlDrawStatusLimitGauge
+REF 00896183 TOBtlDrawStatusLimitGauge
+REF 008961bf TOBtlDrawStatusLimitGauge
+REF 00896213 TOBtlDrawStatusLimitGauge
+REF 0089624b TOBtlDrawStatusLimitGauge
+REF 0089629d TOBtlDrawStatusLimitGauge
+REF 008962e7 TOBtlDrawStatusLimitGauge
+REF 0089633f TOBtlDrawStatusLimitGauge
+REF 00896389 TOBtlDrawStatusLimitGauge
+REF 00896426 TOBtlDrawStatusWin
+REF 008971dc TOBtlDrawTidusLimitWindow
+REF 0089720e TOBtlDrawTidusLimitWindow
+REF 00897245 TOBtlDrawTidusLimitWindow
+REF 00897280 TOBtlDrawTidusLimitWindow
+REF 008972b7 TOBtlDrawTidusLimitWindow
+REF 00897344 TOBtlDrawTidusLimitWindow
+REF 00897368 TOBtlDrawTidusLimitWindow
+REF 008973df TOBtlDrawTidusLimitWindow
+REF 0089bd34 ToDrawLibraWin
+REF 0089bd58 ToDrawLibraWin
+REF 0089bdc0 ToDrawLibraWin
+REF 0089bde4 ToDrawLibraWin
+REF 0089be29 ToDrawLibraWin
+REF 0089be4d ToDrawLibraWin
+REF 0089be66 ToDrawLibraWin
+REF 0089be8a ToDrawLibraWin
+REF 0089bf5a _TOBtlDrawLibraLeft
+REF 0089bfc8 _TOBtlDrawLibraLeft
+REF 0089bfec _TOBtlDrawLibraLeft
+REF 0089c05b _TOBtlDrawLibraLeft
+REF 0089c07f _TOBtlDrawLibraLeft
+REF 0089c0e9 _TOBtlDrawLibraLeft
+REF 0089c10d _TOBtlDrawLibraLeft
+REF 0089c15f _TOBtlDrawLibraLeft
+REF 0089c1a4 _TOBtlDrawLibraLeft
+REF 0089c1f9 _TOBtlDrawLibraLeft
+REF 0089c26f _TOBtlDrawLibraLeft
+REF 0089c293 _TOBtlDrawLibraLeft
+REF 0089c2bb _TOBtlDrawLibraLeft
+REF 0089c2df _TOBtlDrawLibraLeft
+REF 0089c349 _TOBtlDrawLibraLeft
+REF 0089c36d _TOBtlDrawLibraLeft
+REF 0089c395 _TOBtlDrawLibraLeft
+REF 0089c3b9 _TOBtlDrawLibraLeft
+REF 0089c40e _TOBtlDrawLibraLeft
+REF 0089c469 _TOBtlDrawLibraLeft
+REF 0089c4c9 _TOBtlDrawLibraLeft
+REF 0089c51c _TOBtlDrawLibraLeft
+REF 0089c5a2 _TOBtlDrawLibraLeft
+REF 0089c5f1 _TOBtlDrawLibraLeft
+REF 0089c615 _TOBtlDrawLibraLeft
+REF 0089c6f2 _TOBtlDrawLibraLeft
+REF 00895d59 TOBtlDrawScanWinElementLamp
+REF 00895d7d TOBtlDrawScanWinElementLamp
+REF 00895df7 TOBtlDrawScanWinElementLamp
+REF 00895e1b TOBtlDrawScanWinElementLamp
+REF 00895e9d TOBtlDrawScanWinElementLamp
+REF 00895ec1 TOBtlDrawScanWinElementLamp
+REF 00895f43 TOBtlDrawScanWinElementLamp
+REF 00895f67 TOBtlDrawScanWinElementLamp
+REF 00895fdf TOBtlDrawScanWinElementLamp
+REF 00896003 TOBtlDrawScanWinElementLamp
+REF 0089c78e FUN_0089c740
+REF 0089d972 __TOBtlDrawSimpleHelpMes
+REF 0089d996 __TOBtlDrawSimpleHelpMes
+REF 0089d9eb __TOBtlDrawSimpleHelpMes
+REF 0089da0f __TOBtlDrawSimpleHelpMes
+REF 0089da8b __TOBtlDrawSimpleHelpMes
+REF 008a054e TOBtlDrawCtbWindow
+REF 008a0570 TOBtlDrawCtbWindow
+REF 008a05a3 TOBtlDrawCtbWindow
+REF 008a05e8 TOBtlDrawCtbWindow
+REF 008a0649 TOBtlDrawCtbWindow
+REF 008a06a3 TOBtlDrawCtbWindow
+REF 008a07c9 TOBtlDrawCtbWindow
+REF 008a083c TOBtlDrawCtbWindow
+REF 008a0860 TOBtlDrawCtbWindow
+REF 008a0972 TOBtlDrawCtbWindow
+REF 008a0a08 TOBtlDrawCtbWindow
+REF 008a0a2c TOBtlDrawCtbWindow
+REF 008a0a91 TOBtlDrawCtbWindow
+REF 008a0ab5 TOBtlDrawCtbWindow
+REF 0089e9d1 DrawCrossCtbIcon
+REF 0089ea5f DrawCrossCtbIcon
+REF 0089ea89 DrawCrossCtbIcon
+REF 0089eafd DrawCrossCtbIcon
+REF 0089eb8b DrawCrossCtbIcon
+REF 0089ebaf DrawCrossCtbIcon
+REF 008a1683 TODrawBtlCtbParts
+REF 008a16f4 TODrawBtlCtbParts
+REF 008a1778 TODrawBtlCtbParts
+REF 008a17f2 TODrawBtlCtbParts
+REF 008a187a TODrawBtlCtbParts
+REF 008a18d5 TODrawBtlCtbParts
+REF 008a1946 TODrawBtlCtbParts
+REF 008a19a3 TODrawBtlCtbParts
+REF 008a1a0b TODrawBtlCtbParts
+REF 008a1a84 TODrawBtlCtbParts
+REF 008a1aec TODrawBtlCtbParts
+REF 008a1b4a TODrawBtlCtbParts
+REF 008a1bb2 TODrawBtlCtbParts
+REF 008a1c0b TODrawBtlCtbParts
+REF 008a1ca0 TODrawLimitBG
+REF 008a1cc4 TODrawLimitBG
+REF 008a1d15 TODrawLimitBG
+REF 008a1d39 TODrawLimitBG
+REF 008a1d8e TODrawLimitBG
+REF 008a1db2 TODrawLimitBG
+REF 008e6cdc DrawCrossMenuScrollParts
+REF 008e6d0e DrawCrossMenuScrollParts
+REF 008e6d7b DrawCrossMenuScrollParts
+REF 008f4219 TODrawBtlNetWindowXYWHType
+REF 008f4304 TODrawBtlNetWindowXYWHType
+REF 008f432f TODrawBtlNetWindowXYWHType
+REF 008f4419 TODrawBtlNetWindowXYWHType
+REF 008f443e TODrawBtlNetWindowXYWHType
+REF 008f454a TODrawBtlNetWindowXYWHType
+REF 008f4632 TODrawBtlNetWindowXYWHType
+REF 008f4660 TODrawBtlNetWindowXYWHType
+REF 008f4764 TODrawBtlNetWindowXYWHType
+REF 008f484c TODrawBtlNetWindowXYWHType
+REF 008f4877 TODrawBtlNetWindowXYWHType
+REF 008f4964 TODrawBtlNetWindowXYWHType
+REF 008f4989 TODrawBtlNetWindowXYWHType
+REF 008f4a73 TODrawBtlNetWindowXYWHType
+REF 008f4aa7 TODrawBtlNetWindowXYWHType
+REF 008fb8f7 TOMakePktBtlDamageNumRGBA
+REF 008feb92 TOMakePktShapeCursor
+REF 008febcb TOMakePktShapeCursor
+REF 00901352 TOMkpBtlLimitSpecialGauge
+REF 009013d4 TOMkpBtlLimitSpecialGauge
+REF 00901437 TOMkpBtlLimitSpecialGauge
+REF 008ec44d TOAdpCrossEasyStrFontSClutRGBA
+REF 009029d5 TOMkpPadButtonData
+REF 00902a2a TOMkpPadButtonData
+REF 00902a83 TOMkpPadButtonData
+REF 00902ad8 TOMkpPadButtonData
+REF 00902b2a TOMkpPadButtonData
+REF 00902b8e TOMkpPadButtonData
+REF 00902be4 TOMkpPadButtonData
+REF 00902c33 TOMkpPadButtonData
+REF 00902c85 TOMkpPadButtonData
+REF 00902cd6 TOMkpPadButtonData
+REF 00902d28 TOMkpPadButtonData
+REF 00902d4c TOMkpPadButtonData
+REF 00902d8c TOMkpPadButtonData
+REF 00902db0 TOMkpPadButtonData
+REF 00902df4 TOMkpPadButtonData
+REF 00902e18 TOMkpPadButtonData
+REF 00902e58 TOMkpPadButtonData
+REF 00902e7c TOMkpPadButtonData
+REF 009031a5 TOMkpRotateShapeXYWHUVC2
+REF 00903212 TOMkpRotateShapeXYWHUVC2
+REF 0090327e TOMkpRotateShapeXYWHUVC2
+REF 009032c4 TOMkpRotateShapeXYWHUVC2
+REF 00892948 TOBtlDrawCrossLimitGauge
+REF 00892984 TOBtlDrawCrossLimitGauge
+REF 008929d4 TOBtlDrawCrossLimitGauge
+REF 00892a10 TOBtlDrawCrossLimitGauge
+REF 00892a64 TOBtlDrawCrossLimitGauge
+REF 00892a9c TOBtlDrawCrossLimitGauge
+REF 00892afb TOBtlDrawCrossLimitGauge
+REF 00892b39 TOBtlDrawCrossLimitGauge
+REF 00892b96 TOBtlDrawCrossLimitGauge
+REF 00892bd4 TOBtlDrawCrossLimitGauge
+REF 00892c5c TOBtlDrawCrossParamPlate
+REF 00892c99 TOBtlDrawCrossParamPlate
+REF 00892cbd TOBtlDrawCrossParamPlate
+REF 00892d4f TOBtlDrawCrossParamPlate
+REF 00892d73 TOBtlDrawCrossParamPlate
+REF 00892dd2 TOBtlDrawCrossParamPlate
+REF 00892df6 TOBtlDrawCrossParamPlate
+REF 00892e8c TOBtlDrawCrossParamPlate
+REF 00892f04 TOBtlDrawCrossParamPlate
+REF 00892f28 TOBtlDrawCrossParamPlate
+REF 00892f8e TOBtlDrawCrossParamPlate
+REF 00892fb2 TOBtlDrawCrossParamPlate
+REF 00893014 TOBtlDrawCrossParamPlate
+REF 008a1e10 FUN_008a1de0
+REF 008a1e34 FUN_008a1de0
+REF 008a1e85 FUN_008a1de0
+REF 008a1ea9 FUN_008a1de0
+REF 008a1efa FUN_008a1de0
+REF 008a1f1e FUN_008a1de0
+REF 008a1f6f FUN_008a1de0
+REF 008a1f93 FUN_008a1de0
+REF 0089f0ae TOBtlDrawChangePrim
+REF 0089f0d2 TOBtlDrawChangePrim
+REF 0089f14f TOBtlDrawChangePrim
+REF 0089f173 TOBtlDrawChangePrim
+REF 0089f1d7 TOBtlDrawChangePrim
+REF 0089f1fb TOBtlDrawChangePrim
+REF 0089f279 TOBtlDrawChangePrim
+REF 0089f2c2 TOBtlDrawChangePrim
+REF 0089f3f8 TOBtlDrawCommandWindow
+REF 0089f446 TOBtlDrawCommandWindow
+REF 0089f592 TOBtlDrawCommandWindow
+REF 0089f5b7 TOBtlDrawCommandWindow
+REF 0089f62b TOBtlDrawCommandWindow
+REF 0089f658 TOBtlDrawCommandWindow
+REF 0089f75f TOBtlDrawCommandWindow
+REF 0089f784 TOBtlDrawCommandWindow
+REF 0089f887 TOBtlDrawCommandWindow
+REF 0089f8b8 TOBtlDrawCommandWindow
+REF 0089f926 TOBtlDrawCommandWindow
+REF 0089f957 TOBtlDrawCommandWindow
+REF 0089f9ef TOBtlDrawCommandWindow
+REF 0089fa20 TOBtlDrawCommandWindow
+REF 0089fa82 TOBtlDrawCommandWindow
+REF 0089fab3 TOBtlDrawCommandWindow
+REF 0089fb42 TOBtlDrawCommandWindow
+REF 0089fb73 TOBtlDrawCommandWindow
+REF 0089fbf7 TOBtlDrawCommandWindow
+REF 0089fc28 TOBtlDrawCommandWindow
+REF 0089fca8 TOBtlDrawCommandWindow
+REF 0089fcd9 TOBtlDrawCommandWindow
+REF 0089fd51 TOBtlDrawCommandWindow
+REF 0089fd82 TOBtlDrawCommandWindow
+REF 0089fe13 TOBtlDrawCommandWindow
+REF 0089fe37 TOBtlDrawCommandWindow
+REF 0089ff92 TOBtlDrawCommandWindow
+REF 008a0b5b TOBtlDrawSummonPrim
+REF 008a0bd0 TOBtlDrawSummonPrim
+REF 008a0c17 TOBtlDrawSummonPrim
+REF 008a2e11 __TODrawWaitBtlWinChange
+REF 008a2e3b __TODrawWaitBtlWinChange
+REF 008a2eee __TODrawWaitBtlWinChange
+REF 008a2f0f __TODrawWaitBtlWinChange
+REF 008a2f37 __TODrawWaitBtlWinChange
+REF 008a2f85 __TODrawWaitBtlWinChange
+REF 008a2fa6 __TODrawWaitBtlWinChange
+REF 008a3168 __TODrawWaitBtlWinChange
+REF 008a318c __TODrawWaitBtlWinChange
+REF 008a31ee __TODrawWaitBtlWinChange
+REF 008a3212 __TODrawWaitBtlWinChange
+REF 008a3339 __TODrawWaitBtlWinInputGil
+REF 008a3378 __TODrawWaitBtlWinInputGil
+REF 008a338f __TODrawWaitBtlWinInputGil
+REF 008a33ef __TODrawWaitBtlWinInputGil
+REF 008e7ae9 DrawScaleButtonIconRGBA
+REF 008e7b8a DrawScaleButtonIconRGBA
+REF 008e7ba4 DrawScaleButtonIconRGBA
+REF 008e7beb DrawScaleButtonIconRGBA
+REF 008e7c44 DrawScaleButtonIconRGBA
+REF 008e7c61 DrawScaleButtonIconRGBA
+REF 008e7cba DrawScaleButtonIconRGBA
+REF 008a36f4 __TODrawWaitBtlWinLeft
+REF 008a371e __TODrawWaitBtlWinLeft
+REF 008a37ec __TODrawWaitBtlWinLeft
+REF 008a383a __TODrawWaitBtlWinLeft
+REF 008a3922 __TODrawWaitBtlWinLeft
+REF 008a394f __TODrawWaitBtlWinLeft
+REF 008a39d7 __TODrawWaitBtlWinLeft
+REF 008a3a04 __TODrawWaitBtlWinLeft
+REF 008a3adf __TODrawWaitBtlWinLeft
+REF 008a3b2d __TODrawWaitBtlWinLeft
+REF 008a3c0f __TODrawWaitBtlWinLeft
+REF 008a3c3c __TODrawWaitBtlWinLeft
+REF 008a3cc4 __TODrawWaitBtlWinLeft
+REF 008a3cf1 __TODrawWaitBtlWinLeft
+REF 008a3e1c __TODrawWaitBtlWinLeft
+REF 008a3e3d __TODrawWaitBtlWinLeft
+REF 008a3eab __TODrawWaitBtlWinLeft
+REF 008a3ecc __TODrawWaitBtlWinLeft
+REF 008a3f46 __TODrawWaitBtlWinLeft
+REF 008a3f67 __TODrawWaitBtlWinLeft
+REF 008a3fc9 __TODrawWaitBtlWinLeft
+REF 008a3fea __TODrawWaitBtlWinLeft
+REF 008a417e __TODrawWaitBtlWinLeft
+REF 008a41a2 __TODrawWaitBtlWinLeft
+REF 008a42c1 __TODrawWaitBtlWinLeft
+REF 008a42eb __TODrawWaitBtlWinLeft
+REF 008a43e2 __TODrawWaitBtlWinLeft
+REF 008a440c __TODrawWaitBtlWinLeft
+REF 008a4509 __TODrawWaitBtlWinLeft
+REF 008a4533 __TODrawWaitBtlWinLeft
+REF 008a461a __TODrawWaitBtlWinLeft
+REF 008a4644 __TODrawWaitBtlWinLeft
+REF 008a472a __TODrawWaitBtlWinLeft
+REF 008a474e __TODrawWaitBtlWinLeft
+REF 008a47b4 __TODrawWaitBtlWinLeft
+REF 008a47d8 __TODrawWaitBtlWinLeft
+REF 008a483e __TODrawWaitBtlWinLeft
+REF 008a4862 __TODrawWaitBtlWinLeft
+REF 008a492a __TODrawWaitBtlWinLeft
+REF 008a4a41 __TODrawWaitBtlWinMain
+REF 008a4a6b __TODrawWaitBtlWinMain
+REF 008a4b39 __TODrawWaitBtlWinMain
+REF 008a4b87 __TODrawWaitBtlWinMain
+REF 008a4c6f __TODrawWaitBtlWinMain
+REF 008a4c9c __TODrawWaitBtlWinMain
+REF 008a4d24 __TODrawWaitBtlWinMain
+REF 008a4d51 __TODrawWaitBtlWinMain
+REF 008a4e9c __TODrawWaitBtlWinMain
+REF 008a4ec0 __TODrawWaitBtlWinMain
+REF 008a4f7b __TODrawWaitBtlWinMain
+REF 008a4f9f __TODrawWaitBtlWinMain
+REF 008a5013 __TODrawWaitBtlWinMain
+REF 008a5037 __TODrawWaitBtlWinMain
+REF 008a5137 __TODrawWaitBtlWinMain
+REF 008a515b __TODrawWaitBtlWinMain
+REF 008a5216 __TODrawWaitBtlWinMain
+REF 008a523a __TODrawWaitBtlWinMain
+REF 008a52ae __TODrawWaitBtlWinMain
+REF 008a52d2 __TODrawWaitBtlWinMain
+REF 008a53de __TODrawWaitBtlWinMain
+REF 008a5402 __TODrawWaitBtlWinMain
+REF 008a549e __TODrawWaitBtlWinMain
+REF 008a54c2 __TODrawWaitBtlWinMain
+REF 008a5572 __TODrawWaitBtlWinMain
+REF 008a5596 __TODrawWaitBtlWinMain
+REF 008a5602 __TODrawWaitBtlWinMain
+REF 008a5626 __TODrawWaitBtlWinMain
+REF 008a56a6 __TODrawWaitBtlWinMain
+REF 008a56ca __TODrawWaitBtlWinMain
+REF 008a572c __TODrawWaitBtlWinMain
+REF 008a5750 __TODrawWaitBtlWinMain
+REF 008a57f4 __TODrawWaitBtlWinMain
+REF 008a5842 __TODrawWaitBtlWinMain
+REF 008a5924 __TODrawWaitBtlWinMain
+REF 008a5951 __TODrawWaitBtlWinMain
+REF 008a59d9 __TODrawWaitBtlWinMain
+REF 008a5a06 __TODrawWaitBtlWinMain
+REF 008a5b31 __TODrawWaitBtlWinMain
+REF 008a5b52 __TODrawWaitBtlWinMain
+REF 008a5bc0 __TODrawWaitBtlWinMain
+REF 008a5be1 __TODrawWaitBtlWinMain
+REF 008a5c5b __TODrawWaitBtlWinMain
+REF 008a5c7c __TODrawWaitBtlWinMain
+REF 008a5cde __TODrawWaitBtlWinMain
+REF 008a5cff __TODrawWaitBtlWinMain
+REF 008a5d7a __TODrawWaitBtlWinMain
+REF 008a5d9e __TODrawWaitBtlWinMain
+REF 008a5ef9 __TODrawWaitBtlWinMain
+REF 008a5f1d __TODrawWaitBtlWinMain
+REF 008a603c __TODrawWaitBtlWinMain
+REF 008a6066 __TODrawWaitBtlWinMain
+REF 008a615d __TODrawWaitBtlWinMain
+REF 008a6187 __TODrawWaitBtlWinMain
+REF 008a6284 __TODrawWaitBtlWinMain
+REF 008a62ae __TODrawWaitBtlWinMain
+REF 008a6395 __TODrawWaitBtlWinMain
+REF 008a63bf __TODrawWaitBtlWinMain
+REF 008a64a5 __TODrawWaitBtlWinMain
+REF 008a64c9 __TODrawWaitBtlWinMain
+REF 008a652f __TODrawWaitBtlWinMain
+REF 008a6553 __TODrawWaitBtlWinMain
+REF 008a65b5 __TODrawWaitBtlWinMain
+REF 008a65d9 __TODrawWaitBtlWinMain
+REF 008a6759 __TODrawWaitBtlWinMain
+REF 008a67e1 __TODrawWaitBtlWinMain
+REF 008a68db __TODrawWaitBtlWinPrepare
+REF 008a69d0 __TODrawWaitBtlWinPrepare
+REF 008a6ae4 __TODrawWaitBtlWinRight
+REF 008a6b0e __TODrawWaitBtlWinRight
+REF 008a6bc5 __TODrawWaitBtlWinRight
+REF 008a6c13 __TODrawWaitBtlWinRight
+REF 008a6cf7 __TODrawWaitBtlWinRight
+REF 008a6d24 __TODrawWaitBtlWinRight
+REF 008a6dac __TODrawWaitBtlWinRight
+REF 008a6dd9 __TODrawWaitBtlWinRight
+REF 008a6efd __TODrawWaitBtlWinRight
+REF 008a6f1e __TODrawWaitBtlWinRight
+REF 008a6f8c __TODrawWaitBtlWinRight
+REF 008a6fad __TODrawWaitBtlWinRight
+REF 008a7027 __TODrawWaitBtlWinRight
+REF 008a7048 __TODrawWaitBtlWinRight
+REF 008a70aa __TODrawWaitBtlWinRight
+REF 008a70cb __TODrawWaitBtlWinRight
+REF 008a72a2 __TODrawWaitBtlWinRight
+REF 008a72c6 __TODrawWaitBtlWinRight
+REF 008a732c __TODrawWaitBtlWinRight
+REF 008a7350 __TODrawWaitBtlWinRight
+REF 008a73b1 __TODrawWaitBtlWinRight
+REF 008a73d5 __TODrawWaitBtlWinRight
+REF 008a74aa __TODrawWaitBtlWinRight
+REF 008a7578 __TODrawWaitBtlWinSub
+REF 008a7651 __TODrawWaitBtlWinSummon
+REF 008a769f __TODrawWaitBtlWinSummon
+REF 008a7783 __TODrawWaitBtlWinSummon
+REF 008a77b0 __TODrawWaitBtlWinSummon
+REF 008a7838 __TODrawWaitBtlWinSummon
+REF 008a7865 __TODrawWaitBtlWinSummon
+REF 008a7989 __TODrawWaitBtlWinSummon
+REF 008a79aa __TODrawWaitBtlWinSummon
+REF 008a7a18 __TODrawWaitBtlWinSummon
+REF 008a7a39 __TODrawWaitBtlWinSummon
+REF 008a7ab3 __TODrawWaitBtlWinSummon
+REF 008a7ad4 __TODrawWaitBtlWinSummon
+REF 008a7b36 __TODrawWaitBtlWinSummon
+REF 008a7b57 __TODrawWaitBtlWinSummon
+REF 008a7c17 __TODrawWaitBtlWinSummon
+REF 008a7c56 __TODrawWaitBtlWinSummon
+REF 008a7c92 __TODrawWaitBtlWinSummon
+REF 008a7d3e __TODrawWaitBtlWinSummon
+REF 008a7e21 __TODrawWaitBtlWinWeapon
+REF 008a7e6f __TODrawWaitBtlWinWeapon
+REF 008a7f53 __TODrawWaitBtlWinWeapon
+REF 008a7f80 __TODrawWaitBtlWinWeapon
+REF 008a8008 __TODrawWaitBtlWinWeapon
+REF 008a8035 __TODrawWaitBtlWinWeapon
+REF 008a8159 __TODrawWaitBtlWinWeapon
+REF 008a817a __TODrawWaitBtlWinWeapon
+REF 008a81e8 __TODrawWaitBtlWinWeapon
+REF 008a8209 __TODrawWaitBtlWinWeapon
+REF 008a8283 __TODrawWaitBtlWinWeapon
+REF 008a82a4 __TODrawWaitBtlWinWeapon
+REF 008a8306 __TODrawWaitBtlWinWeapon
+REF 008a8327 __TODrawWaitBtlWinWeapon
+REF 008a83f4 __TODrawWaitBtlWinWeapon
+REF 008f35fd TOBtlDrawWeaponAbilityWindow
+REF 008f3627 TOBtlDrawWeaponAbilityWindow
+REF 008f36be TOBtlDrawWeaponAbilityWindow
+REF 008f3737 TOBtlDrawWeaponAbilityWindow
+REF 008f3764 TOBtlDrawWeaponAbilityWindow
+REF 008f37b6 TOBtlDrawWeaponAbilityWindow
+REF 008e1aa2 FUN_008e19f0
+REF 008e1b5f FUN_008e19f0
+REF 008e1c14 FUN_008e19f0
+REF 008b9fca FUN_008b9ef0
+REF 008b9fe5 FUN_008b9ef0
+REF 008ba017 FUN_008b9ef0
+REF 008ba157 FUN_008b9ef0
+REF 008ba172 FUN_008b9ef0
+REF 008ba195 FUN_008b9ef0
+REF 008ba1b0 FUN_008b9ef0
+REF 008ba1e2 FUN_008b9ef0
+REF 008ba21c FUN_008b9ef0
+REF 008bbaec FUN_008bbad0
+REF 008bbb10 FUN_008bbad0
+REF 008bbb44 FUN_008bbad0
+REF 008bbb68 FUN_008bbad0
+REF 008bbba5 FUN_008bbad0
+REF 008bbbc9 FUN_008bbad0
+REF 008bbc04 FUN_008bbad0
+REF 008bbc28 FUN_008bbad0
+REF 008c0b28 FUN_008c09f0
+REF 008c0b65 FUN_008c09f0
+REF 008bbc8b FUN_008bbc60
+REF 008bbcb5 FUN_008bbc60
+REF 008bbcdf FUN_008bbc60
+REF 008bbd08 FUN_008bbc60
+REF 008bbd32 FUN_008bbc60
+REF 008bbd83 FUN_008bbc60
+REF 008bbe16 FUN_008bbc60
+REF 008bbe67 FUN_008bbc60
+REF 008e673f FUN_008e6700
+REF 008e6763 FUN_008e6700
+REF 008e67b3 FUN_008e6700
+REF 008bbed0 FUN_008bbe90
+REF 008bbee7 FUN_008bbe90
+REF 008bbf11 FUN_008bbe90
+REF 008bbf3a FUN_008bbe90
+REF 008bbf64 FUN_008bbe90
+REF 008bbfc2 FUN_008bbe90
+REF 008bc01f FUN_008bbe90
+REF 008e683e FUN_008e67f0
+REF 008e6862 FUN_008e67f0
+REF 008e68b2 FUN_008e67f0
+REF 008e6911 FUN_008e67f0
+REF 008e6935 FUN_008e67f0
+REF 008bc3cd FUN_008bc300
+REF 008bc422 FUN_008bc300
+REF 008bc4b3 FUN_008bc300
+REF 008bc528 FUN_008bc300
+REF 008bc5b7 FUN_008bc300
+REF 008bc632 FUN_008bc300
+REF 008bc6a9 FUN_008bc300
+REF 008bc70c FUN_008bc300
+REF 008bc7e0 FUN_008bc300
+REF 008bc80d FUN_008bc300
+REF 008bc86a FUN_008bc300
+REF 008bc8ea FUN_008bc300
+REF 008bc90e FUN_008bc300
+REF 008bc974 FUN_008bc300
+REF 008bc998 FUN_008bc300
+REF 008bc9ff FUN_008bc300
+REF 008bca29 FUN_008bc300
+REF 008bcadf FUN_008bc300
+REF 008bcb0c FUN_008bc300
+REF 008bcb93 FUN_008bc300
+REF 008bcc55 FUN_008bc300
+REF 008bcc82 FUN_008bc300
+REF 008bccec FUN_008bc300
+REF 008bcd2d FUN_008bc300
+REF 008bcdc1 FUN_008bc300
+REF 008bcdfa FUN_008bc300
+REF 008bce8a FUN_008bc300
+REF 008bceb7 FUN_008bc300
+REF 008bcf45 FUN_008bc300
+REF 008bcf72 FUN_008bc300
+REF 008bd025 FUN_008bcfe0
+REF 008bd03c FUN_008bcfe0
+REF 008bd060 FUN_008bcfe0
+REF 008bd094 FUN_008bcfe0
+REF 008bd0b8 FUN_008bcfe0
+REF 008bd17b FUN_008bcfe0
+REF 008bd1d6 FUN_008bcfe0
+REF 008bd216 FUN_008bcfe0
+REF 008f4f4f TODrawCrossMenuIconAbilityName
+REF 008f4f73 TODrawCrossMenuIconAbilityName
+REF 008f4fc3 TODrawCrossMenuIconAbilityName
+REF 008bd282 FUN_008bd240
+REF 008bd299 FUN_008bd240
+REF 008bd2c3 FUN_008bd240
+REF 008bd2ec FUN_008bd240
+REF 008bd316 FUN_008bd240
+REF 008bd355 FUN_008bd240
+REF 008bd36c FUN_008bd240
+REF 008bd3ca FUN_008bd240
+REF 008bd414 FUN_008bd240
+REF 008bd468 FUN_008bd240
+REF 008bd48d FUN_008bd240
+REF 008bd4db FUN_008bd240
+REF 008bd51f FUN_008bd240
+REF 008bd53c FUN_008bd240
+REF 008bd568 FUN_008bd240
+REF 008bd5e6 FUN_008bd240
+REF 008bd60a FUN_008bd240
+REF 008be0d7 FUN_008be0a0
+REF 008be13c FUN_008be0a0
+REF 008bd677 FUN_008bd630
+REF 008bd68e FUN_008bd630
+REF 008bd6b8 FUN_008bd630
+REF 008bd6e1 FUN_008bd630
+REF 008bd70b FUN_008bd630
+REF 008bd790 FUN_008bd630
+REF 008bd7ec FUN_008bd630
+REF 008bd824 FUN_008bd630
+REF 008bd85f FUN_008bd630
+REF 008bd87c FUN_008bd630
+REF 008bd8a8 FUN_008bd630
+REF 008bf15d FUN_008bf140
+REF 008bf1a3 FUN_008bf140
+REF 008bf1c7 FUN_008bf140
+REF 008bf207 FUN_008bf140
+REF 008bf22b FUN_008bf140
+REF 008bf26b FUN_008bf140
+REF 008bf2d6 FUN_008bf140
+REF 008bf2fa FUN_008bf140
+REF 008bf364 FUN_008bf140
+REF 008bf388 FUN_008bf140
+REF 008bf3f2 FUN_008bf140
+REF 008bf416 FUN_008bf140
+REF 008bf486 FUN_008bf140
+REF 008bf500 FUN_008bf140
+REF 008bf54c FUN_008bf140
+REF 008bf570 FUN_008bf140
+REF 008bf5ad FUN_008bf140
+REF 008bf5d1 FUN_008bf140
+REF 008bf619 FUN_008bf140
+REF 008bf63d FUN_008bf140
+REF 008bf68f FUN_008bf140
+REF 008bf6b3 FUN_008bf140
+REF 008bf833 FUN_008bf800
+REF 008bfa7a FUN_008bfa40
+REF 008bfb3e FUN_008bfa40
+REF 008bfb74 FUN_008bfa40
+REF 008bfc0b FUN_008bfa40
+REF 008bfc41 FUN_008bfa40
+REF 008bfcc7 FUN_008bfa40
+REF 008bfd5b FUN_008bfa40
+REF 008bfe12 FUN_008bfa40
+REF 008bfeae FUN_008bfa40
+REF 008bfedb FUN_008bfa40
+REF 008bff63 FUN_008bfa40
+REF 008bff87 FUN_008bfa40
+REF 008c0015 FUN_008bfa40
+REF 008c0042 FUN_008bfa40
+REF 008c00e3 FUN_008bfa40
+REF 008c0110 FUN_008bfa40
+REF 008c01b8 FUN_008bfa40
+REF 008c01dc FUN_008bfa40
+REF 008c05bb FUN_008c0550
+REF 008c05fa FUN_008c0550
+REF 008f5244 FUN_008f51e0
+REF 008f52ba FUN_008f51e0
+REF 008f5330 FUN_008f51e0
+REF 008f53bc FUN_008f51e0
+REF 008f5434 FUN_008f51e0
+REF 008f54a9 FUN_008f51e0
+REF 008f5503 FUN_008f51e0
+REF 008f55bc FUN_008f51e0
+REF 008f55e9 FUN_008f51e0
+REF 008f565d FUN_008f51e0
+REF 008f56de FUN_008f51e0
+REF 008f570b FUN_008f51e0
+REF 008f577f FUN_008f51e0
+REF 008f57fd FUN_008f51e0
+REF 008f58a3 FUN_008f51e0
+REF 008f58d0 FUN_008f51e0
+REF 008f5946 FUN_008f51e0
+REF 008f5973 FUN_008f51e0
+REF 008c13ea FUN_008c13b0
+REF 008c1429 FUN_008c13b0
+REF 008c14a9 FUN_008c1470
+REF 008c1509 FUN_008c1470
+REF 008c1533 FUN_008c1470
+REF 008c15b1 FUN_008c1470
+REF 008c163a FUN_008c1470
+REF 008f217b FUN_008f2150
+REF 008f232a FUN_008f2150
+REF 008f2370 FUN_008f2150
+REF 008f23d7 FUN_008f2150
+REF 008f250a FUN_008f2150
+REF 008f252a FUN_008f2150
+REF 008f255e FUN_008f2150
+REF 008f258d FUN_008f2150
+REF 008f25d5 FUN_008f2150
+REF 008f25f5 FUN_008f2150
+REF 008f263a FUN_008f2150
+REF 008f265e FUN_008f2150
+REF 008f2692 FUN_008f2150
+REF 008f26c5 FUN_008f2150
+REF 008f270a FUN_008f2150
+REF 008f272e FUN_008f2150
+REF 008c1c9a FUN_008c1c70
+REF 008c1cfa FUN_008c1c70
+REF 008c1d1e FUN_008c1c70
+REF 008c1d85 FUN_008c1c70
+REF 008c1da9 FUN_008c1c70
+REF 008c1e13 FUN_008c1c70
+REF 008c1e37 FUN_008c1c70
+REF 008c1ea1 FUN_008c1c70
+REF 008c1ec5 FUN_008c1c70
+REF 008c1f2b FUN_008c1c70
+REF 008c1f94 FUN_008c1c70
+REF 008c2024 FUN_008c1c70
+REF 008c20a1 FUN_008c1c70
+REF 008c2cf2 FUN_008c2ce0
+REF 008c2d38 FUN_008c2ce0
+REF 008c2d5c FUN_008c2ce0
+REF 008c2d9c FUN_008c2ce0
+REF 008c2dc0 FUN_008c2ce0
+REF 008c2e00 FUN_008c2ce0
+REF 008c2e49 FUN_008c2ce0
+REF 008c2e6d FUN_008c2ce0
+REF 008c2ead FUN_008c2ce0
+REF 008c2ed1 FUN_008c2ce0
+REF 008c2f0e FUN_008c2ce0
+REF 008c2f32 FUN_008c2ce0
+REF 008c2f7b FUN_008c2ce0
+REF 008c2f9f FUN_008c2ce0
+REF 008c2ff0 FUN_008c2ce0
+REF 008c3014 FUN_008c2ce0
+REF 008e69bf FUN_008e6970
+REF 008e69e3 FUN_008e6970
+REF 008e6a33 FUN_008e6970
+REF 008e6a92 FUN_008e6970
+REF 008e6ab6 FUN_008e6970
+REF 008f9c8a FUN_008f9c20
+REF 008f9d2d FUN_008f9c20
+REF 008f9d69 FUN_008f9c20
+REF 008f9de9 FUN_008f9c20
+REF 008f9e25 FUN_008f9c20
+REF 008f9ed6 FUN_008f9c20
+REF 008f9f12 FUN_008f9c20
+REF 008f9f7a FUN_008f9c20
+REF 008f9fb6 FUN_008f9c20
+REF 008fa028 FUN_008f9c20
+REF 008fa090 FUN_008f9c20
+REF 008fa125 FUN_008f9c20
+REF 008fa1a7 FUN_008f9c20
+REF 008fa1d4 FUN_008f9c20
+REF 008fa233 FUN_008f9c20
+REF 008fa257 FUN_008f9c20
+REF 008fa2ad FUN_008f9c20
+REF 008fa2e0 FUN_008f9c20
+REF 008fa350 FUN_008f9c20
+REF 008fa37d FUN_008f9c20
+REF 008fa3e7 FUN_008f9c20
+REF 008fa40b FUN_008f9c20
+REF 008c3d0c FUN_008c3ce0
+REF 008c3d30 FUN_008c3ce0
+REF 008c3d5e FUN_008c3ce0
+REF 008c3d82 FUN_008c3ce0
+REF 008c3db8 FUN_008c3ce0
+REF 008c3ddc FUN_008c3ce0
+REF 008c3e2f FUN_008c3ce0
+REF 008c3e53 FUN_008c3ce0
+REF 008c45d5 FUN_008c4530
+REF 008c4637 FUN_008c4530
+REF 008c4780 FUN_008c4750
+REF 008c47a6 FUN_008c4750
+REF 008c47bc FUN_008c4750
+REF 008c47e0 FUN_008c4750
+REF 008c4874 FUN_008c4750
+REF 008c495c FUN_008c4750
+REF 008c4970 FUN_008c4750
+REF 008c4a04 FUN_008c4750
+REF 008c4b9e FUN_008c4b40
+REF 008c4c32 FUN_008c4b40
+REF 008c3f1f FUN_008c3ea0
+REF 008c3f43 FUN_008c3ea0
+REF 008c3fa7 FUN_008c3ea0
+REF 008c3fcb FUN_008c3ea0
+REF 008d4173 FUN_008d4140
+REF 008d419b FUN_008d4140
+REF 008d4210 FUN_008d4140
+REF 008c4046 FUN_008c4010
+REF 008c405e FUN_008c4010
+REF 008c4097 FUN_008c4010
+REF 008c4118 FUN_008c4010
+REF 008c417b FUN_008c4010
+REF 008c41b6 FUN_008c4010
+REF 008c4aac FUN_008c4a70
+REF 008c4acb FUN_008c4a70
+REF 008c5fa8 FUN_008c5ef0
+REF 008c5fcc FUN_008c5ef0
+REF 008c7760 FUN_008c7720
+REF 008c778b FUN_008c7720
+REF 008c77af FUN_008c7720
+REF 008c7805 FUN_008c7720
+REF 008c788b FUN_008c7720
+REF 008c78e3 FUN_008c7720
+REF 008c790f FUN_008c7720
+REF 008c7930 FUN_008c7720
+REF 008c799b FUN_008c7720
+REF 008c79e7 FUN_008c7720
+REF 008c7a0f FUN_008c7720
+REF 008c7a30 FUN_008c7720
+REF 008c7a9f FUN_008c7720
+REF 008c7b21 FUN_008c7ac0
+REF 008c7b81 FUN_008c7ac0
+REF 008c7bc6 FUN_008c7ac0
+REF 008c7cc8 FUN_008c7c00
+REF 008c7d28 FUN_008c7c00
+REF 008c7d52 FUN_008c7c00
+REF 008c7df7 FUN_008c7c00
+REF 008c7e89 FUN_008c7c00
+REF 008c7f0c FUN_008c7c00
+REF 008c7f89 FUN_008c7c00
+REF 008c802d FUN_008c7c00
+REF 008e720f FUN_008e71d0
+REF 008e7233 FUN_008e71d0
+REF 008e727b FUN_008e71d0
+REF 008e729f FUN_008e71d0
+REF 008e72f5 FUN_008e71d0
+REF 008e7360 FUN_008e71d0
+REF 008e73be FUN_008e71d0
+REF 008e7420 FUN_008e71d0
+REF 008e7444 FUN_008e71d0
+REF 008e7499 FUN_008e71d0
+REF 008e74f8 FUN_008e71d0
+REF 008e751c FUN_008e71d0
+REF 008e7571 FUN_008e71d0
+REF 008e7595 FUN_008e71d0
+REF 008f503f TODrawCrossMenuIconCommandName
+REF 008f5063 TODrawCrossMenuIconCommandName
+REF 008f50b3 TODrawCrossMenuIconCommandName
+REF 008f512f TODrawCrossMenuIconImportantName
+REF 008f5153 TODrawCrossMenuIconImportantName
+REF 008f51a3 TODrawCrossMenuIconImportantName
+REF 008c8100 FUN_008c8080
+REF 008c8120 FUN_008c8080
+REF 008c8247 FUN_008c8080
+REF 008c82c9 FUN_008c8080
+REF 008c8329 FUN_008c8080
+REF 008c834d FUN_008c8080
+REF 008c83fe FUN_008c8080
+REF 008c842b FUN_008c8080
+REF 008c84b4 FUN_008c8080
+REF 008c84e1 FUN_008c8080
+REF 008c8535 FUN_008c8080
+REF 008c8587 FUN_008c8080
+REF 008c85d9 FUN_008c8080
+REF 008c8687 FUN_008c8080
+REF 008c86f5 FUN_008c8080
+REF 008c8728 FUN_008c8080
+REF 008c87f7 FUN_008c87b0
+REF 008c881a FUN_008c87b0
+REF 008c883c FUN_008c87b0
+REF 008c8857 FUN_008c87b0
+REF 008c8876 FUN_008c87b0
+REF 008c889d FUN_008c87b0
+REF 008c88bf FUN_008c87b0
+REF 008c88da FUN_008c87b0
+REF 008c88f9 FUN_008c87b0
+REF 008c890a FUN_008c87b0
+REF 008c897e FUN_008c87b0
+REF 008c89a2 FUN_008c87b0
+REF 008c959f FUN_008c9540
+REF 008c961a FUN_008c9540
+REF 008c963e FUN_008c9540
+REF 008c9669 FUN_008c9540
+REF 008c968d FUN_008c9540
+REF 008c96c4 FUN_008c9540
+REF 008c96f2 FUN_008c9540
+REF 008c9716 FUN_008c9540
+REF 008c9744 FUN_008c9540
+REF 008c97b2 FUN_008c9540
+REF 008c97fc FUN_008c9540
+REF 008c9820 FUN_008c9540
+REF 008c984b FUN_008c9540
+REF 008c986f FUN_008c9540
+REF 008c989e FUN_008c9540
+REF 008c98d8 FUN_008c9540
+REF 008c993f FUN_008c9910
+REF 008c995e FUN_008c9910
+REF 008c9a13 FUN_008c99c0
+REF 008c9a6c FUN_008c9a40
+REF 008c9ab8 FUN_008c9a40
+REF 008d8a9f FUN_008d8a70
+REF 008d8adb FUN_008d8a70
+REF 008d8b28 FUN_008d8a70
+REF 008d8b5c FUN_008d8a70
+REF 008cbb2e FUN_008cbab0
+REF 008cbb96 FUN_008cbab0
+REF 008cbbe8 FUN_008cbab0
+REF 008cbc56 FUN_008cbab0
+REF 008cbc8c FUN_008cbab0
+REF 008cbcd9 FUN_008cbab0
+REF 008cbd13 FUN_008cbab0
+REF 008cbf43 FUN_008cbab0
+REF 008cb521 FUN_008cb500
+REF 008cb549 FUN_008cb500
+REF 008cb58f FUN_008cb500
+REF 008cb5ff FUN_008cb500
+REF 008cb789 FUN_008cb500
+REF 008cb7a9 FUN_008cb500
+REF 008cb7dd FUN_008cb500
+REF 008cb80c FUN_008cb500
+REF 008cb854 FUN_008cb500
+REF 008cb874 FUN_008cb500
+REF 008cb8b9 FUN_008cb500
+REF 008cb8dd FUN_008cb500
+REF 008cb911 FUN_008cb500
+REF 008cb944 FUN_008cb500
+REF 008cb989 FUN_008cb500
+REF 008cb9ad FUN_008cb500
+REF 008cc23d FUN_008cc180
+REF 008cc261 FUN_008cc180
+REF 008cd740 FUN_008cd6f0
+REF 008cd764 FUN_008cd6f0
+REF 008cd7a1 FUN_008cd6f0
+REF 008cd80b FUN_008cd6f0
+REF 008cd985 FUN_008cd960
+REF 008cd9c5 FUN_008cd960
+REF 008cdaa1 FUN_008cda80
+REF 008cdae8 FUN_008cda80
+REF 008cdb3e FUN_008cda80
+REF 008cda16 FUN_008cd9f0
+REF 008cda40 FUN_008cd9f0
+REF 008cdbc9 FUN_008cdb70
+REF 008cdc0e FUN_008cdb70
+REF 008cdc3d FUN_008cdb70
+REF 008cdc61 FUN_008cdb70
+REF 008cdc8c FUN_008cdb70
+REF 008cdcb0 FUN_008cdb70
+REF 008cdce8 FUN_008cdb70
+REF 008cdd0c FUN_008cdb70
+REF 008cdd37 FUN_008cdb70
+REF 008cdd5b FUN_008cdb70
+REF 008cdd89 FUN_008cdb70
+REF 008cddb3 FUN_008cdb70
+REF 008cddf0 FUN_008cdb70
+REF 008cde37 FUN_008cdb70
+REF 008cde5d FUN_008cdb70
+REF 008cdf95 FUN_008cdb70
+REF 008cdfb9 FUN_008cdb70
+REF 008cdfe7 FUN_008cdb70
+REF 008ce002 FUN_008cdb70
+REF 008ce047 FUN_008cdb70
+REF 008ce06b FUN_008cdb70
+REF 008ce0a2 FUN_008cdb70
+REF 008ff500 FUN_008ff490
+REF 008ff576 FUN_008ff490
+REF 008ff5ec FUN_008ff490
+REF 008ff678 FUN_008ff490
+REF 008ff6f0 FUN_008ff490
+REF 008ff765 FUN_008ff490
+REF 008ff7cd FUN_008ff490
+REF 008ff842 FUN_008ff490
+REF 008ff8a7 FUN_008ff490
+REF 008ff931 FUN_008ff490
+REF 008ff9a7 FUN_008ff490
+REF 008ffa33 FUN_008ff490
+REF 008ffaab FUN_008ff490
+REF 008ffb53 FUN_008ff490
+REF 008ffc0c FUN_008ff490
+REF 008ffc39 FUN_008ff490
+REF 008ffcaf FUN_008ff490
+REF 008ffd2a FUN_008ff490
+REF 008ffd57 FUN_008ff490
+REF 008ffdc7 FUN_008ff490
+REF 008ffe3f FUN_008ff490
+REF 008ffe63 FUN_008ff490
+REF 008ffec9 FUN_008ff490
+REF 008ffeed FUN_008ff490
+REF 008fff54 FUN_008ff490
+REF 008fff7e FUN_008ff490
+REF 00900034 FUN_008ff490
+REF 00900061 FUN_008ff490
+REF 009000e0 FUN_008ff490
+REF 00900169 FUN_008ff490
+REF 00900196 FUN_008ff490
+REF 009001ea FUN_008ff490
+REF 00900280 FUN_008ff490
+REF 009002a4 FUN_008ff490
+REF 00900318 FUN_008ff490
+REF 0090033c FUN_008ff490
+REF 00900390 FUN_008ff490
+REF 009003b4 FUN_008ff490
+REF 0090046a FUN_008ff490
+REF 00900497 FUN_008ff490
+REF 0090050d FUN_008ff490
+REF 0090053a FUN_008ff490
+REF 009005a1 FUN_008ff490
+REF 009005c5 FUN_008ff490
+REF 0090062b FUN_008ff490
+REF 0090064f FUN_008ff490
+REF 009006b6 FUN_008ff490
+REF 009006e0 FUN_008ff490
+REF 00900790 FUN_008ff490
+REF 009007bd FUN_008ff490
+REF 0090083c FUN_008ff490
+REF 00900869 FUN_008ff490
+REF 008d36f6 FUN_008d3660
+REF 008d3732 FUN_008d3660
+REF 008d3782 FUN_008d3660
+REF 008d37be FUN_008d3660
+REF 008d3812 FUN_008d3660
+REF 008d384a FUN_008d3660
+REF 008d389d FUN_008d3660
+REF 008d38e7 FUN_008d3660
+REF 008d393e FUN_008d3660
+REF 008d3988 FUN_008d3660
+REF 008e6e4e FUN_008e6e10
+REF 008e6f07 FUN_008e6e10
+REF 008e6f34 FUN_008e6e10
+REF 008e6fa8 FUN_008e6e10
+REF 008e7023 FUN_008e6e10
+REF 008e7050 FUN_008e6e10
+REF 008e70c4 FUN_008e6e10
+REF 008e7132 FUN_008e7110
+REF 008ce13c FUN_008ce100
+REF 008ce1c2 FUN_008ce100
+REF 008ce253 FUN_008ce100
+REF 008ce2c8 FUN_008ce100
+REF 008ce357 FUN_008ce100
+REF 008ce3d2 FUN_008ce100
+REF 008ce442 FUN_008ce100
+REF 008ce47e FUN_008ce100
+REF 008ce4c2 FUN_008ce100
+REF 008ce51b FUN_008ce4f0
+REF 008ce561 FUN_008ce4f0
+REF 008ce5b1 FUN_008ce590
+REF 008ce5f9 FUN_008ce590
+REF 008ce663 FUN_008ce590
+REF 008ce6de FUN_008ce590
+REF 008ce765 FUN_008ce720
+REF 008ce7a5 FUN_008ce720
+REF 008ce7d4 FUN_008ce720
+REF 008ce7f8 FUN_008ce720
+REF 008ce823 FUN_008ce720
+REF 008ce847 FUN_008ce720
+REF 008ce87f FUN_008ce720
+REF 008ce8a3 FUN_008ce720
+REF 008ce8ce FUN_008ce720
+REF 008ce8f2 FUN_008ce720
+REF 008ce920 FUN_008ce720
+REF 008ce94a FUN_008ce720
+REF 008ce988 FUN_008ce720
+REF 008ce9c7 FUN_008ce720
+REF 008ce9ed FUN_008ce720
+REF 008cea61 FUN_008ce720
+REF 008cea85 FUN_008ce720
+REF 008cec12 FUN_008cebb0
+REF 008cec36 FUN_008cebb0
+REF 008cf993 FUN_008cf960
+REF 008cf9de FUN_008cf9c0
+REF 008cfa00 FUN_008cf9c0
+REF 008cfa1b FUN_008cf9c0
+REF 008cfa47 FUN_008cf9c0
+REF 008cfa69 FUN_008cf9c0
+REF 008cfa84 FUN_008cf9c0
+REF 008cfab4 FUN_008cf9c0
+REF 008cfad6 FUN_008cf9c0
+REF 008cfaf1 FUN_008cf9c0
+REF 008cfb10 FUN_008cf9c0
+REF 008cfb5e FUN_008cf9c0
+REF 008cfba6 FUN_008cf9c0
+REF 008cfbca FUN_008cf9c0
+REF 008d00e0 FUN_008d00d0
+REF 008d0242 FUN_008d0220
+REF 008d0287 FUN_008d0220
+REF 008d0161 FUN_008d0140
+REF 008d01a4 FUN_008d0140
+REF 008d02f1 FUN_008d02b0
+REF 008d0316 FUN_008d02b0
+REF 008d0352 FUN_008d02b0
+REF 008d038b FUN_008d02b0
+REF 008d03da FUN_008d02b0
+REF 008d0bca FUN_008d09f0
+REF 008d0bee FUN_008d09f0
+REF 008d13e1 FUN_008d13d0
+REF 008d140a FUN_008d13d0
+REF 008d145b FUN_008d13d0
+REF 008d1494 FUN_008d13d0
+REF 008d14b4 FUN_008d13d0
+REF 008d1509 FUN_008d13d0
+REF 008d152d FUN_008d13d0
+REF 008d158b FUN_008d1570
+REF 008d15ae FUN_008d1570
+REF 008d1600 FUN_008d15f0
+REF 008d1695 FUN_008d15f0
+REF 008d1848 FUN_008d17f0
+REF 008d18f3 FUN_008d17f0
+REF 008d197f FUN_008d17f0
+REF 008d1759 FUN_008d16c0
+REF 008f92a3 FUN_008f9280
+REF 008f9487 FUN_008f9280
+REF 008f94c5 FUN_008f9280
+REF 008f9528 FUN_008f9280
+REF 008f9694 FUN_008f9280
+REF 008f96b4 FUN_008f9280
+REF 008f96e0 FUN_008f9280
+REF 008f970f FUN_008f9280
+REF 008f9753 FUN_008f9280
+REF 008f9773 FUN_008f9280
+REF 008f97db FUN_008f9280
+REF 008f97ff FUN_008f9280
+REF 008f982b FUN_008f9280
+REF 008f985e FUN_008f9280
+REF 008f989f FUN_008f9280
+REF 008f98c3 FUN_008f9280
+REF 008f9902 FUN_008f9280
+REF 008f9926 FUN_008f9280
+REF 008d2251 FUN_008d2240
+REF 008d2275 FUN_008d2240
+REF 008d22c5 FUN_008d2240
+REF 008d22e9 FUN_008d2240
+REF 008d233e FUN_008d2240
+REF 008d2362 FUN_008d2240
+REF 008d23c4 FUN_008d2240
+REF 008d23e8 FUN_008d2240
+REF 008d244d FUN_008d2240
+REF 008d2471 FUN_008d2240
+REF 008d24d3 FUN_008d2240
+REF 008d24f7 FUN_008d2240
+REF 008d253c FUN_008d2240
+REF 008d2560 FUN_008d2240
+REF 008d25e0 FUN_008d2240
+REF 008d4f3d FUN_008d4eb0
+REF 008d4f61 FUN_008d4eb0
+REF 008d4fcd FUN_008d4eb0
+REF 008d4ff1 FUN_008d4eb0
+REF 008d519d FUN_008d5150
+REF 008d51f2 FUN_008d5150
+REF 008d5251 FUN_008d5150
+REF 008d536e FUN_008d5150
+REF 008d5389 FUN_008d5150
+REF 008d53ce FUN_008d5150
+REF 008d53f2 FUN_008d5150
+REF 008d5429 FUN_008d5150
+REF 008d28cd FUN_008d2760
+REF 008d28e7 FUN_008d2760
+REF 008d2911 FUN_008d2760
+REF 008d292b FUN_008d2760
+REF 008d2a01 FUN_008d2760
+REF 008d2a84 FUN_008d2760
+REF 008d2ab3 FUN_008d2760
+REF 008d3d90 FUN_008d3d40
+REF 008d3db4 FUN_008d3d40
+REF 008d3e1d FUN_008d3d40
+REF 008d3e41 FUN_008d3d40
+REF 008d3eac FUN_008d3d40
+REF 008d3ed0 FUN_008d3d40
+REF 008d3f72 FUN_008d3d40
+REF 008d3f96 FUN_008d3d40
+REF 008d4001 FUN_008d3d40
+REF 008d4025 FUN_008d3d40
+REF 008d4070 FUN_008d3d40
+REF 008d4094 FUN_008d3d40
+REF 008d40e2 FUN_008d3d40
+REF 008d4289 FUN_008d4250
+REF 008d42ba FUN_008d4250
+REF 008d42ce FUN_008d4250
+REF 008d434c FUN_008d4320
+REF 008d43bc FUN_008d4320
+REF 008d43e0 FUN_008d4320
+REF 008d4470 FUN_008d4320
+REF 008d44c3 FUN_008d4320
+REF 008d452f FUN_008d4510
+REF 008d4553 FUN_008d4510
+REF 008d45bc FUN_008d4510
+REF 008d45e0 FUN_008d4510
+REF 008d4619 FUN_008d4510
+REF 008d463d FUN_008d4510
+REF 008d46a6 FUN_008d4510
+REF 008d46ca FUN_008d4510
+REF 008d473a FUN_008d4510
+REF 008d47b6 FUN_008d4510
+REF 008d4805 FUN_008d4510
+REF 008d484f FUN_008d4510
+REF 008d489e FUN_008d4510
+REF 008d5d4b FUN_008d5d20
+REF 008d5d91 FUN_008d5d20
+REF 008d5e51 FUN_008d5e30
+REF 008d5e98 FUN_008d5e30
+REF 008d5ef2 FUN_008d5e30
+REF 008d5dd0 FUN_008d5dc0
+REF 008d5f7a FUN_008d5f30
+REF 008d5fb4 FUN_008d5f30
+REF 008d5fd8 FUN_008d5f30
+REF 008d6003 FUN_008d5f30
+REF 008d6027 FUN_008d5f30
+REF 008d605c FUN_008d5f30
+REF 008d6080 FUN_008d5f30
+REF 008d60ab FUN_008d5f30
+REF 008d60cf FUN_008d5f30
+REF 008d6107 FUN_008d5f30
+REF 008d6124 FUN_008d5f30
+REF 008d615d FUN_008d5f30
+REF 008d6175 FUN_008d5f30
+REF 008d61ad FUN_008d5f30
+REF 008d61c5 FUN_008d5f30
+REF 008d61e4 FUN_008d5f30
+REF 008d622c FUN_008d5f30
+REF 008d6274 FUN_008d5f30
+REF 008d6298 FUN_008d5f30
+REF 008d62ce FUN_008d5f30
+REF 008d6673 FUN_008d6630
+REF 008d66e0 FUN_008d6630
+REF 008d6409 FUN_008d63c0
+REF 008d642e FUN_008d63c0
+REF 008d646a FUN_008d63c0
+REF 008d64a3 FUN_008d63c0
+REF 008d64d7 FUN_008d63c0
+REF 008d650b FUN_008d63c0
+REF 008d6552 FUN_008d6530
+REF 008d6598 FUN_008d6530
+REF 008d6751 FUN_008d6730
+REF 008d6798 FUN_008d6730
+REF 008d65d0 FUN_008d65c0
+REF 008d6862 FUN_008d6830
+REF 008d687f FUN_008d6830
+REF 008d68b8 FUN_008d6830
+REF 008d68d0 FUN_008d6830
+REF 008d6908 FUN_008d6830
+REF 008d6920 FUN_008d6830
+REF 008d693f FUN_008d6830
+REF 008d6987 FUN_008d6830
+REF 008d69cf FUN_008d6830
+REF 008d69f3 FUN_008d6830
+REF 008d6a21 FUN_008d6830
+REF 008d6a45 FUN_008d6830
+REF 008d6a70 FUN_008d6830
+REF 008d6a94 FUN_008d6830
+REF 008d6ac4 FUN_008d6830
+REF 008d6ae8 FUN_008d6830
+REF 008d6b13 FUN_008d6830
+REF 008d6b37 FUN_008d6830
+REF 008d6b81 FUN_008d6830
+REF 008d7a3d FUN_008d7a10
+REF 008d7aa6 FUN_008d7a70
+REF 008d7aca FUN_008d7a70
+REF 008d7aec FUN_008d7a70
+REF 008d7b07 FUN_008d7a70
+REF 008d7b28 FUN_008d7a70
+REF 008d7b4f FUN_008d7a70
+REF 008d7b71 FUN_008d7a70
+REF 008d7b8c FUN_008d7a70
+REF 008d7bab FUN_008d7a70
+REF 008d7bbc FUN_008d7a70
+REF 008d7c44 FUN_008d7a70
+REF 008d7c68 FUN_008d7a70
+REF 008d8ba1 FUN_008d8b80
+REF 008d8bb5 FUN_008d8b80
+REF 008d8c56 FUN_008d8c00
+REF 008d8cc9 FUN_008d8c80
+REF 008d8d39 FUN_008d8c80
+REF 008d8d5d FUN_008d8c80
+REF 008d8dae FUN_008d8c80
+REF 008d7cc0 FUN_008d7c90
+REF 008d7d2d FUN_008d7cf0
+REF 008d7d51 FUN_008d7cf0
+REF 008d7d73 FUN_008d7cf0
+REF 008d7d8e FUN_008d7cf0
+REF 008d7daf FUN_008d7cf0
+REF 008d7dd6 FUN_008d7cf0
+REF 008d7df8 FUN_008d7cf0
+REF 008d7e13 FUN_008d7cf0
+REF 008d7e32 FUN_008d7cf0
+REF 008d7e43 FUN_008d7cf0
+REF 008d7ecb FUN_008d7cf0
+REF 008d7eef FUN_008d7cf0
+REF 008d8e51 FUN_008d8e30
+REF 008d8e65 FUN_008d8e30
+REF 008d8f06 FUN_008d8eb0
+REF 008d8f5d FUN_008d8f30
+REF 008d8fcd FUN_008d8f30
+REF 008d8ff1 FUN_008d8f30
+REF 008d906c FUN_008d8f30
+REF 008d8142 FUN_008d80e0
+REF 008d8166 FUN_008d80e0
+REF 008d8695 FUN_008d85f0
+REF 008d86b9 FUN_008d85f0
+REF 008d86e4 FUN_008d85f0
+REF 008d8708 FUN_008d85f0
+REF 008d874a FUN_008d85f0
+REF 008d876e FUN_008d85f0
+REF 008d87d1 FUN_008d85f0
+REF 008d8811 FUN_008d85f0
+REF 008d883f FUN_008d85f0
+REF 008d8863 FUN_008d85f0
+REF 008d8891 FUN_008d85f0
+REF 008d88c5 FUN_008d85f0
+REF 008d88e9 FUN_008d85f0
+REF 008d894e FUN_008d85f0
+REF 008d8998 FUN_008d85f0
+REF 008d89bc FUN_008d85f0
+REF 008d89e7 FUN_008d85f0
+REF 008d8a0b FUN_008d85f0
+REF 008d8a3a FUN_008d85f0
+REF 008d9fe9 FUN_008d9fb0
+REF 008da051 FUN_008da020
+REF 008da075 FUN_008da020
+REF 008da0a0 FUN_008da020
+REF 008da0c4 FUN_008da020
+REF 008da0f4 FUN_008da020
+REF 008da118 FUN_008da020
+REF 008da168 FUN_008da020
+REF 008da18c FUN_008da020
+REF 008da205 FUN_008da020
+REF 008da24f FUN_008da020
+REF 008da273 FUN_008da020
+REF 008da295 FUN_008da020
+REF 008da2b0 FUN_008da020
+REF 008da2f2 FUN_008da020
+REF 008da314 FUN_008da020
+REF 008da32f FUN_008da020
+REF 008da34e FUN_008da020
+REF 008da35f FUN_008da020
+REF 008da3ee FUN_008da020
+REF 008da412 FUN_008da020
+REF 008dab61 FUN_008dab40
+REF 008dab75 FUN_008dab40
+REF 008dac16 FUN_008dabc0
+REF 008dac7e FUN_008dac40
+REF 008dacee FUN_008dac40
+REF 008dad12 FUN_008dac40
+REF 008dad63 FUN_008dac40
+REF 008da48d FUN_008da440
+REF 008da4b0 FUN_008da440
+REF 008da4d2 FUN_008da440
+REF 008da4ed FUN_008da440
+REF 008da50c FUN_008da440
+REF 008da533 FUN_008da440
+REF 008da555 FUN_008da440
+REF 008da570 FUN_008da440
+REF 008da58f FUN_008da440
+REF 008da5a0 FUN_008da440
+REF 008da604 FUN_008da440
+REF 008da628 FUN_008da440
+REF 008dae07 FUN_008dadd0
+REF 008dae1b FUN_008dadd0
+REF 008daef9 FUN_008dae70
+REF 008daf5b FUN_008daf30
+REF 008dafe6 FUN_008daf30
+REF 008da73b FUN_008da700
+REF 008da7c3 FUN_008da770
+REF 008da7e7 FUN_008da770
+REF 008e0c94 +TkMenuDrawMain
+REF 008e0ca8 +TkMenuDrawMain
+REF 008e0d01 +TkMenuDrawMain
+REF 008e0db5 +TkMenuDrawMain
+REF 008e0e2a +TkMenuDrawMain
+REF 008e0eb9 +TkMenuDrawMain
+REF 008e0f34 +TkMenuDrawMain
+REF 008e0fa0 +TkMenuDrawMain
+REF 008e1059 +TkMenuDrawMain
+REF 008e1086 +TkMenuDrawMain
+REF 008e10fa +TkMenuDrawMain
+REF 008e1175 +TkMenuDrawMain
+REF 008e11a2 +TkMenuDrawMain
+REF 008e1216 +TkMenuDrawMain
+REF 008e127e +TkMenuDrawMain
+REF 008e12a2 +TkMenuDrawMain
+REF 008e1309 +TkMenuDrawMain
+REF 008e1333 +TkMenuDrawMain
+REF 008e13e9 +TkMenuDrawMain
+REF 008e1416 +TkMenuDrawMain
+REF 008e1495 +TkMenuDrawMain
+REF 008e14f2 +TkMenuDrawMain
+REF 008e1559 +TkMenuDrawMain
+REF 008e15a6 +TkMenuDrawMain
+REF 008e15fc +TkMenuDrawMain
+REF 008e1659 +TkMenuDrawMain
+REF 008e167d +TkMenuDrawMain
+REF 008e16af +TkMenuDrawMain
+REF 008e16d3 +TkMenuDrawMain
+REF 008e1720 +TkMenuDrawMain
+REF 008e1744 +TkMenuDrawMain
+REF 008e1773 +TkMenuDrawMain
+REF 008e17d0 +TkMenuDrawMain
+REF 008e17f4 +TkMenuDrawMain
+REF 008e1849 +TkMenuDrawMain
+REF 008e186d +TkMenuDrawMain
+REF 008e18ca +TkMenuDrawMain
+REF 008e215a FUN_008e20f0
+REF 008e2196 FUN_008e20f0
+REF 008e22e3 FUN_008e22a0
+REF 008e22f7 FUN_008e22a0
+REF 008e238d FUN_008e22a0
+REF 008e241d FUN_008e22a0
+REF 008e2484 FUN_008e22a0
+REF 008e2c24 FUN_008e2b60
+REF 008e2c48 FUN_008e2b60
+REF 008e2c9d FUN_008e2b60
+REF 008e2cc1 FUN_008e2b60
+REF 008e2d18 FUN_008e2b60
+REF 008e2fd6 FUN_008e2f80
+REF 008e3026 FUN_008e2f80
+REF 008e30a7 FUN_008e2f80
+REF 008e30c6 FUN_008e2f80
+REF 008e3183 FUN_008e2f80
+REF 008e3227 FUN_008e2f80
+REF 008e328c FUN_008e2f80
+REF 008e3313 FUN_008e2f80
+REF 008e3e65 FUN_008e3cf0
+REF 008e3f2d FUN_008e3cf0
+REF 008e3ff1 FUN_008e3cf0
+REF 008e40e2 FUN_008e3cf0
+REF 008ff30e FUN_008ff260
+REF 008e424b FUN_008e4140
+REF 008e4313 FUN_008e4140
+REF 008e43de FUN_008e4140
+REF 008e44f5 FUN_008e4140
+REF 008fe205 FUN_008fe0b0
+REF 008fe24d FUN_008fe0b0
+REF 008fe2ed FUN_008fe0b0
+REF 008fe335 FUN_008fe0b0
+REF 008fe3f6 FUN_008fe0b0
+REF 008fe41a FUN_008fe0b0
+REF 00894b0c TOBtlDrawInfoWinElementLamp
+REF 00894b30 TOBtlDrawInfoWinElementLamp
+REF 00894bb2 TOBtlDrawInfoWinElementLamp
+REF 00894bd6 TOBtlDrawInfoWinElementLamp
+REF 00894c58 TOBtlDrawInfoWinElementLamp
+REF 00894c7c TOBtlDrawInfoWinElementLamp
+REF 00894cfe TOBtlDrawInfoWinElementLamp
+REF 00894d22 TOBtlDrawInfoWinElementLamp
+REF 00895aac TOBtlDrawScanWinElementLamp
+REF 00895ad0 TOBtlDrawScanWinElementLamp
+REF 00895b52 TOBtlDrawScanWinElementLamp
+REF 00895b76 TOBtlDrawScanWinElementLamp
+REF 00895bf8 TOBtlDrawScanWinElementLamp
+REF 00895c1c TOBtlDrawScanWinElementLamp
+REF 00895c9e TOBtlDrawScanWinElementLamp
+REF 00895cc2 TOBtlDrawScanWinElementLamp
+REF 008a109d TOBtlSetWindowLayout
+REF 008a10bf TOBtlSetWindowLayout
+REF 008a10d0 TOBtlSetWindowLayout
+REF 008a10e1 TOBtlSetWindowLayout
+REF 008a117b TOBtlSetWindowLayout
+REF 008a119d TOBtlSetWindowLayout
+REF 008a11ae TOBtlSetWindowLayout
+REF 008a11bf TOBtlSetWindowLayout
+REF 008a1267 TOBtlSetWindowLayout
+REF 008a1289 TOBtlSetWindowLayout
+REF 008a129a TOBtlSetWindowLayout
+REF 008a12ab TOBtlSetWindowLayout
+REF 008a1353 TOBtlSetWindowLayout
+REF 008a1375 TOBtlSetWindowLayout
+REF 008a1386 TOBtlSetWindowLayout
+REF 008a1397 TOBtlSetWindowLayout
+REF 008a143f TOBtlSetWindowLayout
+REF 008a1461 TOBtlSetWindowLayout
+REF 008a1472 TOBtlSetWindowLayout
+REF 008a1483 TOBtlSetWindowLayout
+REF 008a1507 TOBtlSetWindowLayout
+REF 008a1529 TOBtlSetWindowLayout
+REF 008a153a TOBtlSetWindowLayout
+REF 008a154b TOBtlSetWindowLayout
+REF 0089648e TOBtlDrawStatusWin
+REF 008964b8 TOBtlDrawStatusWin
+REF 008964fe TOBtlDrawStatusWin
+REF 00896522 TOBtlDrawStatusWin
+REF 0089657c TOBtlDrawStatusWin
+REF 008965ff TOBtlDrawStatusWin
+REF 00896623 TOBtlDrawStatusWin
+REF 0089668b TOBtlDrawStatusWin
+REF 008966af TOBtlDrawStatusWin
+REF 00896708 TOBtlDrawStatusWin
+REF 00896781 TOBtlDrawStatusWin
+REF 008967a5 TOBtlDrawStatusWin
+REF 0089680d TOBtlDrawStatusWin
+REF 00896831 TOBtlDrawStatusWin
+REF 0089688b TOBtlDrawStatusWin
+REF 00896912 TOBtlDrawStatusWin
+REF 0089693c TOBtlDrawStatusWin
+REF 0089699e TOBtlDrawStatusWin
+REF 00896a21 TOBtlDrawStatusWin
+REF 00896a45 TOBtlDrawStatusWin
+REF 00896aad TOBtlDrawStatusWin
+REF 00896ad1 TOBtlDrawStatusWin
+REF 00896b2a TOBtlDrawStatusWin
+REF 00896b7c TOBtlDrawStatusWin
+REF 00896bd0 TOBtlDrawStatusWin
+REF 00896c61 TOBtlDrawStatusWin
+REF 00896c8b TOBtlDrawStatusWin
+REF 00896ced TOBtlDrawStatusWin
+REF 00896d70 TOBtlDrawStatusWin
+REF 00896d94 TOBtlDrawStatusWin
+REF 00896dfc TOBtlDrawStatusWin
+REF 00896e20 TOBtlDrawStatusWin
+REF 00896e79 TOBtlDrawStatusWin
+REF 00896ecb TOBtlDrawStatusWin
+REF 00896f1f TOBtlDrawStatusWin
+REF 00896fb0 TOBtlDrawStatusWin
+REF 00896fda TOBtlDrawStatusWin
+REF 0089703c TOBtlDrawStatusWin
+REF 008970d1 TOBtlDrawStatusWin
+REF 008a0002 TOBtlDrawCommandWindow
+REF 008a0026 TOBtlDrawCommandWindow
+REF 008a02ea TOBtlDrawCommandWindow
+REF 008a030e TOBtlDrawCommandWindow
+REF 008a036b TOBtlDrawCommandWindow
+REF 008a038f TOBtlDrawCommandWindow
+REF 008fbd17 TOMakePktBtlIconA
+REF 008fbd92 TOMakePktBtlIconA
+REF 008fbe0d TOMakePktBtlIconA
+REF 008fbe84 TOMakePktBtlIconA
+REF 008f6145 FUN_008f5f70
+REF 008f618b FUN_008f5f70
+REF 008f61f2 FUN_008f5f70
+REF 008f6335 FUN_008f5f70
+REF 008f6355 FUN_008f5f70
+REF 008f6389 FUN_008f5f70
+REF 008f63b8 FUN_008f5f70
+REF 008f6400 FUN_008f5f70
+REF 008f6420 FUN_008f5f70
+REF 008f6465 FUN_008f5f70
+REF 008f6489 FUN_008f5f70
+REF 008f64bd FUN_008f5f70
+REF 008f64f0 FUN_008f5f70
+REF 008f6535 FUN_008f5f70
+REF 008f6559 FUN_008f5f70
+REF 008f6738 FUN_008f5f70
+REF 008f677e FUN_008f5f70
+REF 008f67e5 FUN_008f5f70
+REF 008f6928 FUN_008f5f70
+REF 008f6948 FUN_008f5f70
+REF 008f697c FUN_008f5f70
+REF 008f69ab FUN_008f5f70
+REF 008f69f3 FUN_008f5f70
+REF 008f6a13 FUN_008f5f70
+REF 008f6a58 FUN_008f5f70
+REF 008f6a7c FUN_008f5f70
+REF 008f6ab0 FUN_008f5f70
+REF 008f6ae3 FUN_008f5f70
+REF 008f6b28 FUN_008f5f70
+REF 008f6b4c FUN_008f5f70
+REF 008f6bb3 FUN_008f5f70
+REF 008f6c53 FUN_008f5f70
+REF 008f6c8f FUN_008f5f70
+REF 008f6cf4 FUN_008f5f70
+REF 008f6d3a FUN_008f5f70
+REF 008f6daa FUN_008f5f70
+REF 008f6ef3 FUN_008f5f70
+REF 008f6f13 FUN_008f5f70
+REF 008f6f47 FUN_008f5f70
+REF 008f6f76 FUN_008f5f70
+REF 008f6fbe FUN_008f5f70
+REF 008f6fde FUN_008f5f70
+REF 008f7023 FUN_008f5f70
+REF 008f7047 FUN_008f5f70
+REF 008f707b FUN_008f5f70
+REF 008f70ae FUN_008f5f70
+REF 008f70f3 FUN_008f5f70
+REF 008f7117 FUN_008f5f70
+REF 008f7188 FUN_008f5f70
+REF 008f71b2 FUN_008f5f70
+REF 008f7256 FUN_008f5f70
+REF 008f7283 FUN_008f5f70
+REF 008f72d8 FUN_008f5f70
+REF 008f731e FUN_008f5f70
+REF 008f738e FUN_008f5f70
+REF 008f750a FUN_008f5f70
+REF 008f752e FUN_008f5f70
+REF 008f7578 FUN_008f5f70
+REF 008f7598 FUN_008f5f70
+REF 008f75cc FUN_008f5f70
+REF 008f75fb FUN_008f5f70
+REF 008f7643 FUN_008f5f70
+REF 008f7663 FUN_008f5f70
+REF 008f76a8 FUN_008f5f70
+REF 008f76cc FUN_008f5f70
+REF 008f7700 FUN_008f5f70
+REF 008f7733 FUN_008f5f70
+REF 008f7778 FUN_008f5f70
+REF 008f779c FUN_008f5f70
+REF 008f783b FUN_008f5f70
+REF 008f7868 FUN_008f5f70
+REF 008f78dd FUN_008f5f70
+REF 008f7a7a FUN_008f5f70
+REF 008f7ae8 FUN_008f5f70
+REF 008f7b15 FUN_008f5f70
+REF 008f7b74 FUN_008f5f70
+REF 008f7b98 FUN_008f5f70
+REF 008f7bee FUN_008f5f70
+REF 008f7c7a FUN_008f5f70
+REF 008f7cad FUN_008f5f70
+REF 008f7d20 FUN_008f5f70
+REF 008f7da2 FUN_008f5f70
+REF 008f7dcf FUN_008f5f70
+REF 008f7e39 FUN_008f5f70
+REF 008f7e5d FUN_008f5f70
+REF 008f7eb2 FUN_008f5f70
+REF 008f7ef8 FUN_008f5f70
+REF 008f7f68 FUN_008f5f70
+REF 008f80db FUN_008f5f70
+REF 008f80ff FUN_008f5f70
+REF 008f8149 FUN_008f5f70
+REF 008f8169 FUN_008f5f70
+REF 008f819d FUN_008f5f70
+REF 008f81cc FUN_008f5f70
+REF 008f8214 FUN_008f5f70
+REF 008f8234 FUN_008f5f70
+REF 008f8279 FUN_008f5f70
+REF 008f829d FUN_008f5f70
+REF 008f82d1 FUN_008f5f70
+REF 008f8304 FUN_008f5f70
+REF 008f8349 FUN_008f5f70
+REF 008f836d FUN_008f5f70
+REF 008f83cd FUN_008f5f70
+REF 008f8413 FUN_008f5f70
+REF 008f8483 FUN_008f5f70
+REF 008f85cc FUN_008f5f70
+REF 008f85ec FUN_008f5f70
+REF 008f8620 FUN_008f5f70
+REF 008f864f FUN_008f5f70
+REF 008f8697 FUN_008f5f70
+REF 008f86b7 FUN_008f5f70
+REF 008f86fc FUN_008f5f70
+REF 008f8720 FUN_008f5f70
+REF 008f8754 FUN_008f5f70
+REF 008f8787 FUN_008f5f70
+REF 008f87cc FUN_008f5f70
+REF 008f87f0 FUN_008f5f70
+REF 008d78d5 FUN_008d7830
+REF 008d76e5 FUN_008d7660
+REF 008df380 FUN_008dedf0
+REF 008df3ee FUN_008dedf0
+REF 008df413 FUN_008dedf0
+REF 008df429 FUN_008dedf0
+REF 008fe938 FUN_008fe0b0
+REF 008fe95c FUN_008fe0b0
+REF 008fe9f3 FUN_008fe0b0
+REF 008fea17 FUN_008fe0b0
+REF 008a93a1 FUN_008a9300
+REF 008a93c5 FUN_008a9300
+REF 008a941a FUN_008a9300
+REF 008a943e FUN_008a9300
+REF 008a9484 FUN_008a9300
+REF 008cd0ab 
+REF 008cd0d2 
+REF 008d7f70 
+REF 008d7f94 
+REF 008d803f 
+REF 008d808d 
+REF 008d80b1 
+REF 008da6a7 
+REF 008da6cb 
+REF 008bb8c5 FUN_008bb880
+REF 008bb8e9 FUN_008bb880
+REF 008bb914 FUN_008bb880
+REF 008bb938 FUN_008bb880
+REF 008d5063 
+REF 008bb9ba FUN_008bb980
+REF 008bb9de FUN_008bb980
+REF 008bba33 FUN_008bb980
+REF 008bba57 FUN_008bb980
+REF 008bbaa2 FUN_008bb980
+REF 008c648d FUN_008c6470
+REF 008cf69a FUN_008cf640
+REF 008cf6be FUN_008cf640
+REF 008cf6e9 FUN_008cf640
+REF 008cf70d FUN_008cf640
+REF 008cf73d FUN_008cf640
+REF 008cf761 FUN_008cf640
+REF 008cf78c FUN_008cf640
+REF 008cf7b0 FUN_008cf640
+REF 008d09b1 FUN_008d0980
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+float graphicUiRemapY2(float y)
+
+{
+  return (y * (float)_DAT_00b41d38) / (float)_DAT_00b41d60;
+}
+
+
+
+FUNCTION TOBtlCtrlStatusWin @ 00892040
+REF 0089ad9f TOControlBtlWindow
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void TOBtlCtrlStatusWin(void)
+
+{
+  bool bVar1;
+  short sVar2;
+  undefined1 uVar3;
+  PCommand *pPVar4;
+  int *piVar5;
+  int iVar6;
+  int iVar7;
+  int iVar8;
+  byte bVar9;
+  short *psVar10;
+  byte *local_10;
+  int local_c;
+  int local_8;
+  
+  if (toNow != 0xff) {
+    pPVar4 = MsGetComData((uint)(ushort)(&DAT_0133c91c)[toBwNum * 0x78],&local_10);
+    bVar1 = (pPVar4->command).has_party_preview;
+    if ((bVar1 & 1U) != 0) {
+      bVar9 = bVar1 >> 1 & 3;
+      if (DAT_0133d742 != bVar9) {
+        TOBtlInitStatusWin();
+      }
+      goto LAB_008920a6;
+    }
+    TOBtlInitStatusWin();
+  }
+  DAT_0133d742 = 3;
+  bVar9 = DAT_0133d742;
+LAB_008920a6:
+  DAT_0133d742 = bVar9;
+  local_8 = 0;
+  piVar5 = (int *)MsGetSaveWindow(0,0x12,&local_8);
+  while ((0 < local_8 && (*(short *)((int)piVar5 + local_8 * 2 + -2) == 0xff))) {
+    local_8 = local_8 + -1;
+  }
+  if ((*piVar5 != _DAT_0133f76c) || ((short)piVar5[1] != DAT_0133f770)) {
+    TOBtlInitStatusWin();
+  }
+  psVar10 = &DAT_0133f76c;
+  piVar5 = &DAT_0133f7ac;
+  do {
+    if (*psVar10 != 0xff) {
+      local_8 = MsGetRamChrHP(*psVar10);
+      iVar6 = MsGetRamChrMP(*psVar10);
+      local_c = MsGetRamChrHPmax(*psVar10);
+      MsGetRamChrMPmax(*psVar10);
+      if (local_8 != piVar5[-2]) {
+        *piVar5 = (local_8 - piVar5[-2]) / 10;
+        *(undefined1 *)(piVar5 + 1) = 10;
+        piVar5[-2] = local_8;
+      }
+      if ((char)piVar5[1] < '\x01') {
+        piVar5[-1] = local_8;
+        *piVar5 = 0;
+        *(undefined1 *)(piVar5 + 1) = 0;
+      }
+      else {
+        piVar5[-1] = piVar5[-1] + *piVar5;
+        *(char *)(piVar5 + 1) = (char)piVar5[1] + -1;
+      }
+      iVar7 = MsCalcWeakLevel(piVar5[-1],local_c);
+      switch(iVar7) {
+      default:
+        uVar3 = 0;
+        break;
+      case 1:
+      case 2:
+        uVar3 = 2;
+        break;
+      case 3:
+        uVar3 = 0x53;
+      }
+      *(undefined1 *)((int)piVar5 + 5) = uVar3;
+      if (iVar6 != piVar5[4]) {
+        *(undefined1 *)(piVar5 + 7) = 10;
+        piVar5[6] = (iVar6 - piVar5[4]) / 10;
+        piVar5[4] = iVar6;
+      }
+      if ((char)piVar5[7] < '\x01') {
+        piVar5[5] = iVar6;
+        piVar5[6] = 0;
+        *(undefined1 *)(piVar5 + 7) = 0;
+      }
+      else {
+        piVar5[5] = piVar5[5] + piVar5[6];
+        *(char *)(piVar5 + 7) = (char)piVar5[7] + -1;
+      }
+      sVar2 = *psVar10;
+      *(undefined1 *)((int)piVar5 + 0x1d) = 0;
+      iVar6 = MsGetChrLimitGaugeMax(sVar2);
+      if (iVar6 < 1) {
+        piVar5[8] = 0;
+      }
+      else {
+        iVar6 = MsGetChrLimitGauge(*psVar10);
+        iVar8 = (int)toBtlLimitGaugeOfsW;
+        iVar7 = MsGetChrLimitGaugeMax(*psVar10);
+        piVar5[8] = (iVar6 * iVar8) / iVar7;
+      }
+      iVar6 = piVar5[8];
+      if (piVar5[9] < iVar6) {
+        piVar5[9] = piVar5[9] + 6;
+      }
+      if (iVar6 < piVar5[9]) {
+        piVar5[9] = iVar6;
+      }
+    }
+    psVar10 = psVar10 + 1;
+    piVar5 = piVar5 + 0x24;
+  } while ((int)psVar10 < 0x133f772);
+  return;
+}
+
+
+
+FUNCTION TODrawBtlWindow @ 0089b2d0
+REF 008abd30 TODrawMessageWindow
+
+void TODrawBtlWindow(void)
+
+{
+  int iVar1;
+  undefined4 unaff_ESI;
+  undefined4 *puVar2;
+  undefined4 uVar3;
+  
+  if (toBtlExecFlag == 0) {
+    return;
+  }
+  MsBattleCursorCalc();
+  TOBtlInitGS();
+  TOMakePktScissor(0,0,0x200,0x1a0);
+  if (((DAT_0133d6b4 == 0) && (DAT_0133d6c8 == 0)) && (DAT_0133d6f4 == 0)) {
+    if (DAT_0133c8ff == '\0') {
+      uVar3 = 0;
+      goto LAB_0089b32f;
+    }
+  }
+  else {
+    TODrawLimitBG();
+  }
+  uVar3 = 1;
+LAB_0089b32f:
+  TOSeqDraw(2,0,uVar3);
+  TOBtlDrawDamageValue2();
+  __TOBtlDrawSimpleHelpMes(0);
+  __TOBtlDrawSimpleHelpMes(1);
+  iVar1 = MsBattleGetStatus();
+  if ((iVar1 == 2) || (iVar1 = MsBattleGetStatus(), iVar1 == 1)) {
+    if (DAT_00c58ef4 == '\x01') {
+      TOBtlDrawStatusWin();
+    }
+    TOBtlDrawEnemyLimit();
+    TOBtlDrawLibraWindow();
+    TOBtlDrawAuronLimitWindow();
+    TOBtlDrawTidusLimitWindow();
+    TOBtlDrawLuluLimitWindow();
+    FUN_00895550();
+    if ((toActiveBit != 0) && (isBtlWindowControlEnable == 1)) {
+      if (g_autoBtl == 0) {
+        TOBtlDrawActiveChrCursor((int)toNow);
+      }
+      TOBtlDrawCtbWindow((int)toBtlCtbWinX,(int)toBtlCtbWinY);
+      puVar2 = &DAT_0133c9a0;
+      do {
+        if (('\x02' < *(char *)((int)puVar2 + -0x8f)) && ((code *)*puVar2 != (code *)0x0)) {
+          (*(code *)*puVar2)(puVar2 + -0x24);
+        }
+        puVar2 = puVar2 + 0x3c;
+      } while ((int)puVar2 < 0x133d120);
+      TOBtlDrawHelpWin();
+      TOBtlDrawInfoWin(DAT_0133d1b4,0xb3,0xf0);
+      TOBtlDrawInfoWinMes(DAT_0133d1b4);
+    }
+    TODrawScissorXYWH(0,0,0x200,0x1a0);
+    if ((((DAT_0133d6b4 == 0) && (DAT_0133d6c8 == 0)) && (DAT_0133d6f4 == 0)) &&
+       (DAT_0133c8ff == '\0')) {
+      uVar3 = 0;
+    }
+    else {
+      uVar3 = 1;
+    }
+    TOSeqDraw(2,1,uVar3);
+    if (g_autoBtl == 0) {
+      iVar1 = 0;
+      if (0 < DAT_0133d6b0) {
+        do {
+          TOMakePktShapeCursor
+                    ((int)(short)(&DAT_0133f774)[iVar1 * 4],(int)(short)(&DAT_0133f778)[iVar1 * 4],
+                     (int)(short)(&DAT_0133f77a)[iVar1 * 4],unaff_ESI);
+          iVar1 = iVar1 + 1;
+        } while (iVar1 < DAT_0133d6b0);
+      }
+      DAT_0133d6b0 = 0;
+      return;
+    }
+  }
+  return;
+}
+
+

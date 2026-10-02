@@ -1,0 +1,42 @@
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+float graphicUiRemapX2(float x)
+
+{
+  return (x * (float)_DAT_00b41d40) / (float)_DAT_00b41d70;
+}
+
+
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+float graphicUiRemapY2(float y)
+
+{
+  return (y * (float)_DAT_00b41d38) / (float)_DAT_00b41d60;
+}
+
+
+
+void ToMakeBtlEasyEdgeFont
+               (undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+               undefined4 param_5,undefined4 param_6)
+
+{
+  ToMakeBtlEasyEdgeFontA(param_1,param_2,param_3,param_4,param_5,param_6,0x80);
+  return;
+}
+
+
+
+void graphicFontSetUiShadowType(undefined4 param_1)
+
+{
+  if (DAT_00ccc81c != 0) {
+    MenuManager::SetMenuFontShadowType(param_1);
+  }
+  return;
+}
+
+
