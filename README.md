@@ -1,168 +1,89 @@
 # FFX Status Icons UI Mod
 
-A Fahrenheit module for Final Fantasy X that displays status icons and remaining
-turns beside the party's battle stats. It also adds matching icons to the party
-status preview and the monster Info window's cycling status label.
+A Fahrenheit module for Final Fantasy X that improves the battle UI by displaying status icons and their remaining duration directly beside each party member's battle stats.
 
-This package is independent of Resolute Path. It includes its own initialization,
-native function declarations, manifest and tests. You can build it as a separate
-module or integrate its source into an existing Fahrenheit mod.
-
-[GitHub repository](https://github.com/Dragoon803/FFX-Status-Icons-Battle-UI-Mod)
+The mod also adds status icons to the party status preview and the monster Info window.
 
 ## Features
 
-- Nineteen status icons loaded from the installed FFX-2 texture archive.
-- Remaining turns for timed effects; infinity for duration values 254 and 255.
-- Icon-only display for Auto-Life and statuses without a turn counter.
-- Two pages that rotate only when both contain active statuses.
-- Separate icon offsets, spacing, preview settings and ribbon heights.
-- Native FFX overdrive bars. No custom combat or overdrive-cost rules are included.
+- Displays icons for 19 status effects.
+- Shows remaining turns for timed status effects.
+- Displays unlimited-duration effects without a turn counter.
+- Automatically rotates between two status pages when necessary.
+- Adds status icons to party status previews.
+- Adds status icons to the monster Info window.
+- Uses FFX's existing status data and does not change how statuses are applied or expire.
+- Layout and icon positioning can be customized in `Battle_UI_Settings.cs`.
 
-The game controls status application and expiration. This module only reads
-those values and displays them.
+## Requirements
 
-## Build the module
+- Final Fantasy X HD Remaster (Steam)
+- Fahrenheit
+- .NET 10 SDK if building from source
 
-You need Windows, the .NET 10 SDK, and a Fahrenheit source checkout compatible
-with your installed game and Fahrenheit runtime. The code was extracted from a
-working UI using the September 2026 Fahrenheit API; later versions may need
-adjustments. Native addresses also depend on the FFX executable version.
+Fahrenheit can be obtained from its official repository:
 
-1. Obtain Fahrenheit from its [official repository](https://github.com/fahrenheit-crew/fahrenheit).
-   Follow its build prerequisites for the version you use.
-2. Copy `Fahrenheit.local.props.example` to `Fahrenheit.local.props`.
-3. Set `FahrenheitRoot` to your Fahrenheit checkout, specifically the directory
-   containing `src/core/Fahrenheit.csproj`. This local file is ignored by Git.
-4. From this package's root folder, run:
+https://github.com/fahrenheit-crew/fahrenheit
 
-```powershell
-dotnet build src/FFX.StatusIcons.UI.csproj -c Release
-dotnet run --project tests/StatusPages/StatusPages.csproj
-```
+## Building
 
-Alternatively, put the checkout in `external/fahrenheit`, or pass its path:
+Copy:
 
-```powershell
-dotnet build src/FFX.StatusIcons.UI.csproj -c Release "-p:FahrenheitRoot=C:/Modding/fahrenheit"
-```
+`Fahrenheit.local.props.example`
 
-### Using Visual Studio
+and rename the copy to:
 
-Complete the `Fahrenheit.local.props` setup above before opening the project.
-Save it in the package root, alongside this README, not inside `src`. Make sure
-its filename does not end with `.example` or `.txt`.
+`Fahrenheit.local.props`
 
-1. Open `src/FFX.StatusIcons.UI.csproj` in Visual Studio with .NET 10 support.
-2. In Solution Explorer, right-click the top **Solution** entry, not the project.
-3. Choose **Add → Existing Project**, then select
-   `src/core/Fahrenheit.csproj` inside your Fahrenheit checkout.
-4. Select **Release**, then choose **Build → Build Solution**.
+Open the new file and set `FahrenheitRoot` to your local Fahrenheit source directory. This should be the directory containing:
 
-If NU1104 reports a missing Fahrenheit project, check `FahrenheitRoot` and the
-local props filename. If NU1105 reports missing project information, confirm
-the Fahrenheit project is loaded in the same solution, then rebuild.
+`src/core/Fahrenheit.csproj`
 
-### Install the built module
+Then build the project:
 
-Close FFX before replacing files or changing the load order.
+## Installing
 
-1. Open the build output: `src/bin/Release/net10.0/win-x86/`.
-2. Create `FFX.StatusIcons.UI` inside the game's `fahrenheit/mods` directory.
-3. Copy these files directly into that folder:
+After building, open:
 
-   ```text
-   FFX.StatusIcons.UI.dll
-   FFX.StatusIcons.UI.manifest.json
-   FFX.StatusIcons.UI.deps.json
-   FFX.StatusIcons.UI.runtimeconfig.json
-   FFX.StatusIcons.UI.pdb
-   ```
+`src/bin/Release/net10.0/win-x86/`
 
-   The `.pdb` is optional and helps with debugging. Use the installed runtime's
-   dependencies; do not replace Fahrenheit runtime DLLs with build-output copies.
-
-4. Back up `fahrenheit/mods/loadorder`. Add `FFX.StatusIcons.UI` on its own line
-   and remove any conflicting battle-UI mod entry for the test. The file has no
-   `.txt` extension; the entry has no `.dll` extension.
-5. Start FFX through Fahrenheit as usual and enter battle.
-
-Do not enable this module alongside another replacement for `TOBtlDrawStatusWin`
-(including a mod that already contains this UI). Merge the implementations
-instead. This hook replaces the party renderer, so two replacements do not
-automatically combine their changes.
-
-## Change the layout
-
-Start with `src/Battle_UI/Battle_UI_Settings.cs`. The copied layout is:
+Create the following folder inside your Fahrenheit installation:
 
 ```text
-Character name        HP       MP
-Overdrive bar
-Status icons and durations
+fahrenheit/mods/FFX.StatusIcons.UI/
 ```
 
-| Setting | Purpose |
-| --- | --- |
-| `MoveWholePanelUp`, `MoveWholePanelRight` | Move the party panel |
-| `ExtraSpaceBetweenCharacters` | Change the space between character sections |
-| `MoveStatusLineUp`, `MoveStatusLineRight` | Move icons and durations together |
-| `StatusIconSize`, `StatusIconSpacing` | Change icon size and distance between icons |
-| `StatusDurationGap` | Change the gap before a number or infinity symbol |
-| `MoveHasteUp`, `MoveHasteRight`, etc. | Adjust a specific status |
-| `StatusPageSeconds` | Set real seconds between populated pages |
-| `PurpleBarHeight`, `GreenBarHeight` | Resize each ribbon independently |
-| `PreviewStatusIconSize`, `PreviewStatusIconGap` | Adjust party preview icons |
-| `MonsterPreviewIconSize`, `MonsterPreviewIconGap` | Adjust monster Info icons |
+Copy the generated module files into that folder.
 
-Positive **Up** raises an element; positive **Right** moves it right. Negative
-values reverse the direction. Ribbon height extends downward from its top edge.
-Rebuild after editing: these settings are not live controls.
+Then add:
 
-Active icons pack together. Adding Auto-Life may move Haste to the right because
-Auto-Life appears first. Individual offsets do not reserve slots for absent statuses.
+```text
+FFX.StatusIcons.UI
+```
 
-## Integrate into your own mod
+to Fahrenheit's `mods/loadorder` file.
 
-See [INTEGRATION.md](INTEGRATION.md) for the source files, registration steps and
-places where an existing renderer must be merged. No files from Resolute Path
-are required.
+Launch Final Fantasy X through Fahrenheit normally.
 
-## Assets and compatibility
+## Compatibility
 
-The module loads `/FFX-2_Data/GameData/PS3Data/menu/D3D11/freetex.dds.phyre` through
-Fahrenheit. It expects a 1024-by-768 texture. No game textures or exported PNGs
-are bundled. The source uses the icon rectangles from the working UI.
+Do not enable this module alongside another mod that replaces `TOBtlDrawStatusWin`.
 
-The frame queue passes icon positions from the game thread to Fahrenheit's
-rendering thread. Text is drawn by FFX; icons are drawn through ImGui. If OBS
-records the text but misses icons, check its Game Capture overlay setting.
+This module replaces the party battle-status renderer, so multiple mods replacing the same function will conflict. If another mod modifies this renderer, the implementations will need to be merged.
 
-Fahrenheit is a work in progress. These integration instructions are best-effort
-guidance for this API, not an authoritative framework specification. For framework
-support, use the developer Discord linked in the official Fahrenheit README.
+The module was built using the September 2026 Fahrenheit API. Future Fahrenheit or FFX updates may require adjustments.
 
-## Verification
+## Integrating Into Another Mod
 
-The included timer tests run without the game. They cover empty pages, one-page
-displays, rotation boundaries, resets and independent character timers.
+If you want to incorporate the Status Icons UI directly into your own Fahrenheit project instead of loading it as a separate module, see:
 
-The author confirmed the standalone module works in-game with Resolute Path
-disabled on October 1, 2026. Retest after building for a different setup or
-changing native bindings. Check three party members, status application/removal, finite and
-unlimited durations, page rotation, party previews, monster Info previews and
-entering/exiting battle. Passing a build does not validate native addresses.
+[INTEGRATION.md](INTEGRATION.md)
 
-The source retains its MIT SPDX notices and credits Dragoon803 in the manifest.
-Fahrenheit and the game's assets are separate dependencies with their own terms.
+The integration guide contains the required source files, registration steps, and information about merging the battle UI renderer.
 
-## Uploading the source
+## License
 
-Use this folder as the repository root. Include the source, tests, documentation,
-license, example props file and dotfiles. The `.gitignore` excludes build output,
-Visual Studio caches, local Fahrenheit paths and external dependencies.
+Released under the MIT License. See `LICENSE` for details.
 
-If uploading through GitHub's web interface, exclude those files yourself:
-`.gitignore` does not filter files you manually select for browser upload.
-Local Visual Studio solutions can contain paths to your Fahrenheit checkout;
-they are excluded as well. Users can open the portable `.csproj` directly.
+## Community and More Mods
+This mod and other wonderful FFX mods brought to you by [Cid's Salvage Ship](https://discord.gg/yAQc3ngwDF).
