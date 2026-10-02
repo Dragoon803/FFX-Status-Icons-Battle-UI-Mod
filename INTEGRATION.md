@@ -14,10 +14,11 @@ Use the steps below if you want the settings and rendering inside your mod.
 4. Keep the helper types such as `Battle_UI_Settings` and `StatusPageTimer`.
    Rename them consistently if your mod already defines the same names.
 
-Your project needs `AllowUnsafeBlocks`, the compatible Fahrenheit reference,
-and its transitive ImGui dependency, as shown in `src/FFX.StatusIcons.UI.csproj`.
-Do not copy the standalone manifest or a second module entry point when merging
-into your existing module.
+Use the official Fahrenheit SDK in your own project, as shown in
+`src/FFX.StatusIcons.UI.csproj`. It supplies unsafe-code support, the matching
+Fahrenheit reference and its transitive ImGui dependency. Keep your own mod
+metadata: the SDK generates its manifest from your project properties. Do not
+copy a second module entry point when merging into your existing module.
 
 ## Register the hooks and frame events
 

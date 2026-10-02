@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/.vs/
+external/
+Fahrenheit.local.props
+*.user
+*.log
+source-original-hashes.json
+# Locally generated solutions can include machine-specific Fahrenheit paths.
+# The portable entry point is src/FFX.StatusIcons.UI.csproj.
+*.sln
+*.slnx
+*.suo

@@ -1,27 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <!-- Optional local path override. This file is excluded from Git. -->
-  <Import Project="../Fahrenheit.local.props" Condition="Exists('../Fahrenheit.local.props')" />
-
+<Project Sdk="Fahrenheit.Sdk/1.0.0-alpha12">
+  <!-- The SDK supplies the matching Fahrenheit dependency and build settings. -->
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <RuntimeIdentifier>win-x86</RuntimeIdentifier>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <!-- Keep the published mod ID so existing loadorder entries still work. -->
     <AssemblyName>FFX.StatusIcons.UI</AssemblyName>
+    <AssemblyTitle>FFX Status Icons UI Mod</AssemblyTitle>
+    <Product>FFX Status Icons UI Mod</Product>
+    <Description>Battle status icons, durations, cycling pages, and preview icons for FFX.</Description>
     <Version>0.1.0</Version>
-    <FahrenheitRoot Condition="'$(FahrenheitRoot)' == ''">$(MSBuildThisFileDirectory)../external/fahrenheit</FahrenheitRoot>
+
+    <Authors>Dragoon803</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Dragoon803/FFX-Status-Icons-Battle-UI-Mod</RepositoryUrl>
+    <FhManifestHomePage>https://github.com/Dragoon803/FFX-Status-Icons-Battle-UI-Mod</FhManifestHomePage>
+    <FhManifestFlags>NONE</FhManifestFlags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="$(FahrenheitRoot)/src/core/Fahrenheit.csproj"
-                      Private="false" ExcludeAssets="runtime;native" />
-    <None Update="FFX.StatusIcons.UI.manifest.json" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-
-  <Target Name="CheckFahrenheitSource" BeforeTargets="PrepareForBuild;CollectPackageReferences">
-    <Error Condition="!Exists('$(FahrenheitRoot)/src/core/Fahrenheit.csproj')"
-           Text="Fahrenheit source not found. Set FahrenheitRoot in Fahrenheit.local.props or pass -p:FahrenheitRoot=PATH. See README.md." />
-  </Target>
 </Project>

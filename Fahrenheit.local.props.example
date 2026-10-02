@@ -1,6 +1,0 @@
-<Project>
-  <PropertyGroup>
-    <!-- The folder containing Fahrenheit's src/core/Fahrenheit.csproj. -->
-    <FahrenheitRoot>C:/Modding/fahrenheit</FahrenheitRoot>
-  </PropertyGroup>
-</Project>

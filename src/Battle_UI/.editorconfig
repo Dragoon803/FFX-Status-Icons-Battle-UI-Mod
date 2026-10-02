@@ -1,0 +1,8 @@
+# Battle UI only. Based on Fahrenheit's formatting conventions.
+[*.cs]
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+csharp_new_line_before_open_brace = none
+csharp_style_expression_bodied_methods = false
+csharp_space_around_declaration_statements = ignore
